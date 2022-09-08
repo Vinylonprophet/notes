@@ -204,7 +204,7 @@ $0是对当前选择节点的引用, $1是对上次选择节点的引用, 一直
 
 **Example**
 
-控制台中是输入
+控制台中输入
 
 $1.appendChild($0)
 
@@ -215,3 +215,91 @@ $1.appendChild($0)
 如果 ? 还能节约更多时间, 不仅执行 document.QuerySelectorAll, 并且返回的是一个**节点**的数组, 而不是一个 Node list
 
 本质上来说 `Array.from(document.querySelectorAll('div')) === ?('div')` ，但是`document.querySelectorAll('div')` 和 `?('div')` 哪一种方式更加优雅呢？
+
+#### 3. $_
+
+控制台输入 $_ , 即对上次结果的引用
+
+**Example**
+
+Math.random()
+
+$_
+
+#### 4. $i
+
+Dev Tools 中使用npm的插件
+
+Chrome 插件: Console Importer, 快速在console中引入和测试一些 npm 库
+
+**Example**
+
+控制台下输入 $i('lodash') 或 $i('moment') 几秒之后, 能得到 lodash 或 momentjs
+
+
+
+### 7. console.log "bug"
+
+```javascript
+let person = {a:0, b:0, c:0, d:0, e:0, name:'Tomek'}
+console.log(person);
+
+person.a = 1;
+person.name = "Not Tomek";
+console.log(person);
+```
+
+以上代码 log 出的信息是一样的, 都是修改后的值
+
+由此可知, console中打印出来的对象, 在打印之前, 是使用引用的方式保存的
+
+可知:
+
+- 打印一个从这个对象复制出来的对象。
+- 使用资源面中的断点来调试
+- 使用 `JSON.stringify()` 方法处理打印的结果
+- 更多你可以想到的好方法~
+
+
+
+### 8. 异步的console
+
+越来越多的 API 都基于 Promise, 使用 promise 时经常配套 .then(处理方法) 或将 promise 放在 async 中, 再使用 await
+
+console.log 是默认被 async 包裹的, 可以直接使用 await
+
+#### 使用异步 console 来观察
+
+**Example**
+
+- Storage 系统的 **占用数** 和 **空闲数**
+
+```javascript
+await navigator.storage.estimate()
+```
+
+- 设备的 **电池信息**
+
+```javascript
+console.table(await navigator.getBattery())
+```
+
+- **媒体能力**
+
+```javascript
+query = {type: 'file', audio: {contentType:"audio/ogg"}}
+console.table(await navigator.mediaCapabilities.decodingInfo(query)
+```
+
+- **Cache storage keys**
+
+(注：Cache storage keys 一般用来对 `request` 和 `response` 进行缓存)
+
+```javascript
+await caches.keys()
+```
+
+
+
+### 9.
+
