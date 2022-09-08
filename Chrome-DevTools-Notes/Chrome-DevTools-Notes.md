@@ -301,5 +301,195 @@ await caches.keys()
 
 
 
-### 9.
+### 9. Ninja console.log
+
+#### 1. Conditional breakpoints 条件断点
+
+设置一个条件断点
+
+- 右击行号, 选择 Add conditional breakpoint
+- 或右击已经存在的断点选择 Edit breakpoint
+- 然后输入一个执行结果为 true 或者 false 的表达式（它的值其实不需要完全为 true 或者 false 尽管那个弹出框的描述是这样说的）。
+
+表达式中可以使用任何这段代码可以获取到的值
+
+如果条件成立，这个断点就会暂停代码的执行
+
+#### 2. The ninja (console.log)
+
+建立于条件断点
+
+- 每一个条件都必须经过判断 - 当应用执行到这一行的时候进行判断
+- 并且如果条件返回的是 falsy 的值(这里的 falsy 不是笔误，falsy 指的是被判定为 false 的值，例如 undefined )，不会被暂停
+
+在条件断点中使用 console.log / console.table / console.time 等等连接到source中
+
+
+
+### 10. 自定义格式转换器
+
+custom Formatter 自定义输出对象的函数, 可以通过F1打开设置面板打勾 Enable custom formatters
+
+formatter是一个对象, 最多包含三个方法
+
+- header: 处理如何展示 console 的日志中的主要部分
+- hasbody: 想显示一个用来展开对象的箭头, 返回true
+- body: 定义将被显示在展开部分的内容中
+
+一个基础的 formatter
+
+```javascript
+windows.devtoolsFormatters = [{
+	header: function(obj){
+		return ['div', {}, `${JSON.stringify(obj, null, 7)}`]
+	},
+	hasbody: function(){
+		return false;
+	}
+}]
+```
+
+`header` 方法返回了一个 [JsonML](https://link.juejin.cn/?target=http%3A%2F%2Fwww.jsonml.org%2F)
+
+注： `JsonML` : `JSON Markup Language` - `JSON` 标记语言
+
+数组组成：
+
+1. 标签名
+2. 属性对象
+3. 内容 (文本值或者其他元素)
+
+输出时，formatter 对于每一层嵌套，直接以 `7` 个空格的缩进打印这个对象
+
+#### 1. 自定义格式化转换器的应用实践
+
+可供选择的 custom formatter, 可在[immutable-devtools ](https://link.juejin.cn/?target=https%3A%2F%2Fgithub.com%2Fandrewdavey%2Fimmutable-devtools)仓库中找到对于 [Immutable.js](https://link.juejin.cn/?target=https%3A%2F%2Ffacebook.github.io%2Fimmutable-js%2F) 结构的完美展示
+
+也自己可以造一个
+
+技巧: 不关心, 不需要区别对待的对象过滤, 直接在 header 方法里面 return null。让 DevTools 使用默认的格式化方式来处理这些值。
+
+**Example**
+
+```javascript
+window.devtoolsFormatters = [{
+    header: function(obj){
+      if (!obj.__clown) {
+        return null;
+      }
+      delete obj.__clown;
+      const style = `
+        color: red;
+        border: dotted 2px gray;
+        border-radius: 4px;
+        padding: 5px;
+      `
+      const content = `🤡 ${JSON.stringify(obj, null, 2)}`;
+
+      try {
+        return ['div', {style}, content]
+      } catch (err) { // for circular structures
+        return null;  // use the default formatter
+      }
+    },
+    hasBody: function(){
+        return false;
+    }
+}]
+
+console.clown = function (obj) {
+  console.log({...obj, __clown: true});
+}
+
+console.log({message: 'hello!'});   // normal log
+console.clown({message: 'hello!'}); // a silly log
+```
+
+
+
+### 11. 对象 & 方法
+
+#### 1. queryObjects (对象查询) 方法
+
+**Example**
+
+```javascript
+class Person{
+	constructor(name, role){
+		this.name = name;
+		this.role = role;
+	}
+}
+
+const john = new Person('John', 'dad');
+
+let kids = {
+	new Person('Mary', 'kid');
+	new Person('Luke', 'kid');
+};
+
+new Person('Lucius', 'uncle');
+
+console.log('How many people do we have ?');
+```
+
+除了最后一个都有
+
+可以使用**queryObjects(Person)**查询
+
+#### 2. monitor (镜像) 方法
+
+**monitor** 可以让人潜入 **_function calls(方法的调用)** , 每一个被潜入的对象被调用时, console都会打印出来, 包含函数名和参数
+
+**Example**
+
+```javascript
+class Person{
+	constructor(name, role){
+		this.name = name;
+		this.role = role;
+	}
+}
+
+greet(){
+    return this.getMessage('greeting');
+}
+
+getMessage(type){
+    if(type === 'greeting'){
+        return `Hello, my name is ${this.name} !`;
+    }
+}
+```
+
+**console**
+
+```javascript
+john = new Person('John')
+
+mary = new Person('Mary')
+
+monitor(john.getMessage)
+// 输出
+undefined
+
+john.greet()
+//输出 方法名和`Hello, my name is ${this.name} !`
+```
+
+greet 方法通过一个特殊的参数来执行 getMessage 方法
+
+#### 3. monitorEvents (镜像事件) 方法
+
+除了用 monitor 方法监听, 还可以使用 monitorEvents 对 event 做一样的事情
+
+**Example**
+
+```javascript
+monitorEvents($0, 'click')
+```
+
+
+
+### 12. console 的 骚操作
 
