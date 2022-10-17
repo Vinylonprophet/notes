@@ -2,11 +2,13 @@
  * @Author: Vinylonprophet 915390118@qq.com
  * @Date: 2022-10-13 16:04:53
  * @LastEditors: Vinylonprophet 915390118@qq.com
- * @LastEditTime: 2022-10-17 15:28:31
+ * @LastEditTime: 2022-10-18 01:01:02
  * @FilePath: \WEBPACK_CODE\webpack.config.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 const path = require("path");
+const ESLintPlugin = require('eslint-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     // 入口
@@ -78,12 +80,29 @@ module.exports = {
                     // 输出名称
                     filename: 'static/media/[hash:10][ext][query]'
                 }
+            },
+            {
+                test: /\.js$/,
+                // 排除 node_modules中的js文件（不处理）
+                exclude: /(node_modules)/,
+                loader: 'babel-loader',
+                options: {
+                    presets: ['@babel/preset-env']
+                }
             }
         ]
     },
     // 插件
     plugins: [
-
+        new ESLintPlugin({
+            // context 检测哪些文件
+            context: path.resolve(__dirname, "src"),
+        }),
+        new HtmlWebpackPlugin({
+            // 模板：以public/index.html文件创建新的html文件
+            // 新的html文件的特点：1.结构和原来一致 2.自动引入打包输出的资源
+            template: path.resolve(__dirname, "public/index.html"),
+        })
     ],
     // 模式
     mode: 'development'

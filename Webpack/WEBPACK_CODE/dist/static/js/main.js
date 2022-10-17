@@ -10,6 +10,36 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/js/count.js":
+/*!*************************!*\
+  !*** ./src/js/count.js ***!
+  \*************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ count)\n/* harmony export */ });\n/*\r\n * @Author: Vinylonprophet 915390118@qq.com\r\n * @Date: 2022-10-13 14:52:51\r\n * @LastEditors: Vinylonprophet 915390118@qq.com\r\n * @LastEditTime: 2022-10-13 14:53:23\r\n * @FilePath: \\WEBPACK_CODE\\src\\js\\count.js\r\n * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE\r\n */\nfunction count(x, y) {\n  return x - y;\n}\n\n//# sourceURL=webpack://webpack_code/./src/js/count.js?");
+
+/***/ }),
+
+/***/ "./src/js/sum.js":
+/*!***********************!*\
+  !*** ./src/js/sum.js ***!
+  \***********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ sum)\n/* harmony export */ });\n/*\r\n * @Author: Vinylonprophet 915390118@qq.com\r\n * @Date: 2022-10-13 14:53:30\r\n * @LastEditors: Vinylonprophet 915390118@qq.com\r\n * @LastEditTime: 2022-10-13 14:56:20\r\n * @FilePath: \\WEBPACK_CODE\\src\\js\\sum.js\r\n * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE\r\n */\nfunction sum() {\n  for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {\n    args[_key] = arguments[_key];\n  }\n  return args.reduce(function (p, c) {\n    return p + c;\n  }, 0);\n}\n\n//# sourceURL=webpack://webpack_code/./src/js/sum.js?");
+
+/***/ }),
+
+/***/ "./src/main.js":
+/*!*********************!*\
+  !*** ./src/main.js ***!
+  \*********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _js_count__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./js/count */ \"./src/js/count.js\");\n/* harmony import */ var _js_sum__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./js/sum */ \"./src/js/sum.js\");\n/* harmony import */ var _css_iconfont_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./css/iconfont.css */ \"./src/css/iconfont.css\");\n/* harmony import */ var _css_index_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./css/index.css */ \"./src/css/index.css\");\n/* harmony import */ var _less_index_less__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./less/index.less */ \"./src/less/index.less\");\n/* harmony import */ var _sass_index_sass__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./sass/index.sass */ \"./src/sass/index.sass\");\n/* harmony import */ var _sass_index_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./sass/index.scss */ \"./src/sass/index.scss\");\n/* harmony import */ var _stylus_index_styl__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./stylus/index.styl */ \"./src/stylus/index.styl\");\n/*\r\n * @Author: Vinylonprophet 915390118@qq.com\r\n * @Date: 2022-10-13 14:50:55\r\n * @LastEditors: Vinylonprophet 915390118@qq.com\r\n * @LastEditTime: 2022-10-17 16:33:38\r\n * @FilePath: \\WEBPACK_CODE\\src\\main.js\r\n * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE\r\n */\n\n\n// 想要 webpack 打包资源，必须引入该资源\n\n\n\n\n\n\nvar result = (0,_js_count__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(2, 1);\nconsole.log(result);\nconsole.log((0,_js_count__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(5, 2));\nconsole.log((0,_js_sum__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(1, 2, 3, 4, 5));\n\n//# sourceURL=webpack://webpack_code/./src/main.js?");
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/less-loader/dist/cjs.js!./src/less/index.less":
 /*!**********************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/less-loader/dist/cjs.js!./src/less/index.less ***!
@@ -217,36 +247,6 @@ eval("\n\n/* istanbul ignore next  */\nfunction apply(styleElement, options, obj
 /***/ ((module) => {
 
 eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElement) {\n  if (styleElement.styleSheet) {\n    styleElement.styleSheet.cssText = css;\n  } else {\n    while (styleElement.firstChild) {\n      styleElement.removeChild(styleElement.firstChild);\n    }\n\n    styleElement.appendChild(document.createTextNode(css));\n  }\n}\n\nmodule.exports = styleTagTransform;\n\n//# sourceURL=webpack://webpack_code/./node_modules/style-loader/dist/runtime/styleTagTransform.js?");
-
-/***/ }),
-
-/***/ "./src/js/count.js":
-/*!*************************!*\
-  !*** ./src/js/count.js ***!
-  \*************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ count)\n/* harmony export */ });\n/*\r\n * @Author: Vinylonprophet 915390118@qq.com\r\n * @Date: 2022-10-13 14:52:51\r\n * @LastEditors: Vinylonprophet 915390118@qq.com\r\n * @LastEditTime: 2022-10-13 14:53:23\r\n * @FilePath: \\WEBPACK_CODE\\src\\js\\count.js\r\n * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE\r\n */\r\nfunction count(x, y){\r\n    return x - y;\r\n}\n\n//# sourceURL=webpack://webpack_code/./src/js/count.js?");
-
-/***/ }),
-
-/***/ "./src/js/sum.js":
-/*!***********************!*\
-  !*** ./src/js/sum.js ***!
-  \***********************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ sum)\n/* harmony export */ });\n/*\r\n * @Author: Vinylonprophet 915390118@qq.com\r\n * @Date: 2022-10-13 14:53:30\r\n * @LastEditors: Vinylonprophet 915390118@qq.com\r\n * @LastEditTime: 2022-10-13 14:56:20\r\n * @FilePath: \\WEBPACK_CODE\\src\\js\\sum.js\r\n * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE\r\n */\r\nfunction sum(...args) {\r\n    return args.reduce((p, c) => p + c, 0);\r\n}\n\n//# sourceURL=webpack://webpack_code/./src/js/sum.js?");
-
-/***/ }),
-
-/***/ "./src/main.js":
-/*!*********************!*\
-  !*** ./src/main.js ***!
-  \*********************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _js_count__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./js/count */ \"./src/js/count.js\");\n/* harmony import */ var _js_sum__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./js/sum */ \"./src/js/sum.js\");\n/* harmony import */ var _css_iconfont_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./css/iconfont.css */ \"./src/css/iconfont.css\");\n/* harmony import */ var _css_index_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./css/index.css */ \"./src/css/index.css\");\n/* harmony import */ var _less_index_less__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./less/index.less */ \"./src/less/index.less\");\n/* harmony import */ var _sass_index_sass__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./sass/index.sass */ \"./src/sass/index.sass\");\n/* harmony import */ var _sass_index_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./sass/index.scss */ \"./src/sass/index.scss\");\n/* harmony import */ var _stylus_index_styl__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./stylus/index.styl */ \"./src/stylus/index.styl\");\n/*\r\n * @Author: Vinylonprophet 915390118@qq.com\r\n * @Date: 2022-10-13 14:50:55\r\n * @LastEditors: Vinylonprophet 915390118@qq.com\r\n * @LastEditTime: 2022-10-17 15:02:21\r\n * @FilePath: \\WEBPACK_CODE\\src\\main.js\r\n * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE\r\n */\r\n\r\n\r\n// 想要 webpack 打包资源，必须引入该资源\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nconsole.log((0,_js_count__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(5, 2));\r\nconsole.log((0,_js_sum__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(1, 2, 3, 4, 5));\n\n//# sourceURL=webpack://webpack_code/./src/main.js?");
 
 /***/ }),
 
