@@ -2,13 +2,14 @@
  * @Author: Vinylonprophet 915390118@qq.com
  * @Date: 2022-10-13 16:04:53
  * @LastEditors: Vinylonprophet 915390118@qq.com
- * @LastEditTime: 2022-10-18 01:01:02
+ * @LastEditTime: 2022-10-18 11:39:08
  * @FilePath: \WEBPACK_CODE\webpack.config.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 const path = require("path");
 const ESLintPlugin = require('eslint-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
     // 入口
@@ -102,7 +103,11 @@ module.exports = {
             // 模板：以public/index.html文件创建新的html文件
             // 新的html文件的特点：1.结构和原来一致 2.自动引入打包输出的资源
             template: path.resolve(__dirname, "public/index.html"),
-        })
+        }),
+        new BundleAnalyzerPlugin({
+            analyzerMode: 'disabled', // 不启动展示打包报告的http服务器
+            generateStatsFile: true, // 是否生成stats.json文件
+        }),
     ],
     // 模式
     mode: 'development'
