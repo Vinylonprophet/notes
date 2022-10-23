@@ -1,2 +1,2 @@
-!function(){"use strict";function n(n,o){return n-o}const o=n(2,1);console.log(o),console.log(n(5,2)),console.log(function(){for(var n=arguments.length,o=new Array(n),e=0;e<n;e++)o[e]=arguments[e];return o.reduce(((n,o)=>n+o),0)()}(1,2,3,4,5,6))}();
+!function(){"use strict";function o(o,n){return o-n}console.log(2*5);const n=o(2,1);console.log(n),console.log(o(5,2)),console.log(function(){for(var o=arguments.length,n=new Array(o),e=0;e<o;e++)n[e]=arguments[e];return n.reduce(((o,n)=>o+n),0)()}(1,2,3,4,5,6))}();
 //# sourceMappingURL=main.js.map

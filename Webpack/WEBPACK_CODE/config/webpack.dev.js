@@ -1,7 +1,13 @@
+const os = require("os");
 const path = require("path");
 const ESLintPlugin = require('eslint-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
+
+const TerserWebpackPlugin = require("terser-webpack-plugin");
+const threads = os.cpus().length;   // cpu核数
 
 module.exports = {
     // 入口
@@ -76,10 +82,23 @@ module.exports = {
                         test: /\.js$/,
                         // 排除 node_modules中的js文件（不处理）
                         exclude: /(node_modules)/,
-                        loader: 'babel-loader',
-                        options: {
-                            presets: ['@babel/preset-env']
-                        }
+                        use: [
+                            {
+                                loader: 'thread-loader',    // 开启多进程
+                                options: {
+                                    works: threads,
+                                }
+                            },
+                            {
+                                loader: 'babel-loader',
+                                options: {
+                                    // presets: ['@babel/preset-env']
+                                    cacheDirectory: true,   // 开启babel缓存
+                                    cacheCompression: false, // 关闭缓存文件压缩
+                                    plugins: ["@babel/plugin-transform-runtime"],   // 减少代码体积
+                                }
+                            }
+                        ]
                     }
                 ]
             }
@@ -90,6 +109,10 @@ module.exports = {
         new ESLintPlugin({
             // context 检测哪些文件
             context: path.resolve(__dirname, "../src"),
+            exclude: "node_modules",
+            cache: true,
+            cacheLocation: path.resolve(__dirname, '../node_modules/.cache/eslintcache'),
+            threads,
         }),
         new HtmlWebpackPlugin({
             // 模板：以public/index.html文件创建新的html文件
@@ -101,6 +124,45 @@ module.exports = {
             generateStatsFile: true, // 是否生成stats.json文件
         }),
     ],
+    optimization: {
+        // 压缩的操作
+        minimizer: [
+            // 压缩css
+            new CssMinimizerPlugin(),
+            // 压缩js
+            new TerserWebpackPlugin({
+                parallel: threads, // 开启多进程和设置进程数量
+            }),
+            // 压缩图片
+            new ImageMinimizerPlugin({
+                minimizer: {
+                implementation: ImageMinimizerPlugin.imageminGenerate,
+                options: {
+                    plugins: [
+                    ["gifsicle", { interlaced: true }],
+                    ["jpegtran", { progressive: true }],
+                    ["optipng", { optimizationLevel: 5 }],
+                    [
+                        "svgo",
+                        {
+                        plugins: [
+                            "preset-default",
+                            "prefixIds",
+                            {
+                            name: "sortAttrs",
+                            params: {
+                                xmlnsOrder: "alphabetical",
+                            },
+                            },
+                        ],
+                        },
+                    ],
+                    ],
+                },
+                },
+            }),
+        ]
+    },
     // 开发服务器: 不会输出资源 在内存中编译打包的
     devServer: {
         host: "localhost", // 启动服务器域名

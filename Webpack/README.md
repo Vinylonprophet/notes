@@ -1934,3 +1934,2475 @@ module.exports = {
 npx webpack
 ```
 
+
+
+### 开发服务器&自动化
+
+每次写完代码都需要手动输入指令才能编译代码，太麻烦了，我们希望一切自动化
+
+#### 1. 下载包
+
+```
+npm i webpack-dev-server -D
+```
+
+
+
+#### 2. 配置
+
+- webpack.config.js
+
+  ```javascript
+  const path = require("path");
+  const ESLintPlugin = require('eslint-webpack-plugin');
+  const HtmlWebpackPlugin = require('html-webpack-plugin');
+  const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+  
+  module.exports = {
+      // 入口
+      entry: './src/main.js',
+      // 输出
+      output: {
+          // 文件的输出路径，这里的路径要求绝对路径
+          // __dirname 是 nodejs 的变量，代表当前文件的文件夹目录
+          path: path.resolve(__dirname, "dist"),
+          // 入口文件打包的输出名称
+          filename: 'static/js/main.js',
+          // 自动清空上次打包的内容
+          // 原理：在打包前，将path整个目录内容清空，再进行打包
+          clean: true
+      },
+      // 加载器
+      module: {
+          rules: [
+              // loader的配置
+              {
+                  // 只检测.css文件
+                  test: /\.css$/,
+                  // 执行顺序，从右到左（从下到上）
+                  use: [
+                      // 将 js 中css通过创建 style 标签添加到 html 中生效
+                      "style-loader",
+                      // 将 css 资源编译成 commonjs 的模块到 js 中
+                      "css-loader"
+                  ],
+              },
+              {
+                  test: /\.less$/,
+                  // 从右到左
+                  // loader: 'xxx'    loader是只能使用一个，use是可以使用多个
+                  use: [ "style-loader", "css-loader", "less-loader" ],
+              },
+              {
+                  test: /\.s[ac]ss$/,
+                  use: [ "style-loader", "css-loader", "sass-loader" ],
+              },
+              {
+                  test: /\.styl$/,
+                  use: [ "style-loader", "css-loader", "stylus-loader" ],
+              },
+              {
+                  test: /\.(png|jpe?g|gif|webp|svg)$/,
+                  type: "asset",
+                  parser: {
+                      dataUrlCondition: {
+                          // 小于 10kb 的图片转 base64
+                          // 优点：减少请求数量
+                          // 缺点：体积会变大
+                          maxSize: 10 * 1024 // 10kb
+                      }
+                  },
+                  generator: {
+                      // hash 根据文件内容产生一个唯一的 id
+                      // ext 文件扩展名————之前扩展名是什么就是什么
+                      // query 是携带的其他参数，如果在写url携带一些问号查询参数，那么他也会携带上
+                      // 代表 [hash:10] 只取前十位
+                      filename: 'static/images/[hash:10][ext][query]'
+                  }
+              },
+              {
+                  test: /\.(ttf|woff2?|map4|map3|avi)$/,
+                  // asset 是将小于某个大小的文件转化为base64，但是字体文件不需要转
+                  type: "asset/resource",
+                  generator: {
+                      // 输出名称
+                      filename: 'static/media/[hash:10][ext][query]'
+                  }
+              },
+              {
+                  test: /\.js$/,
+                  // 排除 node_modules中的js文件（不处理）
+                  exclude: /(node_modules)/,
+                  loader: 'babel-loader',
+                  options: {
+                      presets: ['@babel/preset-env']
+                  }
+              }
+          ]
+      },
+      // 插件
+      plugins: [
+          new ESLintPlugin({
+              // context 检测哪些文件
+              context: path.resolve(__dirname, "src"),
+          }),
+          new HtmlWebpackPlugin({
+              // 模板：以public/index.html文件创建新的html文件
+              // 新的html文件的特点：1.结构和原来一致 2.自动引入打包输出的资源
+              template: path.resolve(__dirname, "public/index.html"),
+          }),
+          new BundleAnalyzerPlugin({
+              analyzerMode: 'disabled', // 不启动展示打包报告的http服务器
+              generateStatsFile: true, // 是否生成stats.json文件
+          }),
+      ],
+      // 开发服务器: 不会输出资源 在内存中编译打包的
+      devServer: {
+          host: "localhost", // 启动服务器域名
+          port: "3000", // 启动服务器端口号
+          open: true, // 是否自动打开浏览器
+      },
+      // 模式
+      mode: 'development'
+  }
+  ```
+
+
+
+#### 3. 运行指令
+
+```
+npx webpack serve
+```
+
+**指令发生了变化**
+
+并且当你使用开发服务器时，所有代码都会在内存中编译打包，并不会输出到 dist 目录下。
+
+开发时我们只关心代码能运行，有效果即可，至于代码被编译成什么样子，我们并不需要知道
+
+
+
+### 生产模式介绍
+
+生产模式是开发完代码后，我们需要得到代码将来部署上线
+
+这个模式下对代码进行优化，让其运行性能更好
+
+优化的两个角度出发：
+
+1. 优化代码运行性能
+2. 优化代码打包速度
+
+
+
+#### 生产模式准备
+
+我们分别准备两个配置文件来放不同的配置
+
+##### 1. 文件目录
+
+```
+├── webpack-test (项目根目录)
+    ├── config (Webpack配置文件目录)
+    │    ├── webpack.dev.js(开发模式配置文件)
+    │    └── webpack.prod.js(生产模式配置文件)
+    ├── node_modules (下载包存放目录)
+    ├── src (项目源码目录，除了html其他都在src里面)
+    │    └── 略
+    ├── public (项目html文件)
+    │    └── index.html
+    ├── .eslintrc.js(Eslint配置文件)
+    ├── babel.config.js(Babel配置文件)
+    └── package.json (包的依赖管理配置文件)
+```
+
+
+
+##### 2. 修改 webpack.dev.js
+
+因为文件目录变了，所以所有绝对路径需要回退一层目录才能找到对应的文件
+
+```javascript
+const path = require("path");
+const ESLintPlugin = require('eslint-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
+module.exports = {
+    // 入口
+    entry: './src/main.js',
+    // 输出
+    output: {
+        // 开发模式没输出，所以不需要指定输出路径
+        path: undefined,
+        // 入口文件打包的输出名称
+        filename: 'static/js/main.js',
+    },
+    // 加载器
+    module: {
+        rules: [
+            // loader的配置
+            {
+                // 只检测.css文件
+                test: /\.css$/,
+                // 执行顺序，从右到左（从下到上）
+                use: [
+                    // 将 js 中css通过创建 style 标签添加到 html 中生效
+                    "style-loader",
+                    // 将 css 资源编译成 commonjs 的模块到 js 中
+                    "css-loader"
+                ],
+            },
+            {
+                test: /\.less$/,
+                // 从右到左
+                // loader: 'xxx'    loader是只能使用一个，use是可以使用多个
+                use: [ "style-loader", "css-loader", "less-loader" ],
+            },
+            {
+                test: /\.s[ac]ss$/,
+                use: [ "style-loader", "css-loader", "sass-loader" ],
+            },
+            {
+                test: /\.styl$/,
+                use: [ "style-loader", "css-loader", "stylus-loader" ],
+            },
+            {
+                test: /\.(png|jpe?g|gif|webp|svg)$/,
+                type: "asset",
+                parser: {
+                    dataUrlCondition: {
+                        // 小于 10kb 的图片转 base64
+                        // 优点：减少请求数量
+                        // 缺点：体积会变大
+                        maxSize: 10 * 1024 // 10kb
+                    }
+                },
+                generator: {
+                    // hash 根据文件内容产生一个唯一的 id
+                    // ext 文件扩展名————之前扩展名是什么就是什么
+                    // query 是携带的其他参数，如果在写url携带一些问号查询参数，那么他也会携带上
+                    // 代表 [hash:10] 只取前十位
+                    filename: 'static/images/[hash:10][ext][query]'
+                }
+            },
+            {
+                test: /\.(ttf|woff2?|map4|map3|avi)$/,
+                // asset 是将小于某个大小的文件转化为base64，但是字体文件不需要转
+                type: "asset/resource",
+                generator: {
+                    // 输出名称
+                    filename: 'static/media/[hash:10][ext][query]'
+                }
+            },
+            {
+                test: /\.js$/,
+                // 排除 node_modules中的js文件（不处理）
+                exclude: /(node_modules)/,
+                loader: 'babel-loader',
+                options: {
+                    presets: ['@babel/preset-env']
+                }
+            }
+        ]
+    },
+    // 插件
+    plugins: [
+        new ESLintPlugin({
+            // context 检测哪些文件
+            context: path.resolve(__dirname, "../src"),
+        }),
+        new HtmlWebpackPlugin({
+            // 模板：以public/index.html文件创建新的html文件
+            // 新的html文件的特点：1.结构和原来一致 2.自动引入打包输出的资源
+            template: path.resolve(__dirname, "../public/index.html"),
+        }),
+        new BundleAnalyzerPlugin({
+            analyzerMode: 'disabled', // 不启动展示打包报告的http服务器
+            generateStatsFile: true, // 是否生成stats.json文件
+        }),
+    ],
+    // 开发服务器: 不会输出资源 在内存中编译打包的
+    devServer: {
+        host: "localhost", // 启动服务器域名
+        port: "3000", // 启动服务器端口号
+        open: true, // 是否自动打开浏览器
+    },
+    // 模式
+    mode: 'development'
+}
+```
+
+运行开发模式的指令：
+
+```
+npx webpack serve --config ./config/webpack.dev.js
+```
+
+
+
+##### 3. 修改 webpack.prod.js
+
+```javascript
+const path = require("path");
+const ESLintPlugin = require('eslint-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
+module.exports = {
+    // 入口
+    entry: './src/main.js',
+    // 输出
+    output: {
+        // 文件的输出路径，这里的路径要求绝对路径
+        // __dirname 是 nodejs 的变量，代表当前文件的文件夹目录
+        path: path.resolve(__dirname, "../dist"),
+        // 入口文件打包的输出名称
+        filename: 'static/js/main.js',
+        // 自动清空上次打包的内容
+        // 原理：在打包前，将path整个目录内容清空，再进行打包
+        clean: true
+    },
+    // 加载器
+    module: {
+        rules: [
+            // loader的配置
+            {
+                // 只检测.css文件
+                test: /\.css$/,
+                // 执行顺序，从右到左（从下到上）
+                use: [
+                    // 将 js 中css通过创建 style 标签添加到 html 中生效
+                    "style-loader",
+                    // 将 css 资源编译成 commonjs 的模块到 js 中
+                    "css-loader"
+                ],
+            },
+            {
+                test: /\.less$/,
+                // 从右到左
+                // loader: 'xxx'    loader是只能使用一个，use是可以使用多个
+                use: [ "style-loader", "css-loader", "less-loader" ],
+            },
+            {
+                test: /\.s[ac]ss$/,
+                use: [ "style-loader", "css-loader", "sass-loader" ],
+            },
+            {
+                test: /\.styl$/,
+                use: [ "style-loader", "css-loader", "stylus-loader" ],
+            },
+            {
+                test: /\.(png|jpe?g|gif|webp|svg)$/,
+                type: "asset",
+                parser: {
+                    dataUrlCondition: {
+                        // 小于 10kb 的图片转 base64
+                        // 优点：减少请求数量
+                        // 缺点：体积会变大
+                        maxSize: 10 * 1024 // 10kb
+                    }
+                },
+                generator: {
+                    // hash 根据文件内容产生一个唯一的 id
+                    // ext 文件扩展名————之前扩展名是什么就是什么
+                    // query 是携带的其他参数，如果在写url携带一些问号查询参数，那么他也会携带上
+                    // 代表 [hash:10] 只取前十位
+                    filename: 'static/images/[hash:10][ext][query]'
+                }
+            },
+            {
+                test: /\.(ttf|woff2?|map4|map3|avi)$/,
+                // asset 是将小于某个大小的文件转化为base64，但是字体文件不需要转
+                type: "asset/resource",
+                generator: {
+                    // 输出名称
+                    filename: 'static/media/[hash:10][ext][query]'
+                }
+            },
+            {
+                test: /\.js$/,
+                // 排除 node_modules中的js文件（不处理）
+                exclude: /(node_modules)/,
+                loader: 'babel-loader',
+                options: {
+                    presets: ['@babel/preset-env']
+                }
+            }
+        ]
+    },
+    // 插件
+    plugins: [
+        new ESLintPlugin({
+            // context 检测哪些文件
+            context: path.resolve(__dirname, "../src"),
+        }),
+        new HtmlWebpackPlugin({
+            // 模板：以public/index.html文件创建新的html文件
+            // 新的html文件的特点：1.结构和原来一致 2.自动引入打包输出的资源
+            template: path.resolve(__dirname, "../public/index.html"),
+        }),
+        new BundleAnalyzerPlugin({
+            analyzerMode: 'disabled', // 不启动展示打包报告的http服务器
+            generateStatsFile: true, // 是否生成stats.json文件
+        }),
+    ],
+    // 模式
+    mode: 'production'
+}
+```
+
+运行生产模式的指令：
+
+```
+npx webpack --config ./config/webpack.prod.js
+```
+
+
+
+##### 4. 配置运行指令
+
+为了方便运行不同模式的指令，我们将指令定义在 package.json 中 scripts 里面
+
+```javascript
+"scripts": {
+    "start": "npm run dev",
+    "generateAnalyzFile": "webpack --profile --json > stats.json",
+    "analyz": "webpack-bundle-analyzer --port 8888 ./dist/stats.json",
+    "dev": "webpack serve --config ./config/webpack.dev.js",
+    "build": "webpack --config ./config/webpack.prod.js"
+},
+```
+
+
+
+### Css 处理
+
+#### 提取 Css 成单独文件
+
+Css 文件目前被打包到 js 文件中，当 js 文件加载时，会创建一个 style 标签来生成样式
+
+这样对于网站来说，会出现闪屏现象，用户体验不好
+
+我们应该是单独的 Css 文件，通过 link 标签加载性能才好
+
+##### 1. 下载包
+
+```
+npm i mini-css-extract-plugin -D
+```
+
+
+
+##### 2. 配置
+
+- webpack.prod.js
+
+  ```javascript
+  const path = require("path");
+  const ESLintPlugin = require('eslint-webpack-plugin');
+  const HtmlWebpackPlugin = require('html-webpack-plugin');
+  const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+  const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+  
+  module.exports = {
+      // 入口
+      entry: './src/main.js',
+      // 输出
+      output: {
+          // 文件的输出路径，这里的路径要求绝对路径
+          // __dirname 是 nodejs 的变量，代表当前文件的文件夹目录
+          path: path.resolve(__dirname, "../dist"),
+          // 入口文件打包的输出名称
+          filename: 'static/js/main.js',
+          // 自动清空上次打包的内容
+          // 原理：在打包前，将path整个目录内容清空，再进行打包
+          clean: true
+      },
+      // 加载器
+      module: {
+          rules: [
+              // loader的配置
+              {
+                  // 只检测.css文件
+                  test: /\.css$/,
+                  // 执行顺序，从右到左（从下到上）
+                  use: [
+                      // 提取css成单独的文件
+                      MiniCssExtractPlugin.loader,
+                      // 将 css 资源编译成 commonjs 的模块到 js 中
+                      "css-loader"
+                  ],
+              },
+              {
+                  test: /\.less$/,
+                  // 从右到左
+                  // loader: 'xxx'    loader是只能使用一个，use是可以使用多个
+                  use: [ MiniCssExtractPlugin.loader, "css-loader", "less-loader" ],
+              },
+              {
+                  test: /\.s[ac]ss$/,
+                  use: [ MiniCssExtractPlugin.loader, "css-loader", "sass-loader" ],
+              },
+              {
+                  test: /\.styl$/,
+                  use: [ MiniCssExtractPlugin.loader, "css-loader", "stylus-loader" ],
+              },
+              {
+                  test: /\.(png|jpe?g|gif|webp|svg)$/,
+                  type: "asset",
+                  parser: {
+                      dataUrlCondition: {
+                          // 小于 10kb 的图片转 base64
+                          // 优点：减少请求数量
+                          // 缺点：体积会变大
+                          maxSize: 10 * 1024 // 10kb
+                      }
+                  },
+                  generator: {
+                      // hash 根据文件内容产生一个唯一的 id
+                      // ext 文件扩展名————之前扩展名是什么就是什么
+                      // query 是携带的其他参数，如果在写url携带一些问号查询参数，那么他也会携带上
+                      // 代表 [hash:10] 只取前十位
+                      filename: 'static/images/[hash:10][ext][query]'
+                  }
+              },
+              {
+                  test: /\.(ttf|woff2?|map4|map3|avi)$/,
+                  // asset 是将小于某个大小的文件转化为base64，但是字体文件不需要转
+                  type: "asset/resource",
+                  generator: {
+                      // 输出名称
+                      filename: 'static/media/[hash:10][ext][query]'
+                  }
+              },
+              {
+                  test: /\.js$/,
+                  // 排除 node_modules中的js文件（不处理）
+                  exclude: /(node_modules)/,
+                  loader: 'babel-loader',
+                  options: {
+                      presets: ['@babel/preset-env']
+                  }
+              }
+          ]
+      },
+      // 插件
+      plugins: [
+          new ESLintPlugin({
+              // context 检测哪些文件
+              context: path.resolve(__dirname, "../src"),
+          }),
+          new HtmlWebpackPlugin({
+              // 模板：以public/index.html文件创建新的html文件
+              // 新的html文件的特点：1.结构和原来一致 2.自动引入打包输出的资源
+              template: path.resolve(__dirname, "../public/index.html"),
+          }),
+          new BundleAnalyzerPlugin({
+              analyzerMode: 'disabled', // 不启动展示打包报告的http服务器
+              generateStatsFile: true, // 是否生成stats.json文件
+          }),
+          new MiniCssExtractPlugin({
+              filename: "static/css/main.css"
+          })
+      ],
+      // 模式
+      mode: 'production'
+  }
+  ```
+
+
+
+##### 3. 运行指令
+
+```
+npm run build
+```
+
+
+
+### Css 兼容性处理
+
+#### 1. 下载包
+
+```
+npm i postcss-loader postcss postcss-preset-env -D
+```
+
+
+
+#### 2. 配置
+
+- webpack.prod.js
+
+  ```javascript
+  const path = require("path");
+  const ESLintPlugin = require('eslint-webpack-plugin');
+  const HtmlWebpackPlugin = require('html-webpack-plugin');
+  const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+  const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+  
+  module.exports = {
+      // 入口
+      entry: './src/main.js',
+      // 输出
+      output: {
+          // 文件的输出路径，这里的路径要求绝对路径
+          // __dirname 是 nodejs 的变量，代表当前文件的文件夹目录
+          path: path.resolve(__dirname, "../dist"),
+          // 入口文件打包的输出名称
+          filename: 'static/js/main.js',
+          // 自动清空上次打包的内容
+          // 原理：在打包前，将path整个目录内容清空，再进行打包
+          clean: true
+      },
+      // 加载器
+      module: {
+          rules: [
+              // loader的配置
+              {
+                  // 只检测.css文件
+                  test: /\.css$/,
+                  // 执行顺序，从右到左（从下到上）
+                  use: [
+                      // 提取css成单独的文件
+                      MiniCssExtractPlugin.loader,
+                      // 将 css 资源编译成 commonjs 的模块到 js 中
+                      "css-loader",
+                      {
+                          loader: "postcss-loader",
+                          options: {
+                              postcssOptions: {
+                                  plugins: [
+                                      "postcss-preset-env",   // 能解决大多数样式兼容性问题
+                                  ],
+                              },
+                          },
+                      },
+                  ],
+              },
+              {
+                  test: /\.less$/,
+                  // 从右到左
+                  // loader: 'xxx'    loader是只能使用一个，use是可以使用多个
+                  use: [
+                      MiniCssExtractPlugin.loader,
+                      "css-loader",
+                      {
+                          loader: "postcss-loader",
+                          options: {
+                              postcssOptions: {
+                                  plugins: [
+                                      "postcss-preset-env",   // 能解决大多数样式兼容性问题
+                                  ],
+                              },
+                          },
+                      },
+                  "less-loader" ],
+              },
+              {
+                  test: /\.s[ac]ss$/,
+                  use: [
+                      MiniCssExtractPlugin.loader,
+                      "css-loader",
+                      {
+                          loader: "postcss-loader",
+                          options: {
+                              postcssOptions: {
+                                  plugins: [
+                                      "postcss-preset-env",   // 能解决大多数样式兼容性问题
+                                  ],
+                              },
+                          },
+                      },
+                      "sass-loader"
+                  ],
+              },
+              {
+                  test: /\.styl$/,
+                  use: [
+                      MiniCssExtractPlugin.loader,
+                      "css-loader",
+                      {
+                          loader: "postcss-loader",
+                          options: {
+                              postcssOptions: {
+                                  plugins: [
+                                      "postcss-preset-env",   // 能解决大多数样式兼容性问题
+                                  ],
+                              },
+                          },
+                      },
+                      "stylus-loader"
+                  ],
+              },
+              {
+                  test: /\.(png|jpe?g|gif|webp|svg)$/,
+                  type: "asset",
+                  parser: {
+                      dataUrlCondition: {
+                          // 小于 10kb 的图片转 base64
+                          // 优点：减少请求数量
+                          // 缺点：体积会变大
+                          maxSize: 10 * 1024 // 10kb
+                      }
+                  },
+                  generator: {
+                      // hash 根据文件内容产生一个唯一的 id
+                      // ext 文件扩展名————之前扩展名是什么就是什么
+                      // query 是携带的其他参数，如果在写url携带一些问号查询参数，那么他也会携带上
+                      // 代表 [hash:10] 只取前十位
+                      filename: 'static/images/[hash:10][ext][query]'
+                  }
+              },
+              {
+                  test: /\.(ttf|woff2?|map4|map3|avi)$/,
+                  // asset 是将小于某个大小的文件转化为base64，但是字体文件不需要转
+                  type: "asset/resource",
+                  generator: {
+                      // 输出名称
+                      filename: 'static/media/[hash:10][ext][query]'
+                  }
+              },
+              {
+                  test: /\.js$/,
+                  // 排除 node_modules中的js文件（不处理）
+                  exclude: /(node_modules)/,
+                  loader: 'babel-loader',
+                  options: {
+                      presets: ['@babel/preset-env']
+                  }
+              }
+          ]
+      },
+      // 插件
+      plugins: [
+          new ESLintPlugin({
+              // context 检测哪些文件
+              context: path.resolve(__dirname, "../src"),
+          }),
+          new HtmlWebpackPlugin({
+              // 模板：以public/index.html文件创建新的html文件
+              // 新的html文件的特点：1.结构和原来一致 2.自动引入打包输出的资源
+              template: path.resolve(__dirname, "../public/index.html"),
+          }),
+          new BundleAnalyzerPlugin({
+              analyzerMode: 'disabled', // 不启动展示打包报告的http服务器
+              generateStatsFile: true, // 是否生成stats.json文件
+          }),
+          new MiniCssExtractPlugin({
+              filename: "static/css/main.css"
+          })
+      ],
+      // 模式
+      mode: 'production'
+  }
+  ```
+
+
+
+#### 3. 控制兼容性
+
+我们可以在 `package.json` 文件中添加 `browserslist` 来控制样式的兼容性做到什么程度
+
+```json
+{
+    // 其他省略
+    "browserslist": ["ie >= 8"]
+}
+```
+
+以上为了测试兼容性所以设置兼容浏览器 ie8 以上
+
+实际开发中我们一般不考虑旧版本浏览器了，所以我们可以这样设置：
+
+```json
+{
+    // 其他省略
+    "browserslist": ["last 2 version", "> 1%", "not dead"]
+}
+```
+
+
+
+#### 4. 合并配置
+
+- webpack.prod.js
+
+  ```javascript
+  const path = require("path");
+  const ESLintPlugin = require('eslint-webpack-plugin');
+  const HtmlWebpackPlugin = require('html-webpack-plugin');
+  const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+  const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+  
+  // 用来获取处理样式的loader
+  function getStyleLoader(pre){
+      return [
+          // 提取css成单独的文件
+          MiniCssExtractPlugin.loader,
+          // 将 css 资源编译成 commonjs 的模块到 js 中
+          "css-loader",
+          {
+              loader: "postcss-loader",
+              options: {
+                  postcssOptions: {
+                      plugins: [
+                          "postcss-preset-env",   // 能解决大多数样式兼容性问题
+                      ],
+                  },
+              },
+          },
+          pre,
+      ].filter(Boolean)
+  }
+  
+  module.exports = {
+      // 入口
+      entry: './src/main.js',
+      // 输出
+      output: {
+          // 文件的输出路径，这里的路径要求绝对路径
+          // __dirname 是 nodejs 的变量，代表当前文件的文件夹目录
+          path: path.resolve(__dirname, "../dist"),
+          // 入口文件打包的输出名称
+          filename: 'static/js/main.js',
+          // 自动清空上次打包的内容
+          // 原理：在打包前，将path整个目录内容清空，再进行打包
+          clean: true
+      },
+      // 加载器
+      module: {
+          rules: [
+              // loader的配置
+              {
+                  // 只检测.css文件
+                  test: /\.css$/,
+                  // 执行顺序，从右到左（从下到上）
+                  use: getStyleLoader()
+              },
+              {
+                  test: /\.less$/,
+                  // 从右到左
+                  // loader: 'xxx'    loader是只能使用一个，use是可以使用多个
+                  use: getStyleLoader('less-loader'),
+              },
+              {
+                  test: /\.s[ac]ss$/,
+                  use: getStyleLoader('sass-loader'),
+              },
+              {
+                  test: /\.styl$/,
+                  use: getStyleLoader('stylus-loader')
+              },
+              {
+                  test: /\.(png|jpe?g|gif|webp|svg)$/,
+                  type: "asset",
+                  parser: {
+                      dataUrlCondition: {
+                          // 小于 10kb 的图片转 base64
+                          // 优点：减少请求数量
+                          // 缺点：体积会变大
+                          maxSize: 10 * 1024 // 10kb
+                      }
+                  },
+                  generator: {
+                      // hash 根据文件内容产生一个唯一的 id
+                      // ext 文件扩展名————之前扩展名是什么就是什么
+                      // query 是携带的其他参数，如果在写url携带一些问号查询参数，那么他也会携带上
+                      // 代表 [hash:10] 只取前十位
+                      filename: 'static/images/[hash:10][ext][query]'
+                  }
+              },
+              {
+                  test: /\.(ttf|woff2?|map4|map3|avi)$/,
+                  // asset 是将小于某个大小的文件转化为base64，但是字体文件不需要转
+                  type: "asset/resource",
+                  generator: {
+                      // 输出名称
+                      filename: 'static/media/[hash:10][ext][query]'
+                  }
+              },
+              {
+                  test: /\.js$/,
+                  // 排除 node_modules中的js文件（不处理）
+                  exclude: /(node_modules)/,
+                  loader: 'babel-loader',
+                  options: {
+                      presets: ['@babel/preset-env']
+                  }
+              }
+          ]
+      },
+      // 插件
+      plugins: [
+          new ESLintPlugin({
+              // context 检测哪些文件
+              context: path.resolve(__dirname, "../src"),
+          }),
+          new HtmlWebpackPlugin({
+              // 模板：以public/index.html文件创建新的html文件
+              // 新的html文件的特点：1.结构和原来一致 2.自动引入打包输出的资源
+              template: path.resolve(__dirname, "../public/index.html"),
+          }),
+          new BundleAnalyzerPlugin({
+              analyzerMode: 'disabled', // 不启动展示打包报告的http服务器
+              generateStatsFile: true, // 是否生成stats.json文件
+          }),
+          new MiniCssExtractPlugin({
+              filename: "static/css/main.css"
+          })
+      ],
+      // 模式
+      mode: 'production'
+  }
+  ```
+
+
+
+#### 5. 运行指令
+
+```
+npm run build
+```
+
+
+
+### Css 压缩
+
+#### 1. 下载包
+
+```
+npm i css-minimizer-webpack-plugin -D
+```
+
+
+
+#### 2. 配置
+
+- webpack.prod.js
+
+  ```javascript
+  const path = require("path");
+  const ESLintPlugin = require('eslint-webpack-plugin');
+  const HtmlWebpackPlugin = require('html-webpack-plugin');
+  const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+  const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+  const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+  
+  // 用来获取处理样式的loader
+  function getStyleLoader(pre){
+      return [
+          // 提取css成单独的文件
+          MiniCssExtractPlugin.loader,
+          // 将 css 资源编译成 commonjs 的模块到 js 中
+          "css-loader",
+          {
+              loader: "postcss-loader",
+              options: {
+                  postcssOptions: {
+                      plugins: [
+                          "postcss-preset-env",   // 能解决大多数样式兼容性问题
+                      ],
+                  },
+              },
+          },
+          pre,
+      ].filter(Boolean)
+  }
+  
+  module.exports = {
+      // 入口
+      entry: './src/main.js',
+      // 输出
+      output: {
+          // 文件的输出路径，这里的路径要求绝对路径
+          // __dirname 是 nodejs 的变量，代表当前文件的文件夹目录
+          path: path.resolve(__dirname, "../dist"),
+          // 入口文件打包的输出名称
+          filename: 'static/js/main.js',
+          // 自动清空上次打包的内容
+          // 原理：在打包前，将path整个目录内容清空，再进行打包
+          clean: true
+      },
+      // 加载器
+      module: {
+          rules: [
+              // loader的配置
+              {
+                  // 只检测.css文件
+                  test: /\.css$/,
+                  // 执行顺序，从右到左（从下到上）
+                  use: getStyleLoader()
+              },
+              {
+                  test: /\.less$/,
+                  // 从右到左
+                  // loader: 'xxx'    loader是只能使用一个，use是可以使用多个
+                  use: getStyleLoader('less-loader'),
+              },
+              {
+                  test: /\.s[ac]ss$/,
+                  use: getStyleLoader('sass-loader'),
+              },
+              {
+                  test: /\.styl$/,
+                  use: getStyleLoader('stylus-loader')
+              },
+              {
+                  test: /\.(png|jpe?g|gif|webp|svg)$/,
+                  type: "asset",
+                  parser: {
+                      dataUrlCondition: {
+                          // 小于 10kb 的图片转 base64
+                          // 优点：减少请求数量
+                          // 缺点：体积会变大
+                          maxSize: 10 * 1024 // 10kb
+                      }
+                  },
+                  generator: {
+                      // hash 根据文件内容产生一个唯一的 id
+                      // ext 文件扩展名————之前扩展名是什么就是什么
+                      // query 是携带的其他参数，如果在写url携带一些问号查询参数，那么他也会携带上
+                      // 代表 [hash:10] 只取前十位
+                      filename: 'static/images/[hash:10][ext][query]'
+                  }
+              },
+              {
+                  test: /\.(ttf|woff2?|map4|map3|avi)$/,
+                  // asset 是将小于某个大小的文件转化为base64，但是字体文件不需要转
+                  type: "asset/resource",
+                  generator: {
+                      // 输出名称
+                      filename: 'static/media/[hash:10][ext][query]'
+                  }
+              },
+              {
+                  test: /\.js$/,
+                  // 排除 node_modules中的js文件（不处理）
+                  exclude: /(node_modules)/,
+                  loader: 'babel-loader',
+                  options: {
+                      presets: ['@babel/preset-env']
+                  }
+              }
+          ]
+      },
+      // 插件
+      plugins: [
+          new ESLintPlugin({
+              // context 检测哪些文件
+              context: path.resolve(__dirname, "../src"),
+          }),
+          new HtmlWebpackPlugin({
+              // 模板：以public/index.html文件创建新的html文件
+              // 新的html文件的特点：1.结构和原来一致 2.自动引入打包输出的资源
+              template: path.resolve(__dirname, "../public/index.html"),
+          }),
+          new BundleAnalyzerPlugin({
+              analyzerMode: 'disabled', // 不启动展示打包报告的http服务器
+              generateStatsFile: true, // 是否生成stats.json文件
+          }),
+          new MiniCssExtractPlugin({
+              filename: "static/css/main.css"
+          }),
+          new CssMinimizerPlugin()
+      ],
+      // 模式
+      mode: 'production'
+  }
+  ```
+
+
+
+#### 3. 运行指令
+
+```
+npm run build
+```
+
+
+
+### html 压缩
+
+默认生产模式已经开启了 html 压缩 和 js 压缩
+
+不需要额外进行配置
+
+
+
+### 基础篇总结
+
+本章节我们学会了 Webpack 基本使用，掌握了以下功能：
+
+1. 两种开发模式
+   - 开发模式：代码能编译自动化运行
+   - 生产模式：代码编译优化输出
+2. Webpack 基本功能
+   - 开发模式：可以编译 ES Module 语法
+   - 生产模式：可以编译 ES Module 语法，压缩 js 代码
+3. Webpack 配置文件
+   - 5 个核心概念
+     - entry
+     - output
+     - loader
+     - plugins
+     - mode
+   - devServer 配置
+4. Webpack 脚本指令用法
+   - `webpack` 直接打包输出
+   - `webpack serve` 启动开发服务器，内存编译打包没有输出
+
+
+
+## 高级优化
+
+### 介绍
+
+所谓高级配置其实就是进行 Webpack 优化，让我们代码在编译/运行时性能更好~
+
+我们会从以下角度来进行优化：
+
+1. 提升开发体验
+2. 提升打包构建速度
+3. 减少代码体积
+4. 优化代码运行性能
+
+
+
+### 提升开发体验
+
+#### SourceMap
+
+##### 为什么
+
+开发时我们运行的代码是经过 webpack 编译后的，例如下面这个样子：
+
+```javascript
+/*
+ * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/less-loader/dist/cjs.js!./src/less/index.less":
+/*!**********************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/less-loader/dist/cjs.js!./src/less/index.less ***!
+  \**********************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/noSourceMaps.js */ \"./node_modules/css-loader/dist/runtime/noSourceMaps.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);\n// Imports\n\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));\n// Module\n___CSS_LOADER_EXPORT___.push([module.id, \".box2 {\\n  width: 100px;\\n  height: 100px;\\n  background-color: deeppink;\\n}\\n\", \"\"]);\n// Exports\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack://webpack5/./src/less/index.less?./node_modules/css-loader/dist/cjs.js!./node_modules/less-loader/dist/cjs.js");
+
+/***/ }),
+// 其他省略
+```
+
+所有 css 和 js 合并成了一个文件，并且多了其他代码。此时如果代码运行出错那么提示代码错误位置我们是看不懂的。一旦将来开发代码文件很多，那么很难去发现错误出现在哪里。
+
+所以我们需要更加准确的错误提示，来帮助我们更好的开发代码
+
+
+
+##### 是什么
+
+SourceMap（源代码映射）是一个用来生成源代码与构建后代码一一映射的文件的方案
+
+它会生成一个 xxx.map 文件，里面包含源代码和构建后代码每一行、每一列的映射关系。当构建后代码出错了，会通过 xxx.map 文件，从构建后代码出错位置找到映射后源代码出错位置，从而让浏览器提示源代码文件出错位置，帮助我们更快的找到错误根源
+
+
+
+##### 怎么用
+
+通过查看[Webpack DevTool 文档](https://webpack.docschina.org/configuration/devtool/)可知，SourceMap 的值有很多种情况.
+
+但实际开发时我们只需要关注两种情况即可：
+
+- 开发模式：`cheap-module-source-map`
+
+  - 优点：打包编译速度快，只包含行映射
+  - 缺点：没有列映射
+
+  ```
+  module.exports = {
+    // 其他省略
+    mode: "development",
+    devtool: "cheap-module-source-map",
+  };
+  ```
+
+- 生产模式：`source-map`
+
+  - 优点：包含行/列映射
+  - 缺点：打包编译速度更慢
+
+  ```
+  module.exports = {
+    // 其他省略
+    mode: "production",
+    devtool: "source-map",
+  };
+  ```
+
+
+
+### 提升打包构建速度
+
+#### HotModuleReplacement
+
+##### 为什么
+
+开发时我们修改了其中一个模块代码，Webpack 默认会将所有模块全部重新打包编译，速度很慢
+
+所以我们需要做到修改某个模块代码，就只有这个模块代码需要重新打包编译，其他模块不变，这样打包速度就能很快
+
+
+
+##### 是什么
+
+HotModuleReplacement（HMR/热模块替换）：在程序运行中，替换、添加或删除模块，而无需重新加载整个页面
+
+
+
+##### 怎么用
+
+1.  基本配置
+
+   ```javascript
+   module.exports = {
+     // 其他省略
+     devServer: {
+       host: "localhost", // 启动服务器域名
+       port: "3000", // 启动服务器端口号
+       open: true, // 是否自动打开浏览器
+       hot: true, // 开启HMR功能（只能用于开发环境，生产环境不需要了）
+     },
+   };
+   ```
+
+   此时 css 样式经过 style-loader 处理，已经具备 HMR 功能了。 但是 js 还不行
+
+   
+
+2.  JS 配置
+
+   ```javascript
+   // main.js
+   import count from "./js/count";
+   import sum from "./js/sum";
+   // 引入资源，Webpack才会对其打包
+   import "./css/iconfont.css";
+   import "./css/index.css";
+   import "./less/index.less";
+   import "./sass/index.sass";
+   import "./sass/index.scss";
+   import "./styl/index.styl";
+   
+   const result1 = count(2, 1);
+   console.log(result1);
+   const result2 = sum(1, 2, 3, 4);
+   console.log(result2);
+   
+   // 判断是否支持HMR功能
+   if (module.hot) {
+     module.hot.accept("./js/count.js", function (count) {
+       const result1 = count(2, 1);
+       console.log(result1);
+     });
+   
+     module.hot.accept("./js/sum.js", function (sum) {
+       const result2 = sum(1, 2, 3, 4);
+       console.log(result2);
+     });
+   }
+   ```
+
+   上面这样写会很麻烦，所以实际开发我们会使用其他 loader 来解决
+
+   比如：[vue-loader](https://github.com/vuejs/vue-loader), [react-hot-loader](https://github.com/gaearon/react-hot-loader)
+
+
+
+#### One of
+
+##### 为什么
+
+打包时每个文件都会经过所有 loader 处理，虽然因为 `test` 正则原因实际没有处理上，但是都要过一遍。比较慢
+
+
+
+##### 是什么
+
+顾名思义就是只能匹配上一个 loader, 剩下的就不匹配了
+
+
+
+##### 怎么用
+
+```javascript
+const path = require("path");
+const ESLintPlugin = require('eslint-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
+module.exports = {
+    // 入口
+    entry: './src/main.js',
+    // 输出
+    output: {
+        // 开发模式没输出，所以不需要指定输出路径
+        path: undefined,
+        // 入口文件打包的输出名称
+        filename: 'static/js/main.js',
+    },
+    // 加载器
+    module: {
+        rules: [
+            // loader的配置
+            {
+                oneOf: [
+                    {
+                        // 只检测.css文件
+                        test: /\.css$/,
+                        // 执行顺序，从右到左（从下到上）
+                        use: [
+                            // 将 js 中css通过创建 style 标签添加到 html 中生效
+                            "style-loader",
+                            // 将 css 资源编译成 commonjs 的模块到 js 中
+                            "css-loader"
+                        ],
+                    },
+                    {
+                        test: /\.less$/,
+                        // 从右到左
+                        // loader: 'xxx'    loader是只能使用一个，use是可以使用多个
+                        use: [ "style-loader", "css-loader", "less-loader" ],
+                    },
+                    {
+                        test: /\.s[ac]ss$/,
+                        use: [ "style-loader", "css-loader", "sass-loader" ],
+                    },
+                    {
+                        test: /\.styl$/,
+                        use: [ "style-loader", "css-loader", "stylus-loader" ],
+                    },
+                    {
+                        test: /\.(png|jpe?g|gif|webp|svg)$/,
+                        type: "asset",
+                        parser: {
+                            dataUrlCondition: {
+                                // 小于 10kb 的图片转 base64
+                                // 优点：减少请求数量
+                                // 缺点：体积会变大
+                                maxSize: 10 * 1024 // 10kb
+                            }
+                        },
+                        generator: {
+                            // hash 根据文件内容产生一个唯一的 id
+                            // ext 文件扩展名————之前扩展名是什么就是什么
+                            // query 是携带的其他参数，如果在写url携带一些问号查询参数，那么他也会携带上
+                            // 代表 [hash:10] 只取前十位
+                            filename: 'static/images/[hash:10][ext][query]'
+                        }
+                    },
+                    {
+                        test: /\.(ttf|woff2?|map4|map3|avi)$/,
+                        // asset 是将小于某个大小的文件转化为base64，但是字体文件不需要转
+                        type: "asset/resource",
+                        generator: {
+                            // 输出名称
+                            filename: 'static/media/[hash:10][ext][query]'
+                        }
+                    },
+                    {
+                        test: /\.js$/,
+                        // 排除 node_modules中的js文件（不处理）
+                        exclude: /(node_modules)/,
+                        loader: 'babel-loader',
+                        options: {
+                            presets: ['@babel/preset-env']
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    // 插件
+    plugins: [
+        new ESLintPlugin({
+            // context 检测哪些文件
+            context: path.resolve(__dirname, "../src"),
+        }),
+        new HtmlWebpackPlugin({
+            // 模板：以public/index.html文件创建新的html文件
+            // 新的html文件的特点：1.结构和原来一致 2.自动引入打包输出的资源
+            template: path.resolve(__dirname, "../public/index.html"),
+        }),
+        new BundleAnalyzerPlugin({
+            analyzerMode: 'disabled', // 不启动展示打包报告的http服务器
+            generateStatsFile: true, // 是否生成stats.json文件
+        }),
+    ],
+    // 开发服务器: 不会输出资源 在内存中编译打包的
+    devServer: {
+        host: "localhost", // 启动服务器域名
+        port: "3000", // 启动服务器端口号
+        open: true, // 是否自动打开浏览器
+        hot: true, // 开启HMR
+    },
+    // 模式
+    mode: 'development',
+    devtool: "cheap-module-source-map"
+}
+```
+
+生产模式也是如此
+
+
+
+#### Include / Exclude
+
+##### 为什么
+
+开发时我们需要使用第三方的库或插件，所有文件都下载到 node_modules 中了。而这些文件是不需要编译可以直接使用的
+
+
+
+##### 是什么
+
+- include
+
+包含，只处理 xxx 文件
+
+- exclude
+
+排除，除了 xxx 文件以外其他文件都处理
+
+
+
+##### 怎么用
+
+```javascript
+const path = require("path");
+const ESLintPlugin = require('eslint-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
+module.exports = {
+    // 入口
+    entry: './src/main.js',
+    // 输出
+    output: {
+        // 开发模式没输出，所以不需要指定输出路径
+        path: undefined,
+        // 入口文件打包的输出名称
+        filename: 'static/js/main.js',
+    },
+    // 加载器
+    module: {
+        rules: [
+            // loader的配置
+            {
+                oneOf: [
+                    {
+                        // 只检测.css文件
+                        test: /\.css$/,
+                        // 执行顺序，从右到左（从下到上）
+                        use: [
+                            // 将 js 中css通过创建 style 标签添加到 html 中生效
+                            "style-loader",
+                            // 将 css 资源编译成 commonjs 的模块到 js 中
+                            "css-loader"
+                        ],
+                    },
+                    {
+                        test: /\.less$/,
+                        // 从右到左
+                        // loader: 'xxx'    loader是只能使用一个，use是可以使用多个
+                        use: [ "style-loader", "css-loader", "less-loader" ],
+                    },
+                    {
+                        test: /\.s[ac]ss$/,
+                        use: [ "style-loader", "css-loader", "sass-loader" ],
+                    },
+                    {
+                        test: /\.styl$/,
+                        use: [ "style-loader", "css-loader", "stylus-loader" ],
+                    },
+                    {
+                        test: /\.(png|jpe?g|gif|webp|svg)$/,
+                        type: "asset",
+                        parser: {
+                            dataUrlCondition: {
+                                // 小于 10kb 的图片转 base64
+                                // 优点：减少请求数量
+                                // 缺点：体积会变大
+                                maxSize: 10 * 1024 // 10kb
+                            }
+                        },
+                        generator: {
+                            // hash 根据文件内容产生一个唯一的 id
+                            // ext 文件扩展名————之前扩展名是什么就是什么
+                            // query 是携带的其他参数，如果在写url携带一些问号查询参数，那么他也会携带上
+                            // 代表 [hash:10] 只取前十位
+                            filename: 'static/images/[hash:10][ext][query]'
+                        }
+                    },
+                    {
+                        test: /\.(ttf|woff2?|map4|map3|avi)$/,
+                        // asset 是将小于某个大小的文件转化为base64，但是字体文件不需要转
+                        type: "asset/resource",
+                        generator: {
+                            // 输出名称
+                            filename: 'static/media/[hash:10][ext][query]'
+                        }
+                    },
+                    {
+                        test: /\.js$/,
+                        // 排除 node_modules中的js文件（不处理）
+                        // exclude: /(node_modules)/,   // 排除node_modules下的文件，其他文件都处理
+                        include: path.resolve(__dirname, '../src'),     // 只处理src下的文件
+                        loader: 'babel-loader',
+                        options: {
+                            presets: ['@babel/preset-env']
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    // 插件
+    plugins: [
+        new ESLintPlugin({
+            // context 检测哪些文件
+            context: path.resolve(__dirname, "../src"),
+            exclude: "node_modules",
+        }),
+        new HtmlWebpackPlugin({
+            // 模板：以public/index.html文件创建新的html文件
+            // 新的html文件的特点：1.结构和原来一致 2.自动引入打包输出的资源
+            template: path.resolve(__dirname, "../public/index.html"),
+        }),
+        new BundleAnalyzerPlugin({
+            analyzerMode: 'disabled', // 不启动展示打包报告的http服务器
+            generateStatsFile: true, // 是否生成stats.json文件
+        }),
+    ],
+    // 开发服务器: 不会输出资源 在内存中编译打包的
+    devServer: {
+        host: "localhost", // 启动服务器域名
+        port: "3000", // 启动服务器端口号
+        open: true, // 是否自动打开浏览器
+        hot: true, // 开启HMR
+    },
+    // 模式
+    mode: 'development',
+    devtool: "cheap-module-source-map"
+}
+```
+
+生产模式也是如此配置
+
+
+
+#### Cache
+
+##### 为什么
+
+每次打包时 js 文件都要经过 Eslint 检查 和 Babel 编译，速度比较慢
+
+我们可以缓存之前的 Eslint 检查 和 Babel 编译结果，这样第二次打包时速度就会更快了
+
+
+
+##### 是什么
+
+对 Eslint 检查 和 Babel 编译结果进行缓存
+
+
+
+##### 怎么用
+
+```javascript
+const path = require("path");
+const ESLintPlugin = require('eslint-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+
+// 用来获取处理样式的loader
+function getStyleLoader(pre){
+    return [
+        // 提取css成单独的文件
+        MiniCssExtractPlugin.loader,
+        // 将 css 资源编译成 commonjs 的模块到 js 中
+        "css-loader",
+        {
+            loader: "postcss-loader",
+            options: {
+                postcssOptions: {
+                    plugins: [
+                        "postcss-preset-env",   // 能解决大多数样式兼容性问题
+                    ],
+                },
+            },
+        },
+        pre,
+    ].filter(Boolean)
+}
+
+module.exports = {
+    // 入口
+    entry: './src/main.js',
+    // 输出
+    output: {
+        // 文件的输出路径，这里的路径要求绝对路径
+        // __dirname 是 nodejs 的变量，代表当前文件的文件夹目录
+        path: path.resolve(__dirname, "../dist"),
+        // 入口文件打包的输出名称
+        filename: 'static/js/main.js',
+        // 自动清空上次打包的内容
+        // 原理：在打包前，将path整个目录内容清空，再进行打包
+        clean: true
+    },
+    // 加载器
+    module: {
+        rules: [
+            // loader的配置
+            {
+                oneOf: [
+                    {
+                        // 只检测.css文件
+                        test: /\.css$/,
+                        // 执行顺序，从右到左（从下到上）
+                        use: getStyleLoader()
+                    },
+                    {
+                        test: /\.less$/,
+                        // 从右到左
+                        // loader: 'xxx'    loader是只能使用一个，use是可以使用多个
+                        use: getStyleLoader('less-loader'),
+                    },
+                    {
+                        test: /\.s[ac]ss$/,
+                        use: getStyleLoader('sass-loader'),
+                    },
+                    {
+                        test: /\.styl$/,
+                        use: getStyleLoader('stylus-loader')
+                    },
+                    {
+                        test: /\.(png|jpe?g|gif|webp|svg)$/,
+                        type: "asset",
+                        parser: {
+                            dataUrlCondition: {
+                                // 小于 10kb 的图片转 base64
+                                // 优点：减少请求数量
+                                // 缺点：体积会变大
+                                maxSize: 10 * 1024 // 10kb
+                            }
+                        },
+                        generator: {
+                            // hash 根据文件内容产生一个唯一的 id
+                            // ext 文件扩展名————之前扩展名是什么就是什么
+                            // query 是携带的其他参数，如果在写url携带一些问号查询参数，那么他也会携带上
+                            // 代表 [hash:10] 只取前十位
+                            filename: 'static/images/[hash:10][ext][query]'
+                        }
+                    },
+                    {
+                        test: /\.(ttf|woff2?|map4|map3|avi)$/,
+                        // asset 是将小于某个大小的文件转化为base64，但是字体文件不需要转
+                        type: "asset/resource",
+                        generator: {
+                            // 输出名称
+                            filename: 'static/media/[hash:10][ext][query]'
+                        }
+                    },
+                    {
+                        test: /\.js$/,
+                        // 排除 node_modules中的js文件（不处理）
+                        exclude: /(node_modules)/,
+                        loader: 'babel-loader',
+                        options: {
+                            // presets: ['@babel/preset-env']
+                            cacheDirectory: true,   // 开启babel缓存
+                            cacheCompression: false, // 关闭缓存文件压缩
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    // 插件
+    plugins: [
+        new ESLintPlugin({
+            // context 检测哪些文件
+            context: path.resolve(__dirname, "../src"),
+            exclude: "node_modules",
+            cache: true,
+            cacheLocation: path.resolve(__dirname, '../node_modules/.cache/eslintcache')
+        }),
+        new HtmlWebpackPlugin({
+            // 模板：以public/index.html文件创建新的html文件
+            // 新的html文件的特点：1.结构和原来一致 2.自动引入打包输出的资源
+            template: path.resolve(__dirname, "../public/index.html"),
+        }),
+        new BundleAnalyzerPlugin({
+            analyzerMode: 'disabled', // 不启动展示打包报告的http服务器
+            generateStatsFile: true, // 是否生成stats.json文件
+        }),
+        new MiniCssExtractPlugin({
+            filename: "static/css/main.css"
+        }),
+        new CssMinimizerPlugin()
+    ],
+    // 模式
+    mode: 'production',
+    devtool: "source-map"
+}
+```
+
+
+
+#### Tread
+
+##### 为什么
+
+当项目越来越庞大时，打包速度越来越慢，甚至于需要一个下午才能打包出来代码。这个速度是比较慢的
+
+我们想要继续提升打包速度，其实就是要提升 js 的打包速度，因为其他文件都比较少
+
+而对 js 文件处理主要就是 eslint 、babel、Terser 三个工具，所以我们要提升它们的运行速度
+
+我们可以开启多进程同时处理 js 文件，这样速度就比之前的单进程打包更快了
+
+
+
+##### 是什么
+
+多进程打包：开启电脑的多个进程同时干一件事，速度更快
+
+**需要注意：请仅在特别耗时的操作中使用，因为每个进程启动就有大约为 600ms 左右开销**
+
+
+
+##### 怎么用
+
+我们启动进程的数量就是我们 CPU 的核数
+
+1.  如何获取 CPU 的核数，因为每个电脑都不一样
+
+   ```javascript
+   // nodejs核心模块，直接使用
+   const os = require("os");
+   // cpu核数
+   const threads = os.cpus().length;
+   ```
+
+2.  下载包
+
+   ```
+   npm i thread-loader -D
+   ```
+
+3. 使用
+
+   ```javascript
+   const os = require("os");
+   const path = require("path");
+   const ESLintPlugin = require('eslint-webpack-plugin');
+   const HtmlWebpackPlugin = require('html-webpack-plugin');
+   const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+   const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+   
+   const TerserWebpackPlugin = require("terser-webpack-plugin");
+   const threads = os.cpus().length;   // cpu核数
+   
+   module.exports = {
+       // 入口
+       entry: './src/main.js',
+       // 输出
+       output: {
+           // 开发模式没输出，所以不需要指定输出路径
+           path: undefined,
+           // 入口文件打包的输出名称
+           filename: 'static/js/main.js',
+       },
+       // 加载器
+       module: {
+           rules: [
+               // loader的配置
+               {
+                   oneOf: [
+                       {
+                           // 只检测.css文件
+                           test: /\.css$/,
+                           // 执行顺序，从右到左（从下到上）
+                           use: [
+                               // 将 js 中css通过创建 style 标签添加到 html 中生效
+                               "style-loader",
+                               // 将 css 资源编译成 commonjs 的模块到 js 中
+                               "css-loader"
+                           ],
+                       },
+                       {
+                           test: /\.less$/,
+                           // 从右到左
+                           // loader: 'xxx'    loader是只能使用一个，use是可以使用多个
+                           use: [ "style-loader", "css-loader", "less-loader" ],
+                       },
+                       {
+                           test: /\.s[ac]ss$/,
+                           use: [ "style-loader", "css-loader", "sass-loader" ],
+                       },
+                       {
+                           test: /\.styl$/,
+                           use: [ "style-loader", "css-loader", "stylus-loader" ],
+                       },
+                       {
+                           test: /\.(png|jpe?g|gif|webp|svg)$/,
+                           type: "asset",
+                           parser: {
+                               dataUrlCondition: {
+                                   // 小于 10kb 的图片转 base64
+                                   // 优点：减少请求数量
+                                   // 缺点：体积会变大
+                                   maxSize: 10 * 1024 // 10kb
+                               }
+                           },
+                           generator: {
+                               // hash 根据文件内容产生一个唯一的 id
+                               // ext 文件扩展名————之前扩展名是什么就是什么
+                               // query 是携带的其他参数，如果在写url携带一些问号查询参数，那么他也会携带上
+                               // 代表 [hash:10] 只取前十位
+                               filename: 'static/images/[hash:10][ext][query]'
+                           }
+                       },
+                       {
+                           test: /\.(ttf|woff2?|map4|map3|avi)$/,
+                           // asset 是将小于某个大小的文件转化为base64，但是字体文件不需要转
+                           type: "asset/resource",
+                           generator: {
+                               // 输出名称
+                               filename: 'static/media/[hash:10][ext][query]'
+                           }
+                       },
+                       {
+                           test: /\.js$/,
+                           // 排除 node_modules中的js文件（不处理）
+                           exclude: /(node_modules)/,
+                           use: [
+                               {
+                                   loader: 'thread-loader',    // 开启多进程
+                                   options: {
+                                       works: threads,
+                                   }
+                               },
+                               {
+                                   loader: 'babel-loader',
+                                   options: {
+                                       // presets: ['@babel/preset-env']
+                                       cacheDirectory: true,   // 开启babel缓存
+                                       cacheCompression: false, // 关闭缓存文件压缩
+                                   }
+                               }
+                           ]
+                       }
+                   ]
+               }
+           ]
+       },
+       // 插件
+       plugins: [
+           new ESLintPlugin({
+               // context 检测哪些文件
+               context: path.resolve(__dirname, "../src"),
+               exclude: "node_modules",
+               cache: true,
+               cacheLocation: path.resolve(__dirname, '../node_modules/.cache/eslintcache'),
+               threads,
+           }),
+           new HtmlWebpackPlugin({
+               // 模板：以public/index.html文件创建新的html文件
+               // 新的html文件的特点：1.结构和原来一致 2.自动引入打包输出的资源
+               template: path.resolve(__dirname, "../public/index.html"),
+           }),
+           new BundleAnalyzerPlugin({
+               analyzerMode: 'disabled', // 不启动展示打包报告的http服务器
+               generateStatsFile: true, // 是否生成stats.json文件
+           }),
+       ],
+       optimization: {
+           // 压缩的操作
+           minimizer: [
+               // 压缩css
+               new CssMinimizerPlugin(),
+               // 压缩js
+               new TerserWebpackPlugin({
+                   parallel: threads, // 开启多进程和设置进程数量
+               })
+           ]
+       },
+       // 开发服务器: 不会输出资源 在内存中编译打包的
+       devServer: {
+           host: "localhost", // 启动服务器域名
+           port: "3000", // 启动服务器端口号
+           open: true, // 是否自动打开浏览器
+           hot: true, // 开启HMR
+       },
+       // 模式
+       mode: 'development',
+       devtool: "cheap-module-source-map"
+   }
+   ```
+
+   我们目前打包的内容都很少，所以因为启动进程开销原因，使用多进程打包实际上会显著的让我们打包时间变得很长
+
+
+
+### 减少代码体积
+
+#### Tree Shaking
+
+##### 为什么
+
+开发时我们定义了一些工具函数库，或者引用第三方工具函数库或组件库
+
+如果没有特殊处理的话我们打包时会引入整个库，但是实际上可能我们可能只用上极小部分的功能
+
+这样将整个库都打包进来，体积就太大了
+
+
+
+##### 是什么
+
+`Tree Shaking` 是一个术语，通常用于描述移除 JavaScript 中的没有使用上的代码
+
+**注意：它依赖 `ES Module`**
+
+
+
+##### 怎么用
+
+Webpack 已经默认开启了这个功能，无需其他配置
+
+
+
+#### Babel
+
+##### 为什么
+
+Babel 为编译的每个文件都插入了辅助代码，使代码体积过大！
+
+Babel 对一些公共方法使用了非常小的辅助代码，比如 `_extend` 默认情况下会被添加到每一个需要它的文件中
+
+可以将这些辅助代码作为一个独立模块，来避免重复引入
+
+
+
+##### 是什么
+
+`@babel/plugin-transform-runtime`：
+
+禁用了 Babel 自动对每个文件的 runtime 注入，而是引入 `@babel/plugin-transform-runtime` 并且使所有辅助代码从这里引用
+
+
+
+##### 怎么用
+
+1.  下载包
+
+   ```
+   npm i @babel/plugin-transform-runtime -D
+   ```
+
+2.  配置
+
+   ```javascript
+   const os = require("os");
+   const path = require("path");
+   const ESLintPlugin = require('eslint-webpack-plugin');
+   const HtmlWebpackPlugin = require('html-webpack-plugin');
+   const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+   const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+   const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+   
+   const TerserWebpackPlugin = require("terser-webpack-plugin");
+   const threads = os.cpus().length;   // cpu核数
+   
+   // 用来获取处理样式的loader
+   function getStyleLoader(pre){
+       return [
+           // 提取css成单独的文件
+           MiniCssExtractPlugin.loader,
+           // 将 css 资源编译成 commonjs 的模块到 js 中
+           "css-loader",
+           {
+               loader: "postcss-loader",
+               options: {
+                   postcssOptions: {
+                       plugins: [
+                           "postcss-preset-env",   // 能解决大多数样式兼容性问题
+                       ],
+                   },
+               },
+           },
+           pre,
+       ].filter(Boolean)
+   }
+   
+   module.exports = {
+       // 入口
+       entry: './src/main.js',
+       // 输出
+       output: {
+           // 文件的输出路径，这里的路径要求绝对路径
+           // __dirname 是 nodejs 的变量，代表当前文件的文件夹目录
+           path: path.resolve(__dirname, "../dist"),
+           // 入口文件打包的输出名称
+           filename: 'static/js/main.js',
+           // 自动清空上次打包的内容
+           // 原理：在打包前，将path整个目录内容清空，再进行打包
+           clean: true
+       },
+       // 加载器
+       module: {
+           rules: [
+               // loader的配置
+               {
+                   oneOf: [
+                       {
+                           // 只检测.css文件
+                           test: /\.css$/,
+                           // 执行顺序，从右到左（从下到上）
+                           use: getStyleLoader()
+                       },
+                       {
+                           test: /\.less$/,
+                           // 从右到左
+                           // loader: 'xxx'    loader是只能使用一个，use是可以使用多个
+                           use: getStyleLoader('less-loader'),
+                       },
+                       {
+                           test: /\.s[ac]ss$/,
+                           use: getStyleLoader('sass-loader'),
+                       },
+                       {
+                           test: /\.styl$/,
+                           use: getStyleLoader('stylus-loader')
+                       },
+                       {
+                           test: /\.(png|jpe?g|gif|webp|svg)$/,
+                           type: "asset",
+                           parser: {
+                               dataUrlCondition: {
+                                   // 小于 10kb 的图片转 base64
+                                   // 优点：减少请求数量
+                                   // 缺点：体积会变大
+                                   maxSize: 10 * 1024 // 10kb
+                               }
+                           },
+                           generator: {
+                               // hash 根据文件内容产生一个唯一的 id
+                               // ext 文件扩展名————之前扩展名是什么就是什么
+                               // query 是携带的其他参数，如果在写url携带一些问号查询参数，那么他也会携带上
+                               // 代表 [hash:10] 只取前十位
+                               filename: 'static/images/[hash:10][ext][query]'
+                           }
+                       },
+                       {
+                           test: /\.(ttf|woff2?|map4|map3|avi)$/,
+                           // asset 是将小于某个大小的文件转化为base64，但是字体文件不需要转
+                           type: "asset/resource",
+                           generator: {
+                               // 输出名称
+                               filename: 'static/media/[hash:10][ext][query]'
+                           }
+                       },
+                       {
+                           test: /\.js$/,
+                           // 排除 node_modules中的js文件（不处理）
+                           exclude: /(node_modules)/,
+                           use: [
+                               {
+                                   loader: 'thread-loader',    // 开启多进程
+                                   options: {
+                                       works: threads,
+                                   }
+                               },
+                               {
+                                   loader: 'babel-loader',
+                                   options: {
+                                       // presets: ['@babel/preset-env']
+                                       cacheDirectory: true,   // 开启babel缓存
+                                       cacheCompression: false,    // 关闭缓存文件压缩
+                                       plugins: ["@babel/plugin-transform-runtime"],   // 减少代码体积
+                                   }
+                               }
+                           ]
+                       }
+                   ]
+               }
+           ]
+       },
+       // 插件
+       plugins: [
+           new ESLintPlugin({
+               // context 检测哪些文件
+               context: path.resolve(__dirname, "../src"),
+               exclude: "node_modules",
+               cache: true,
+               cacheLocation: path.resolve(__dirname, '../node_modules/.cache/eslintcache'),
+               threads,
+           }),
+           new HtmlWebpackPlugin({
+               // 模板：以public/index.html文件创建新的html文件
+               // 新的html文件的特点：1.结构和原来一致 2.自动引入打包输出的资源
+               template: path.resolve(__dirname, "../public/index.html"),
+           }),
+           new BundleAnalyzerPlugin({
+               analyzerMode: 'disabled', // 不启动展示打包报告的http服务器
+               generateStatsFile: true, // 是否生成stats.json文件
+           }),
+           new MiniCssExtractPlugin({
+               filename: "static/css/main.css"
+           }),
+       ],
+       optimization: {
+           // 压缩的操作
+           minimizer: [
+               // 压缩css
+               new CssMinimizerPlugin(),
+               // 压缩js
+               new TerserWebpackPlugin({
+                   parallel: threads, // 开启多进程和设置进程数量
+               })
+           ]
+       },
+       // 模式
+       mode: 'production',
+       devtool: "source-map"
+   }
+   ```
+
+   
+
+#### Image Minimizer
+
+##### 为什么
+
+开发如果项目中引用了较多图片，那么图片体积会比较大，将来请求速度比较慢
+
+我们可以对图片进行压缩，减少图片体积
+
+**注意：如果项目中图片都是在线链接，那么就不需要了。本地项目静态图片才需要进行压缩**
+
+
+
+##### 是什么
+
+`image-minimizer-webpack-plugin`: 用来压缩图片的插件
+
+
+
+##### 怎么用
+
+1.  下载包
+
+   ```
+   npm i image-minimizer-webpack-plugin imagemin -D
+   ```
+
+   还有剩下包需要下载，有两种模式：
+
+   - 无损压缩
+
+     ```
+     npm install imagemin-gifsicle imagemin-jpegtran imagemin-optipng imagemin-svgo -D
+     ```
+
+   - 有损压缩
+
+     ```
+     npm install imagemin-gifsicle imagemin-mozjpeg imagemin-pngquant imagemin-svgo -D
+     ```
+
+2.  配置
+
+   以无损压缩配置为例：
+
+   ```javascript
+   const os = require("os");
+   const path = require("path");
+const ESLintPlugin = require('eslint-webpack-plugin');
+   const HtmlWebpackPlugin = require('html-webpack-plugin');
+   const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+   const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+   const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
+   
+   const TerserWebpackPlugin = require("terser-webpack-plugin");
+   const threads = os.cpus().length;   // cpu核数
+   
+   module.exports = {
+       // 入口
+       entry: './src/main.js',
+       // 输出
+       output: {
+           // 开发模式没输出，所以不需要指定输出路径
+           path: undefined,
+           // 入口文件打包的输出名称
+           filename: 'static/js/main.js',
+       },
+       // 加载器
+       module: {
+           rules: [
+               // loader的配置
+               {
+                   oneOf: [
+                       {
+                           // 只检测.css文件
+                           test: /\.css$/,
+                           // 执行顺序，从右到左（从下到上）
+                           use: [
+                               // 将 js 中css通过创建 style 标签添加到 html 中生效
+                               "style-loader",
+                               // 将 css 资源编译成 commonjs 的模块到 js 中
+                               "css-loader"
+                           ],
+                       },
+                       {
+                           test: /\.less$/,
+                           // 从右到左
+                           // loader: 'xxx'    loader是只能使用一个，use是可以使用多个
+                           use: [ "style-loader", "css-loader", "less-loader" ],
+                       },
+                       {
+                           test: /\.s[ac]ss$/,
+                           use: [ "style-loader", "css-loader", "sass-loader" ],
+                       },
+                       {
+                           test: /\.styl$/,
+                           use: [ "style-loader", "css-loader", "stylus-loader" ],
+                       },
+                       {
+                           test: /\.(png|jpe?g|gif|webp|svg)$/,
+                           type: "asset",
+                           parser: {
+                               dataUrlCondition: {
+                                   // 小于 10kb 的图片转 base64
+                                   // 优点：减少请求数量
+                                   // 缺点：体积会变大
+                                   maxSize: 10 * 1024 // 10kb
+                               }
+                           },
+                           generator: {
+                               // hash 根据文件内容产生一个唯一的 id
+                               // ext 文件扩展名————之前扩展名是什么就是什么
+                               // query 是携带的其他参数，如果在写url携带一些问号查询参数，那么他也会携带上
+                               // 代表 [hash:10] 只取前十位
+                               filename: 'static/images/[hash:10][ext][query]'
+                           }
+                       },
+                       {
+                           test: /\.(ttf|woff2?|map4|map3|avi)$/,
+                           // asset 是将小于某个大小的文件转化为base64，但是字体文件不需要转
+                           type: "asset/resource",
+                           generator: {
+                               // 输出名称
+                               filename: 'static/media/[hash:10][ext][query]'
+                           }
+                       },
+                       {
+                           test: /\.js$/,
+                           // 排除 node_modules中的js文件（不处理）
+                           exclude: /(node_modules)/,
+                           use: [
+                               {
+                                   loader: 'thread-loader',    // 开启多进程
+                                   options: {
+                                       works: threads,
+                                   }
+                               },
+                               {
+                                   loader: 'babel-loader',
+                                   options: {
+                                       // presets: ['@babel/preset-env']
+                                       cacheDirectory: true,   // 开启babel缓存
+                                       cacheCompression: false, // 关闭缓存文件压缩
+                                       plugins: ["@babel/plugin-transform-runtime"],   // 减少代码体积
+                                   }
+                               }
+                           ]
+                       }
+                   ]
+               }
+           ]
+       },
+       // 插件
+       plugins: [
+           new ESLintPlugin({
+               // context 检测哪些文件
+               context: path.resolve(__dirname, "../src"),
+               exclude: "node_modules",
+               cache: true,
+               cacheLocation: path.resolve(__dirname, '../node_modules/.cache/eslintcache'),
+               threads,
+           }),
+           new HtmlWebpackPlugin({
+               // 模板：以public/index.html文件创建新的html文件
+               // 新的html文件的特点：1.结构和原来一致 2.自动引入打包输出的资源
+               template: path.resolve(__dirname, "../public/index.html"),
+           }),
+           new BundleAnalyzerPlugin({
+               analyzerMode: 'disabled', // 不启动展示打包报告的http服务器
+               generateStatsFile: true, // 是否生成stats.json文件
+           }),
+       ],
+       optimization: {
+           // 压缩的操作
+           minimizer: [
+               // 压缩css
+               new CssMinimizerPlugin(),
+               // 压缩js
+               new TerserWebpackPlugin({
+                   parallel: threads, // 开启多进程和设置进程数量
+               }),
+               // 压缩图片
+               new ImageMinimizerPlugin({
+                   minimizer: {
+                   implementation: ImageMinimizerPlugin.imageminGenerate,
+                   options: {
+                       plugins: [
+                       ["gifsicle", { interlaced: true }],
+                       ["jpegtran", { progressive: true }],
+                       ["optipng", { optimizationLevel: 5 }],
+                       [
+                           "svgo",
+                           {
+                           plugins: [
+                               "preset-default",
+                               "prefixIds",
+                               {
+                               name: "sortAttrs",
+                               params: {
+                                   xmlnsOrder: "alphabetical",
+                               },
+                               },
+                           ],
+                           },
+                       ],
+                       ],
+                   },
+                   },
+               }),
+           ]
+       },
+       // 开发服务器: 不会输出资源 在内存中编译打包的
+       devServer: {
+           host: "localhost", // 启动服务器域名
+           port: "3000", // 启动服务器端口号
+           open: true, // 是否自动打开浏览器
+           hot: true, // 开启HMR
+       },
+       // 模式
+       mode: 'development',
+       devtool: "cheap-module-source-map"
+   }
+   ```
+   
+3.   打包时会出现报错
+
+    ```
+    Error: Error with 'src\images\1.jpeg': '"C:\Users\86176\Desktop\webpack\webpack_code\node_modules\jpegtran-bin\vendor\jpegtran.exe"'
+    Error with 'src\images\3.gif': spawn C:\Users\86176\Desktop\webpack\webpack_code\node_modules\optipng-bin\vendor\optipng.exe ENOENT
+    ```
+
+    我们需要安装两个文件到 node_modules 中才能解决, 文件可以从课件中找到：
+
+    - jpegtran.exe
+
+    需要复制到 `node_modules\jpegtran-bin\vendor` 下面
+
+    [jpegtran 官网地址](http://jpegclub.org/jpegtran/)
+
+    - optipng.exe
+
+    需要复制到 `node_modules\optipng-bin\vendor` 下面
+
+    [OptiPNG 官网地址](http://optipng.sourceforge.net/)
+
+
+
+### 优化代码运行性能
+
+#### Code Split
+
+##### 为什么
+
+打包代码时会将所有 js 文件打包到一个文件中，体积太大了。我们如果只要渲染首页，就应该只加载首页的 js 文件，其他文件不应该加载
+
+所以我们需要将打包生成的文件进行代码分割，生成多个 js 文件，渲染哪个页面就只加载某个 js 文件，这样加载的资源就少，速度就更快
+
+
+
+##### 是什么
+
+代码分割（Code Split）主要做了两件事：
+
+1. 分割文件：将打包生成的文件进行分割，生成多个 js 文件
+2. 按需加载：需要哪个文件就加载哪个文件
+
+
+
+##### 怎么用
+
+1.  多入口
+
+   1.  文件目录
+
+      ```
+      ├── public
+      ├── src
+      |   ├── app.js
+      |   └── main.js
+      ├── package.json
+      └── webpack.config.js
+      ```
+
+   2.  下载包
+
+      ```
+      npm i webpack webpack-cli html-webpack-plugin -D
+      ```
+
+   3.  新建文件
+
+      内容无关紧要，主要观察打包输出的结果
+
+      - app.js
+
+        ```javascript
+        console.log("hello app");
+        ```
+
+      - main.js
+
+        ```javascript
+        console.log("hello main");
+        ```
+
+   4.  配置
+
+      ```
+      
+      ```
+
+      

@@ -1,9 +1,14 @@
+const os = require("os");
 const path = require("path");
 const ESLintPlugin = require('eslint-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
+
+const TerserWebpackPlugin = require("terser-webpack-plugin");
+const threads = os.cpus().length;   // cpu核数
 
 // 用来获取处理样式的loader
 function getStyleLoader(pre){
@@ -98,10 +103,23 @@ module.exports = {
                         test: /\.js$/,
                         // 排除 node_modules中的js文件（不处理）
                         exclude: /(node_modules)/,
-                        loader: 'babel-loader',
-                        options: {
-                            presets: ['@babel/preset-env']
-                        }
+                        use: [
+                            {
+                                loader: 'thread-loader',    // 开启多进程
+                                options: {
+                                    works: threads,
+                                }
+                            },
+                            {
+                                loader: 'babel-loader',
+                                options: {
+                                    // presets: ['@babel/preset-env']
+                                    cacheDirectory: true,   // 开启babel缓存
+                                    cacheCompression: false,    // 关闭缓存文件压缩
+                                    plugins: ["@babel/plugin-transform-runtime"],   // 减少代码体积
+                                }
+                            }
+                        ]
                     }
                 ]
             }
@@ -112,6 +130,10 @@ module.exports = {
         new ESLintPlugin({
             // context 检测哪些文件
             context: path.resolve(__dirname, "../src"),
+            exclude: "node_modules",
+            cache: true,
+            cacheLocation: path.resolve(__dirname, '../node_modules/.cache/eslintcache'),
+            threads,
         }),
         new HtmlWebpackPlugin({
             // 模板：以public/index.html文件创建新的html文件
@@ -125,8 +147,46 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: "static/css/main.css"
         }),
-        new CssMinimizerPlugin()
     ],
+    optimization: {
+        // 压缩的操作
+        minimizer: [
+            // 压缩css
+            new CssMinimizerPlugin(),
+            // 压缩js
+            new TerserWebpackPlugin({
+                parallel: threads, // 开启多进程和设置进程数量
+            }),
+            // 压缩图片
+            new ImageMinimizerPlugin({
+                minimizer: {
+                implementation: ImageMinimizerPlugin.imageminGenerate,
+                options: {
+                    plugins: [
+                    ["gifsicle", { interlaced: true }],
+                    ["jpegtran", { progressive: true }],
+                    ["optipng", { optimizationLevel: 5 }],
+                    [
+                        "svgo",
+                        {
+                        plugins: [
+                            "preset-default",
+                            "prefixIds",
+                            {
+                            name: "sortAttrs",
+                            params: {
+                                xmlnsOrder: "alphabetical",
+                            },
+                            },
+                        ],
+                        },
+                    ],
+                    ],
+                },
+                },
+            }),
+        ]
+    },
     // 模式
     mode: 'production',
     devtool: "source-map"

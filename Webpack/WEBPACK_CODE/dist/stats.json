@@ -1,8 +1,8 @@
 {
-  "hash": "270e961d08ed10e842b6",
+  "hash": "dc5197e0ee76cf3c5df0",
   "version": "5.74.0",
-  "time": 5738,
-  "builtAt": 1666343105596,
+  "time": 21892,
+  "builtAt": 1666513552633,
   "publicPath": "auto",
   "outputPath": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\dist",
   "assetsByChunkName": {
@@ -175,9 +175,9 @@
     {
       "type": "asset",
       "name": "static/js/main.js",
-      "size": 282,
-      "emitted": false,
-      "comparedForEmit": true,
+      "size": 299,
+      "emitted": true,
+      "comparedForEmit": false,
       "cached": false,
       "info": {
         "javascriptModule": false,
@@ -185,7 +185,7 @@
         "related": {
           "sourceMap": "static/js/main.js.map"
         },
-        "size": 282
+        "size": 299
       },
       "chunkNames": [
         "main"
@@ -198,13 +198,13 @@
         {
           "type": "sourceMap",
           "name": "static/js/main.js.map",
-          "size": 2480,
+          "size": 2566,
           "emitted": true,
           "comparedForEmit": false,
           "cached": false,
           "info": {
             "development": true,
-            "size": 2480
+            "size": 2566
           },
           "chunkNames": [],
           "chunkIdHints": [],
@@ -233,9 +233,9 @@
       "initial": true,
       "entry": true,
       "recorded": false,
-      "size": 3261,
+      "size": 3800,
       "sizes": {
-        "javascript": 1885,
+        "javascript": 2424,
         "css/mini-extract": 1376
       },
       "names": [
@@ -253,7 +253,7 @@
         "static/css/main.css.map",
         "static/js/main.js.map"
       ],
-      "hash": "136e04eb093c6ce5f924",
+      "hash": "8a97f7d2a65ab03137ae",
       "childrenByOrder": {},
       "id": 179,
       "siblings": [],
@@ -264,21 +264,21 @@
           "type": "module",
           "moduleType": "javascript/esm",
           "layer": null,
-          "size": 1885,
+          "size": 2424,
           "sizes": {
-            "javascript": 1885
+            "javascript": 2424
           },
           "built": true,
           "codeGenerated": true,
           "buildTimeExecuted": false,
           "cached": false,
-          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js|0a9f4b42fb5c9197f928c73c39865fda",
-          "name": "./src/main.js + 2 modules",
+          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js|fef176b56ff67fe340414c6175854566",
+          "name": "./src/main.js + 3 modules",
           "nameForCondition": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
           "index": 0,
           "preOrderIndex": 0,
-          "index2": 8,
-          "postOrderIndex": 8,
+          "index2": 9,
+          "postOrderIndex": 9,
           "cacheable": true,
           "optional": false,
           "orphan": false,
@@ -286,7 +286,7 @@
           "failed": false,
           "errors": 0,
           "warnings": 0,
-          "id": 904,
+          "id": 344,
           "chunks": [
             179
           ],
@@ -316,21 +316,21 @@
               "type": "module",
               "moduleType": "javascript/auto",
               "layer": null,
-              "size": 840,
+              "size": 897,
               "sizes": {
-                "javascript": 840
+                "javascript": 897
               },
               "built": true,
               "codeGenerated": false,
               "buildTimeExecuted": false,
               "cached": false,
-              "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+              "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
               "name": "./src/main.js",
               "nameForCondition": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
               "index": 0,
               "preOrderIndex": 0,
-              "index2": 8,
-              "postOrderIndex": 8,
+              "index2": 9,
+              "postOrderIndex": 9,
               "cacheable": true,
               "optional": false,
               "orphan": false,
@@ -349,7 +349,7 @@
               "usedExports": [],
               "providedExports": [],
               "optimizationBailout": [
-                "Statement (VariableDeclaration) with side effects in source code at 18:0-27"
+                "Statement (ExpressionStatement) with side effects in source code at 19:0-23"
               ],
               "depth": 0
             },
@@ -357,17 +357,17 @@
               "type": "module",
               "moduleType": "javascript/auto",
               "layer": null,
-              "size": 447,
+              "size": 482,
               "sizes": {
-                "javascript": 447
+                "javascript": 482
               },
               "built": true,
               "codeGenerated": false,
               "buildTimeExecuted": false,
               "cached": false,
-              "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\js\\count.js",
-              "name": "./src/js/count.js",
-              "nameForCondition": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\js\\count.js",
+              "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\js\\math.js",
+              "name": "./src/js/math.js",
+              "nameForCondition": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\js\\math.js",
               "index": 7,
               "preOrderIndex": 7,
               "index2": 6,
@@ -376,11 +376,11 @@
               "optional": false,
               "orphan": false,
               "dependent": true,
-              "issuer": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+              "issuer": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
               "issuerName": "./src/main.js",
               "issuerPath": [
                 {
-                  "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+                  "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
                   "name": "./src/main.js",
                   "id": null
                 }
@@ -394,10 +394,89 @@
               "assets": [],
               "reasons": [
                 {
-                  "moduleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+                  "moduleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
                   "module": "./src/main.js",
                   "moduleName": "./src/main.js",
-                  "resolvedModuleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+                  "resolvedModuleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+                  "resolvedModule": "./src/main.js",
+                  "type": "harmony side effect evaluation",
+                  "active": false,
+                  "explanation": "",
+                  "userRequest": "./js/math",
+                  "loc": "11:0-32",
+                  "moduleId": null,
+                  "resolvedModuleId": null
+                },
+                {
+                  "moduleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+                  "module": "./src/main.js",
+                  "moduleName": "./src/main.js",
+                  "resolvedModuleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+                  "resolvedModule": "./src/main.js",
+                  "type": "harmony import specifier",
+                  "active": true,
+                  "explanation": "",
+                  "userRequest": "./js/math",
+                  "loc": "19:12-15",
+                  "moduleId": null,
+                  "resolvedModuleId": null
+                }
+              ],
+              "usedExports": [
+                "mul"
+              ],
+              "providedExports": [
+                "add",
+                "mul"
+              ],
+              "optimizationBailout": [],
+              "depth": 1
+            },
+            {
+              "type": "module",
+              "moduleType": "javascript/auto",
+              "layer": null,
+              "size": 447,
+              "sizes": {
+                "javascript": 447
+              },
+              "built": true,
+              "codeGenerated": false,
+              "buildTimeExecuted": false,
+              "cached": false,
+              "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\js\\count.js",
+              "name": "./src/js/count.js",
+              "nameForCondition": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\js\\count.js",
+              "index": 8,
+              "preOrderIndex": 8,
+              "index2": 7,
+              "postOrderIndex": 7,
+              "cacheable": true,
+              "optional": false,
+              "orphan": false,
+              "dependent": true,
+              "issuer": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+              "issuerName": "./src/main.js",
+              "issuerPath": [
+                {
+                  "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+                  "name": "./src/main.js",
+                  "id": null
+                }
+              ],
+              "failed": false,
+              "errors": 0,
+              "warnings": 0,
+              "id": null,
+              "issuerId": null,
+              "chunks": [],
+              "assets": [],
+              "reasons": [
+                {
+                  "moduleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+                  "module": "./src/main.js",
+                  "moduleName": "./src/main.js",
+                  "resolvedModuleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
                   "resolvedModule": "./src/main.js",
                   "type": "harmony side effect evaluation",
                   "active": false,
@@ -408,30 +487,30 @@
                   "resolvedModuleId": null
                 },
                 {
-                  "moduleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+                  "moduleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
                   "module": "./src/main.js",
                   "moduleName": "./src/main.js",
-                  "resolvedModuleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+                  "resolvedModuleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
                   "resolvedModule": "./src/main.js",
                   "type": "harmony import specifier",
                   "active": true,
                   "explanation": "",
                   "userRequest": "./js/count",
-                  "loc": "18:15-20",
+                  "loc": "20:15-20",
                   "moduleId": null,
                   "resolvedModuleId": null
                 },
                 {
-                  "moduleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+                  "moduleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
                   "module": "./src/main.js",
                   "moduleName": "./src/main.js",
-                  "resolvedModuleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+                  "resolvedModuleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
                   "resolvedModule": "./src/main.js",
                   "type": "harmony import specifier",
                   "active": true,
                   "explanation": "",
                   "userRequest": "./js/count",
-                  "loc": "20:12-17",
+                  "loc": "22:12-17",
                   "moduleId": null,
                   "resolvedModuleId": null
                 }
@@ -457,22 +536,22 @@
               "codeGenerated": false,
               "buildTimeExecuted": false,
               "cached": false,
-              "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\js\\sum.js",
+              "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\js\\sum.js",
               "name": "./src/js/sum.js",
               "nameForCondition": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\js\\sum.js",
-              "index": 8,
-              "preOrderIndex": 8,
-              "index2": 7,
-              "postOrderIndex": 7,
+              "index": 9,
+              "preOrderIndex": 9,
+              "index2": 8,
+              "postOrderIndex": 8,
               "cacheable": true,
               "optional": false,
               "orphan": false,
               "dependent": true,
-              "issuer": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+              "issuer": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
               "issuerName": "./src/main.js",
               "issuerPath": [
                 {
-                  "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+                  "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
                   "name": "./src/main.js",
                   "id": null
                 }
@@ -486,10 +565,10 @@
               "assets": [],
               "reasons": [
                 {
-                  "moduleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+                  "moduleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
                   "module": "./src/main.js",
                   "moduleName": "./src/main.js",
-                  "resolvedModuleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+                  "resolvedModuleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
                   "resolvedModule": "./src/main.js",
                   "type": "harmony side effect evaluation",
                   "active": false,
@@ -500,16 +579,16 @@
                   "resolvedModuleId": null
                 },
                 {
-                  "moduleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+                  "moduleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
                   "module": "./src/main.js",
                   "moduleName": "./src/main.js",
-                  "resolvedModuleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+                  "resolvedModuleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
                   "resolvedModule": "./src/main.js",
                   "type": "harmony import specifier",
                   "active": true,
                   "explanation": "",
                   "userRequest": "./js/sum",
-                  "loc": "21:12-15",
+                  "loc": "23:12-15",
                   "moduleId": null,
                   "resolvedModuleId": null
                 }
@@ -551,7 +630,7 @@
           "issuerName": "./src/css/iconfont.css",
           "issuerPath": [
             {
-              "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+              "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
               "name": "./src/main.js",
               "id": null
             },
@@ -618,7 +697,7 @@
           "issuerName": "./src/css/index.css",
           "issuerPath": [
             {
-              "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+              "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
               "name": "./src/main.js",
               "id": null
             },
@@ -685,7 +764,7 @@
           "issuerName": "./src/less/index.less",
           "issuerPath": [
             {
-              "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+              "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
               "name": "./src/main.js",
               "id": null
             },
@@ -752,7 +831,7 @@
           "issuerName": "./src/sass/index.sass",
           "issuerPath": [
             {
-              "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+              "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
               "name": "./src/main.js",
               "id": null
             },
@@ -819,7 +898,7 @@
           "issuerName": "./src/sass/index.scss",
           "issuerPath": [
             {
-              "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+              "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
               "name": "./src/main.js",
               "id": null
             },
@@ -886,7 +965,7 @@
           "issuerName": "./src/stylus/index.styl",
           "issuerPath": [
             {
-              "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+              "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
               "name": "./src/main.js",
               "id": null
             },
@@ -944,28 +1023,28 @@
       "type": "module",
       "moduleType": "javascript/esm",
       "layer": null,
-      "size": 1885,
+      "size": 2424,
       "sizes": {
-        "javascript": 1885
+        "javascript": 2424
       },
       "built": true,
       "codeGenerated": true,
       "buildTimeExecuted": false,
       "cached": false,
-      "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js|0a9f4b42fb5c9197f928c73c39865fda",
-      "name": "./src/main.js + 2 modules",
+      "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js|fef176b56ff67fe340414c6175854566",
+      "name": "./src/main.js + 3 modules",
       "nameForCondition": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
       "index": 0,
       "preOrderIndex": 0,
-      "index2": 8,
-      "postOrderIndex": 8,
+      "index2": 9,
+      "postOrderIndex": 9,
       "cacheable": true,
       "optional": false,
       "orphan": false,
       "failed": false,
       "errors": 0,
       "warnings": 0,
-      "id": 904,
+      "id": 344,
       "chunks": [
         179
       ],
@@ -995,21 +1074,21 @@
           "type": "module",
           "moduleType": "javascript/auto",
           "layer": null,
-          "size": 840,
+          "size": 897,
           "sizes": {
-            "javascript": 840
+            "javascript": 897
           },
           "built": true,
           "codeGenerated": false,
           "buildTimeExecuted": false,
           "cached": false,
-          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
           "name": "./src/main.js",
           "nameForCondition": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
           "index": 0,
           "preOrderIndex": 0,
-          "index2": 8,
-          "postOrderIndex": 8,
+          "index2": 9,
+          "postOrderIndex": 9,
           "cacheable": true,
           "optional": false,
           "orphan": false,
@@ -1027,7 +1106,7 @@
           "usedExports": [],
           "providedExports": [],
           "optimizationBailout": [
-            "Statement (VariableDeclaration) with side effects in source code at 18:0-27"
+            "Statement (ExpressionStatement) with side effects in source code at 19:0-23"
           ],
           "depth": 0
         },
@@ -1035,17 +1114,17 @@
           "type": "module",
           "moduleType": "javascript/auto",
           "layer": null,
-          "size": 447,
+          "size": 482,
           "sizes": {
-            "javascript": 447
+            "javascript": 482
           },
           "built": true,
           "codeGenerated": false,
           "buildTimeExecuted": false,
           "cached": false,
-          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\js\\count.js",
-          "name": "./src/js/count.js",
-          "nameForCondition": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\js\\count.js",
+          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\js\\math.js",
+          "name": "./src/js/math.js",
+          "nameForCondition": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\js\\math.js",
           "index": 7,
           "preOrderIndex": 7,
           "index2": 6,
@@ -1053,11 +1132,11 @@
           "cacheable": true,
           "optional": false,
           "orphan": false,
-          "issuer": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+          "issuer": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
           "issuerName": "./src/main.js",
           "issuerPath": [
             {
-              "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+              "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
               "name": "./src/main.js",
               "id": null
             }
@@ -1071,10 +1150,88 @@
           "assets": [],
           "reasons": [
             {
-              "moduleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+              "moduleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
               "module": "./src/main.js",
               "moduleName": "./src/main.js",
-              "resolvedModuleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+              "resolvedModuleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+              "resolvedModule": "./src/main.js",
+              "type": "harmony side effect evaluation",
+              "active": false,
+              "explanation": "",
+              "userRequest": "./js/math",
+              "loc": "11:0-32",
+              "moduleId": null,
+              "resolvedModuleId": null
+            },
+            {
+              "moduleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+              "module": "./src/main.js",
+              "moduleName": "./src/main.js",
+              "resolvedModuleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+              "resolvedModule": "./src/main.js",
+              "type": "harmony import specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "./js/math",
+              "loc": "19:12-15",
+              "moduleId": null,
+              "resolvedModuleId": null
+            }
+          ],
+          "usedExports": [
+            "mul"
+          ],
+          "providedExports": [
+            "add",
+            "mul"
+          ],
+          "optimizationBailout": [],
+          "depth": 1
+        },
+        {
+          "type": "module",
+          "moduleType": "javascript/auto",
+          "layer": null,
+          "size": 447,
+          "sizes": {
+            "javascript": 447
+          },
+          "built": true,
+          "codeGenerated": false,
+          "buildTimeExecuted": false,
+          "cached": false,
+          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\js\\count.js",
+          "name": "./src/js/count.js",
+          "nameForCondition": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\js\\count.js",
+          "index": 8,
+          "preOrderIndex": 8,
+          "index2": 7,
+          "postOrderIndex": 7,
+          "cacheable": true,
+          "optional": false,
+          "orphan": false,
+          "issuer": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+          "issuerName": "./src/main.js",
+          "issuerPath": [
+            {
+              "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+              "name": "./src/main.js",
+              "id": null
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "id": null,
+          "issuerId": null,
+          "chunks": [],
+          "assets": [],
+          "reasons": [
+            {
+              "moduleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+              "module": "./src/main.js",
+              "moduleName": "./src/main.js",
+              "resolvedModuleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
               "resolvedModule": "./src/main.js",
               "type": "harmony side effect evaluation",
               "active": false,
@@ -1085,30 +1242,30 @@
               "resolvedModuleId": null
             },
             {
-              "moduleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+              "moduleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
               "module": "./src/main.js",
               "moduleName": "./src/main.js",
-              "resolvedModuleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+              "resolvedModuleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
               "resolvedModule": "./src/main.js",
               "type": "harmony import specifier",
               "active": true,
               "explanation": "",
               "userRequest": "./js/count",
-              "loc": "18:15-20",
+              "loc": "20:15-20",
               "moduleId": null,
               "resolvedModuleId": null
             },
             {
-              "moduleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+              "moduleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
               "module": "./src/main.js",
               "moduleName": "./src/main.js",
-              "resolvedModuleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+              "resolvedModuleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
               "resolvedModule": "./src/main.js",
               "type": "harmony import specifier",
               "active": true,
               "explanation": "",
               "userRequest": "./js/count",
-              "loc": "20:12-17",
+              "loc": "22:12-17",
               "moduleId": null,
               "resolvedModuleId": null
             }
@@ -1134,21 +1291,21 @@
           "codeGenerated": false,
           "buildTimeExecuted": false,
           "cached": false,
-          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\js\\sum.js",
+          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\js\\sum.js",
           "name": "./src/js/sum.js",
           "nameForCondition": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\js\\sum.js",
-          "index": 8,
-          "preOrderIndex": 8,
-          "index2": 7,
-          "postOrderIndex": 7,
+          "index": 9,
+          "preOrderIndex": 9,
+          "index2": 8,
+          "postOrderIndex": 8,
           "cacheable": true,
           "optional": false,
           "orphan": false,
-          "issuer": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+          "issuer": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
           "issuerName": "./src/main.js",
           "issuerPath": [
             {
-              "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+              "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
               "name": "./src/main.js",
               "id": null
             }
@@ -1162,10 +1319,10 @@
           "assets": [],
           "reasons": [
             {
-              "moduleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+              "moduleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
               "module": "./src/main.js",
               "moduleName": "./src/main.js",
-              "resolvedModuleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+              "resolvedModuleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
               "resolvedModule": "./src/main.js",
               "type": "harmony side effect evaluation",
               "active": false,
@@ -1176,16 +1333,16 @@
               "resolvedModuleId": null
             },
             {
-              "moduleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+              "moduleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
               "module": "./src/main.js",
               "moduleName": "./src/main.js",
-              "resolvedModuleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+              "resolvedModuleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
               "resolvedModule": "./src/main.js",
               "type": "harmony import specifier",
               "active": true,
               "explanation": "",
               "userRequest": "./js/sum",
-              "loc": "21:12-15",
+              "loc": "23:12-15",
               "moduleId": null,
               "resolvedModuleId": null
             }
@@ -1205,17 +1362,17 @@
       "type": "module",
       "moduleType": "javascript/auto",
       "layer": null,
-      "size": 447,
+      "size": 482,
       "sizes": {
-        "javascript": 447
+        "javascript": 482
       },
       "built": true,
       "codeGenerated": false,
       "buildTimeExecuted": false,
       "cached": false,
-      "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\js\\count.js",
-      "name": "./src/js/count.js",
-      "nameForCondition": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\js\\count.js",
+      "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\js\\math.js",
+      "name": "./src/js/math.js",
+      "nameForCondition": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\js\\math.js",
       "index": 7,
       "preOrderIndex": 7,
       "index2": 6,
@@ -1223,11 +1380,11 @@
       "cacheable": true,
       "optional": false,
       "orphan": true,
-      "issuer": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+      "issuer": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
       "issuerName": "./src/main.js",
       "issuerPath": [
         {
-          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
           "name": "./src/main.js",
           "id": null
         }
@@ -1241,10 +1398,88 @@
       "assets": [],
       "reasons": [
         {
-          "moduleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+          "moduleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
           "module": "./src/main.js",
           "moduleName": "./src/main.js",
-          "resolvedModuleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+          "resolvedModuleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+          "resolvedModule": "./src/main.js",
+          "type": "harmony side effect evaluation",
+          "active": false,
+          "explanation": "",
+          "userRequest": "./js/math",
+          "loc": "11:0-32",
+          "moduleId": null,
+          "resolvedModuleId": null
+        },
+        {
+          "moduleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+          "module": "./src/main.js",
+          "moduleName": "./src/main.js",
+          "resolvedModuleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+          "resolvedModule": "./src/main.js",
+          "type": "harmony import specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "./js/math",
+          "loc": "19:12-15",
+          "moduleId": null,
+          "resolvedModuleId": null
+        }
+      ],
+      "usedExports": [
+        "mul"
+      ],
+      "providedExports": [
+        "add",
+        "mul"
+      ],
+      "optimizationBailout": [],
+      "depth": 1
+    },
+    {
+      "type": "module",
+      "moduleType": "javascript/auto",
+      "layer": null,
+      "size": 447,
+      "sizes": {
+        "javascript": 447
+      },
+      "built": true,
+      "codeGenerated": false,
+      "buildTimeExecuted": false,
+      "cached": false,
+      "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\js\\count.js",
+      "name": "./src/js/count.js",
+      "nameForCondition": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\js\\count.js",
+      "index": 8,
+      "preOrderIndex": 8,
+      "index2": 7,
+      "postOrderIndex": 7,
+      "cacheable": true,
+      "optional": false,
+      "orphan": true,
+      "issuer": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+      "issuerName": "./src/main.js",
+      "issuerPath": [
+        {
+          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+          "name": "./src/main.js",
+          "id": null
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "id": null,
+      "issuerId": null,
+      "chunks": [],
+      "assets": [],
+      "reasons": [
+        {
+          "moduleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+          "module": "./src/main.js",
+          "moduleName": "./src/main.js",
+          "resolvedModuleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
           "resolvedModule": "./src/main.js",
           "type": "harmony side effect evaluation",
           "active": false,
@@ -1255,30 +1490,30 @@
           "resolvedModuleId": null
         },
         {
-          "moduleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+          "moduleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
           "module": "./src/main.js",
           "moduleName": "./src/main.js",
-          "resolvedModuleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+          "resolvedModuleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
           "resolvedModule": "./src/main.js",
           "type": "harmony import specifier",
           "active": true,
           "explanation": "",
           "userRequest": "./js/count",
-          "loc": "18:15-20",
+          "loc": "20:15-20",
           "moduleId": null,
           "resolvedModuleId": null
         },
         {
-          "moduleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+          "moduleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
           "module": "./src/main.js",
           "moduleName": "./src/main.js",
-          "resolvedModuleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+          "resolvedModuleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
           "resolvedModule": "./src/main.js",
           "type": "harmony import specifier",
           "active": true,
           "explanation": "",
           "userRequest": "./js/count",
-          "loc": "20:12-17",
+          "loc": "22:12-17",
           "moduleId": null,
           "resolvedModuleId": null
         }
@@ -1304,21 +1539,21 @@
       "codeGenerated": false,
       "buildTimeExecuted": false,
       "cached": false,
-      "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\js\\sum.js",
+      "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\js\\sum.js",
       "name": "./src/js/sum.js",
       "nameForCondition": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\js\\sum.js",
-      "index": 8,
-      "preOrderIndex": 8,
-      "index2": 7,
-      "postOrderIndex": 7,
+      "index": 9,
+      "preOrderIndex": 9,
+      "index2": 8,
+      "postOrderIndex": 8,
       "cacheable": true,
       "optional": false,
       "orphan": true,
-      "issuer": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+      "issuer": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
       "issuerName": "./src/main.js",
       "issuerPath": [
         {
-          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
           "name": "./src/main.js",
           "id": null
         }
@@ -1332,10 +1567,10 @@
       "assets": [],
       "reasons": [
         {
-          "moduleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+          "moduleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
           "module": "./src/main.js",
           "moduleName": "./src/main.js",
-          "resolvedModuleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+          "resolvedModuleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
           "resolvedModule": "./src/main.js",
           "type": "harmony side effect evaluation",
           "active": false,
@@ -1346,16 +1581,16 @@
           "resolvedModuleId": null
         },
         {
-          "moduleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+          "moduleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
           "module": "./src/main.js",
           "moduleName": "./src/main.js",
-          "resolvedModuleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+          "resolvedModuleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
           "resolvedModule": "./src/main.js",
           "type": "harmony import specifier",
           "active": true,
           "explanation": "",
           "userRequest": "./js/sum",
-          "loc": "21:12-15",
+          "loc": "23:12-15",
           "moduleId": null,
           "resolvedModuleId": null
         }
@@ -1391,11 +1626,11 @@
       "cacheable": true,
       "optional": false,
       "orphan": true,
-      "issuer": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+      "issuer": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
       "issuerName": "./src/main.js",
       "issuerPath": [
         {
-          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
           "name": "./src/main.js",
           "id": null
         }
@@ -1408,22 +1643,22 @@
       "chunks": [],
       "assets": [
         "static/media/f5aa4a4795.woff2?t=1665989206856",
-        "static/media/778aca25e0.woff?t=1665989206856",
-        "static/media/8bb9d608da.ttf?t=1665989206856"
+        "static/media/8bb9d608da.ttf?t=1665989206856",
+        "static/media/778aca25e0.woff?t=1665989206856"
       ],
       "reasons": [
         {
-          "moduleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js|0a9f4b42fb5c9197f928c73c39865fda",
-          "module": "./src/main.js + 2 modules",
-          "moduleName": "./src/main.js + 2 modules",
-          "resolvedModuleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+          "moduleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js|fef176b56ff67fe340414c6175854566",
+          "module": "./src/main.js + 3 modules",
+          "moduleName": "./src/main.js + 3 modules",
+          "resolvedModuleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
           "resolvedModule": "./src/main.js",
           "type": "harmony side effect evaluation",
           "active": true,
           "explanation": "",
           "userRequest": "./css/iconfont.css",
-          "loc": "12:0-28",
-          "moduleId": 904,
+          "loc": "13:0-28",
+          "moduleId": 344,
           "resolvedModuleId": null
         }
       ],
@@ -1456,11 +1691,11 @@
       "cacheable": true,
       "optional": false,
       "orphan": true,
-      "issuer": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+      "issuer": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
       "issuerName": "./src/main.js",
       "issuerPath": [
         {
-          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
           "name": "./src/main.js",
           "id": null
         }
@@ -1476,17 +1711,17 @@
       ],
       "reasons": [
         {
-          "moduleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js|0a9f4b42fb5c9197f928c73c39865fda",
-          "module": "./src/main.js + 2 modules",
-          "moduleName": "./src/main.js + 2 modules",
-          "resolvedModuleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+          "moduleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js|fef176b56ff67fe340414c6175854566",
+          "module": "./src/main.js + 3 modules",
+          "moduleName": "./src/main.js + 3 modules",
+          "resolvedModuleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
           "resolvedModule": "./src/main.js",
           "type": "harmony side effect evaluation",
           "active": true,
           "explanation": "",
           "userRequest": "./css/index.css",
-          "loc": "13:0-25",
-          "moduleId": 904,
+          "loc": "14:0-25",
+          "moduleId": 344,
           "resolvedModuleId": null
         }
       ],
@@ -1519,11 +1754,11 @@
       "cacheable": true,
       "optional": false,
       "orphan": true,
-      "issuer": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+      "issuer": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
       "issuerName": "./src/main.js",
       "issuerPath": [
         {
-          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
           "name": "./src/main.js",
           "id": null
         }
@@ -1537,17 +1772,17 @@
       "assets": [],
       "reasons": [
         {
-          "moduleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js|0a9f4b42fb5c9197f928c73c39865fda",
-          "module": "./src/main.js + 2 modules",
-          "moduleName": "./src/main.js + 2 modules",
-          "resolvedModuleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+          "moduleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js|fef176b56ff67fe340414c6175854566",
+          "module": "./src/main.js + 3 modules",
+          "moduleName": "./src/main.js + 3 modules",
+          "resolvedModuleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
           "resolvedModule": "./src/main.js",
           "type": "harmony side effect evaluation",
           "active": true,
           "explanation": "",
           "userRequest": "./less/index.less",
-          "loc": "14:0-27",
-          "moduleId": 904,
+          "loc": "15:0-27",
+          "moduleId": 344,
           "resolvedModuleId": null
         }
       ],
@@ -1580,11 +1815,11 @@
       "cacheable": true,
       "optional": false,
       "orphan": true,
-      "issuer": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+      "issuer": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
       "issuerName": "./src/main.js",
       "issuerPath": [
         {
-          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
           "name": "./src/main.js",
           "id": null
         }
@@ -1598,17 +1833,17 @@
       "assets": [],
       "reasons": [
         {
-          "moduleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js|0a9f4b42fb5c9197f928c73c39865fda",
-          "module": "./src/main.js + 2 modules",
-          "moduleName": "./src/main.js + 2 modules",
-          "resolvedModuleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+          "moduleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js|fef176b56ff67fe340414c6175854566",
+          "module": "./src/main.js + 3 modules",
+          "moduleName": "./src/main.js + 3 modules",
+          "resolvedModuleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
           "resolvedModule": "./src/main.js",
           "type": "harmony side effect evaluation",
           "active": true,
           "explanation": "",
           "userRequest": "./sass/index.sass",
-          "loc": "15:0-27",
-          "moduleId": 904,
+          "loc": "16:0-27",
+          "moduleId": 344,
           "resolvedModuleId": null
         }
       ],
@@ -1641,11 +1876,11 @@
       "cacheable": true,
       "optional": false,
       "orphan": true,
-      "issuer": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+      "issuer": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
       "issuerName": "./src/main.js",
       "issuerPath": [
         {
-          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
           "name": "./src/main.js",
           "id": null
         }
@@ -1659,17 +1894,17 @@
       "assets": [],
       "reasons": [
         {
-          "moduleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js|0a9f4b42fb5c9197f928c73c39865fda",
-          "module": "./src/main.js + 2 modules",
-          "moduleName": "./src/main.js + 2 modules",
-          "resolvedModuleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+          "moduleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js|fef176b56ff67fe340414c6175854566",
+          "module": "./src/main.js + 3 modules",
+          "moduleName": "./src/main.js + 3 modules",
+          "resolvedModuleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
           "resolvedModule": "./src/main.js",
           "type": "harmony side effect evaluation",
           "active": true,
           "explanation": "",
           "userRequest": "./sass/index.scss",
-          "loc": "16:0-27",
-          "moduleId": 904,
+          "loc": "17:0-27",
+          "moduleId": 344,
           "resolvedModuleId": null
         }
       ],
@@ -1702,11 +1937,11 @@
       "cacheable": true,
       "optional": false,
       "orphan": true,
-      "issuer": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+      "issuer": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
       "issuerName": "./src/main.js",
       "issuerPath": [
         {
-          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
           "name": "./src/main.js",
           "id": null
         }
@@ -1720,17 +1955,17 @@
       "assets": [],
       "reasons": [
         {
-          "moduleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js|0a9f4b42fb5c9197f928c73c39865fda",
-          "module": "./src/main.js + 2 modules",
-          "moduleName": "./src/main.js + 2 modules",
-          "resolvedModuleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+          "moduleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js|fef176b56ff67fe340414c6175854566",
+          "module": "./src/main.js + 3 modules",
+          "moduleName": "./src/main.js + 3 modules",
+          "resolvedModuleIdentifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
           "resolvedModule": "./src/main.js",
           "type": "harmony side effect evaluation",
           "active": true,
           "explanation": "",
           "userRequest": "./stylus/index.styl",
-          "loc": "17:0-29",
-          "moduleId": 904,
+          "loc": "18:0-29",
+          "moduleId": 344,
           "resolvedModuleId": null
         }
       ],
@@ -1766,7 +2001,7 @@
       "issuerName": "./src/css/iconfont.css",
       "issuerPath": [
         {
-          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
           "name": "./src/main.js",
           "id": null
         },
@@ -1832,7 +2067,7 @@
       "issuerName": "./src/css/index.css",
       "issuerPath": [
         {
-          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
           "name": "./src/main.js",
           "id": null
         },
@@ -1898,7 +2133,7 @@
       "issuerName": "./src/less/index.less",
       "issuerPath": [
         {
-          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
           "name": "./src/main.js",
           "id": null
         },
@@ -1964,7 +2199,7 @@
       "issuerName": "./src/sass/index.sass",
       "issuerPath": [
         {
-          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
           "name": "./src/main.js",
           "id": null
         },
@@ -2030,7 +2265,7 @@
       "issuerName": "./src/sass/index.scss",
       "issuerPath": [
         {
-          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
           "name": "./src/main.js",
           "id": null
         },
@@ -2096,7 +2331,7 @@
       "issuerName": "./src/stylus/index.styl",
       "issuerPath": [
         {
-          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
           "name": "./src/main.js",
           "id": null
         },
@@ -2163,7 +2398,7 @@
       "issuerName": "./src/css/iconfont.css",
       "issuerPath": [
         {
-          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
           "name": "./src/main.js",
           "id": null
         },
@@ -2232,7 +2467,7 @@
       "issuerName": "./src/css/index.css",
       "issuerPath": [
         {
-          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
           "name": "./src/main.js",
           "id": null
         },
@@ -2301,7 +2536,7 @@
       "issuerName": "./src/less/index.less",
       "issuerPath": [
         {
-          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
           "name": "./src/main.js",
           "id": null
         },
@@ -2370,7 +2605,7 @@
       "issuerName": "./src/sass/index.sass",
       "issuerPath": [
         {
-          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
           "name": "./src/main.js",
           "id": null
         },
@@ -2439,7 +2674,7 @@
       "issuerName": "./src/sass/index.scss",
       "issuerPath": [
         {
-          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
           "name": "./src/main.js",
           "id": null
         },
@@ -2508,7 +2743,7 @@
       "issuerName": "./src/stylus/index.styl",
       "issuerPath": [
         {
-          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
           "name": "./src/main.js",
           "id": null
         },
@@ -2573,22 +2808,22 @@
       "cacheable": true,
       "optional": false,
       "orphan": true,
-      "issuer": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\css-loader\\dist\\cjs.js!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\postcss-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[0].use[2]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\css\\iconfont.css",
-      "issuerName": "./src/css/iconfont.css.webpack[javascript/auto]!=!./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[0].oneOf[0].use[2]!./src/css/iconfont.css",
+      "issuer": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\css-loader\\dist\\cjs.js!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\postcss-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[0].use[2]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\css\\index.css",
+      "issuerName": "./src/css/index.css.webpack[javascript/auto]!=!./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[0].oneOf[0].use[2]!./src/css/index.css",
       "issuerPath": [
         {
-          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
           "name": "./src/main.js",
           "id": null
         },
         {
-          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\mini-css-extract-plugin\\dist\\loader.js!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\css-loader\\dist\\cjs.js!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\postcss-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[0].use[2]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\css\\iconfont.css",
-          "name": "./src/css/iconfont.css",
+          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\mini-css-extract-plugin\\dist\\loader.js!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\css-loader\\dist\\cjs.js!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\postcss-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[0].use[2]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\css\\index.css",
+          "name": "./src/css/index.css",
           "id": null
         },
         {
-          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\css-loader\\dist\\cjs.js!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\postcss-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[0].use[2]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\css\\iconfont.css",
-          "name": "./src/css/iconfont.css.webpack[javascript/auto]!=!./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[0].oneOf[0].use[2]!./src/css/iconfont.css",
+          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\css-loader\\dist\\cjs.js!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\postcss-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[0].use[2]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\css\\index.css",
+          "name": "./src/css/index.css.webpack[javascript/auto]!=!./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[0].oneOf[0].use[2]!./src/css/index.css",
           "id": null
         }
       ],
@@ -2814,22 +3049,22 @@
       "cacheable": true,
       "optional": false,
       "orphan": true,
-      "issuer": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\css-loader\\dist\\cjs.js!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\postcss-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[0].use[2]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\css\\iconfont.css",
-      "issuerName": "./src/css/iconfont.css.webpack[javascript/auto]!=!./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[0].oneOf[0].use[2]!./src/css/iconfont.css",
+      "issuer": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\css-loader\\dist\\cjs.js!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\postcss-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[0].use[2]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\css\\index.css",
+      "issuerName": "./src/css/index.css.webpack[javascript/auto]!=!./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[0].oneOf[0].use[2]!./src/css/index.css",
       "issuerPath": [
         {
-          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
           "name": "./src/main.js",
           "id": null
         },
         {
-          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\mini-css-extract-plugin\\dist\\loader.js!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\css-loader\\dist\\cjs.js!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\postcss-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[0].use[2]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\css\\iconfont.css",
-          "name": "./src/css/iconfont.css",
+          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\mini-css-extract-plugin\\dist\\loader.js!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\css-loader\\dist\\cjs.js!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\postcss-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[0].use[2]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\css\\index.css",
+          "name": "./src/css/index.css",
           "id": null
         },
         {
-          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\css-loader\\dist\\cjs.js!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\postcss-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[0].use[2]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\css\\iconfont.css",
-          "name": "./src/css/iconfont.css.webpack[javascript/auto]!=!./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[0].oneOf[0].use[2]!./src/css/iconfont.css",
+          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\css-loader\\dist\\cjs.js!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\postcss-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[0].use[2]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\css\\index.css",
+          "name": "./src/css/index.css.webpack[javascript/auto]!=!./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[0].oneOf[0].use[2]!./src/css/index.css",
           "id": null
         }
       ],
@@ -2971,22 +3206,22 @@
       "cacheable": true,
       "optional": false,
       "orphan": true,
-      "issuer": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\css-loader\\dist\\cjs.js!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\postcss-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[0].use[2]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\css\\iconfont.css",
-      "issuerName": "./src/css/iconfont.css.webpack[javascript/auto]!=!./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[0].oneOf[0].use[2]!./src/css/iconfont.css",
+      "issuer": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\css-loader\\dist\\cjs.js!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\postcss-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[0].use[2]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\css\\index.css",
+      "issuerName": "./src/css/index.css.webpack[javascript/auto]!=!./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[0].oneOf[0].use[2]!./src/css/index.css",
       "issuerPath": [
         {
-          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
           "name": "./src/main.js",
           "id": null
         },
         {
-          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\mini-css-extract-plugin\\dist\\loader.js!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\css-loader\\dist\\cjs.js!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\postcss-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[0].use[2]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\css\\iconfont.css",
-          "name": "./src/css/iconfont.css",
+          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\mini-css-extract-plugin\\dist\\loader.js!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\css-loader\\dist\\cjs.js!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\postcss-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[0].use[2]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\css\\index.css",
+          "name": "./src/css/index.css",
           "id": null
         },
         {
-          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\css-loader\\dist\\cjs.js!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\postcss-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[0].use[2]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\css\\iconfont.css",
-          "name": "./src/css/iconfont.css.webpack[javascript/auto]!=!./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[0].oneOf[0].use[2]!./src/css/iconfont.css",
+          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\css-loader\\dist\\cjs.js!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\postcss-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[0].use[2]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\css\\index.css",
+          "name": "./src/css/index.css.webpack[javascript/auto]!=!./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[0].oneOf[0].use[2]!./src/css/index.css",
           "id": null
         }
       ],
@@ -3217,7 +3452,7 @@
       "issuerName": "./src/css/iconfont.css.webpack[javascript/auto]!=!./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[0].oneOf[0].use[2]!./src/css/iconfont.css",
       "issuerPath": [
         {
-          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
           "name": "./src/main.js",
           "id": null
         },
@@ -3289,7 +3524,7 @@
       "issuerName": "./src/css/iconfont.css.webpack[javascript/auto]!=!./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[0].oneOf[0].use[2]!./src/css/iconfont.css",
       "issuerPath": [
         {
-          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
           "name": "./src/main.js",
           "id": null
         },
@@ -3361,7 +3596,7 @@
       "issuerName": "./src/css/iconfont.css.webpack[javascript/auto]!=!./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[0].oneOf[0].use[2]!./src/css/iconfont.css",
       "issuerPath": [
         {
-          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
           "name": "./src/main.js",
           "id": null
         },
@@ -3433,7 +3668,7 @@
       "issuerName": "./src/css/index.css.webpack[javascript/auto]!=!./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[0].oneOf[0].use[2]!./src/css/index.css",
       "issuerPath": [
         {
-          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
+          "identifier": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\thread-loader\\dist\\cjs.js??ruleSet[1].rules[0].oneOf[6].use[0]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\node_modules\\babel-loader\\lib\\index.js??ruleSet[1].rules[0].oneOf[6].use[1]!C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\src\\main.js",
           "name": "./src/main.js",
           "id": null
         },
@@ -4472,11 +4707,11 @@
         },
         {
           "name": "static/js/main.js",
-          "size": 282
+          "size": 299
         }
       ],
       "filteredAssets": 0,
-      "assetsSize": 1186,
+      "assetsSize": 1203,
       "auxiliaryAssets": [
         {
           "name": "static/css/main.css.map",
@@ -4484,11 +4719,11 @@
         },
         {
           "name": "static/js/main.js.map",
-          "size": 2480
+          "size": 2566
         }
       ],
       "filteredAuxiliaryAssets": 0,
-      "auxiliaryAssetsSize": 4388,
+      "auxiliaryAssetsSize": 4474,
       "children": {},
       "childAssets": {},
       "isOverSizeLimit": false
@@ -4507,11 +4742,11 @@
         },
         {
           "name": "static/js/main.js",
-          "size": 282
+          "size": 299
         }
       ],
       "filteredAssets": 0,
-      "assetsSize": 1186,
+      "assetsSize": 1203,
       "auxiliaryAssets": [
         {
           "name": "static/css/main.css.map",
@@ -4519,11 +4754,11 @@
         },
         {
           "name": "static/js/main.js.map",
-          "size": 2480
+          "size": 2566
         }
       ],
       "filteredAuxiliaryAssets": 0,
-      "auxiliaryAssetsSize": 4388,
+      "auxiliaryAssetsSize": 4474,
       "children": {},
       "childAssets": {},
       "isOverSizeLimit": false
@@ -4536,10 +4771,10 @@
   "children": [
     {
       "name": "HtmlWebpackCompiler",
-      "hash": "0b031006e13bd502493d",
+      "hash": "c63752feb6db93a98950",
       "version": "5.74.0",
-      "time": 119,
-      "builtAt": 1666343100293,
+      "time": 580,
+      "builtAt": 1666513532909,
       "publicPath": "",
       "outputPath": "C:\\Users\\尛丶\\Desktop\\notes\\Webpack\\WEBPACK_CODE\\dist",
       "assetsByChunkName": {},
@@ -4564,7 +4799,7 @@
           ],
           "files": [],
           "auxiliaryFiles": [],
-          "hash": "63e12279a41faabf6e53",
+          "hash": "449c9b131aa8b5d06ee1",
           "childrenByOrder": {},
           "id": 563,
           "siblings": [],
