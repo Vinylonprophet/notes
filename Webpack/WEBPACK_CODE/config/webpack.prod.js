@@ -40,7 +40,11 @@ module.exports = {
         // __dirname 是 nodejs 的变量，代表当前文件的文件夹目录
         path: path.resolve(__dirname, "../dist"),
         // 入口文件打包的输出名称
-        filename: 'static/js/main.js',
+        filename: 'static/js/[name].js',
+        // 给打包输出的其他文件命名
+        chunkFilename: 'static/js/[name].chunk.js',
+        // 图片、字体通过type:asset处理资源
+        assetModuleFilename: "static/media//[hash:10][ext][query]",
         // 自动清空上次打包的内容
         // 原理：在打包前，将path整个目录内容清空，再进行打包
         clean: true
@@ -82,22 +86,22 @@ module.exports = {
                                 maxSize: 10 * 1024 // 10kb
                             }
                         },
-                        generator: {
-                            // hash 根据文件内容产生一个唯一的 id
-                            // ext 文件扩展名————之前扩展名是什么就是什么
-                            // query 是携带的其他参数，如果在写url携带一些问号查询参数，那么他也会携带上
-                            // 代表 [hash:10] 只取前十位
-                            filename: 'static/images/[hash:10][ext][query]'
-                        }
+                        // generator: {
+                        //     // hash 根据文件内容产生一个唯一的 id
+                        //     // ext 文件扩展名————之前扩展名是什么就是什么
+                        //     // query 是携带的其他参数，如果在写url携带一些问号查询参数，那么他也会携带上
+                        //     // 代表 [hash:10] 只取前十位
+                        //     filename: 'static/images/[hash:10][ext][query]'
+                        // }
                     },
                     {
                         test: /\.(ttf|woff2?|map4|map3|avi)$/,
                         // asset 是将小于某个大小的文件转化为base64，但是字体文件不需要转
                         type: "asset/resource",
-                        generator: {
-                            // 输出名称
-                            filename: 'static/media/[hash:10][ext][query]'
-                        }
+                        // generator: {
+                        //     // 输出名称
+                        //     filename: 'static/media/[hash:10][ext][query]'
+                        // }
                     },
                     {
                         test: /\.js$/,
@@ -145,7 +149,8 @@ module.exports = {
             generateStatsFile: true, // 是否生成stats.json文件
         }),
         new MiniCssExtractPlugin({
-            filename: "static/css/main.css"
+            filename: "static/css/[name].css",
+            chunkFilename: "static/css/[name].chunk.css"
         }),
     ],
     optimization: {
@@ -160,32 +165,37 @@ module.exports = {
             // 压缩图片
             new ImageMinimizerPlugin({
                 minimizer: {
-                implementation: ImageMinimizerPlugin.imageminGenerate,
-                options: {
-                    plugins: [
-                    ["gifsicle", { interlaced: true }],
-                    ["jpegtran", { progressive: true }],
-                    ["optipng", { optimizationLevel: 5 }],
-                    [
-                        "svgo",
-                        {
+                    implementation: ImageMinimizerPlugin.imageminGenerate,
+                    options: {
                         plugins: [
-                            "preset-default",
-                            "prefixIds",
-                            {
-                            name: "sortAttrs",
-                            params: {
-                                xmlnsOrder: "alphabetical",
-                            },
-                            },
+                            ["gifsicle", { interlaced: true }],
+                            ["jpegtran", { progressive: true }],
+                            ["optipng", { optimizationLevel: 5 }],
+                            [
+                                "svgo",
+                                {
+                                plugins: [
+                                    "preset-default",
+                                    "prefixIds",
+                                    {
+                                        name: "sortAttrs",
+                                        params: {
+                                            xmlnsOrder: "alphabetical",
+                                        },
+                                    },
+                                ],
+                                },
+                            ],
                         ],
-                        },
-                    ],
-                    ],
-                },
+                    },
                 },
             }),
-        ]
+        ],
+        // 代码分割配置
+        splitChunks: {
+            chunks: "all",
+            // 其他默认配置
+        }
     },
     // 模式
     mode: 'production',
