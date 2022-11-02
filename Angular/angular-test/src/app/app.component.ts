@@ -2,11 +2,26 @@
  * @Author: Vinylonprophet 915390118@qq.com
  * @Date: 2022-11-02 00:57:36
  * @LastEditors: Vinylonprophet 915390118@qq.com
- * @LastEditTime: 2022-11-02 12:03:43
+ * @LastEditTime: 2022-11-02 18:23:14
  * @FilePath: \angular-test\src\app\app.component.ts
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
+
+interface Task {
+  personF?: {
+    name: String
+  },
+  personM?: {
+    name: String
+  }
+}
+
+interface List{
+  id: number;
+  name: string;
+  age: number;
+}
 
 @Component({
   // 指定组件的使用方式，当前为标记形式
@@ -23,7 +38,12 @@ import { Component } from '@angular/core';
   // styles: [`组件样式`]
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit{
+  @ViewChild("paragraph") paragraph: ElementRef<HTMLParagraphElement> | undefined
+  @ViewChildren("items") items: QueryList<HTMLLIElement> | undefined
+
+  username: string = "";
+
   title = 'angular-test';
   message: string = "Hello angular";
   htmlString: string = "<h1>htmlString</h1>";
@@ -31,5 +51,74 @@ export class AppComponent {
     return "此处是getInfo返回的方法";
   }
 
+  list: List[]=[
+    {
+      id: 1,
+      name: "张三",
+      age: 20
+    },
+    {
+      id: 2,
+      name: "李四",
+      age: 30
+    },
+    {
+      id: 3,
+      name: "王五",
+      age: 25
+    },
+    {
+      id: 4,
+      name: "赵六",
+      age: 16
+    }
+  ]
+
+  task : Task={
+    personM: {
+      name: "Vinylon"
+    },
+    personF: {
+      name: "Melody"
+    }
+  }
+
   imgUrl = "../favicon.ico";
+
+
+  onClick(event: Event) {
+    console.log("看看是不是事件对象：", event)
+    console.log("指向:", this);
+  }
+
+  onClickBtn(button: HTMLButtonElement): void {
+    console.log(button);
+  }
+
+  onKeyup() {
+    alert("keyup");
+    console.log("指向:", this);
+  }
+
+  setData() {
+    this.username = "Hello Angular";
+  }
+
+  getData() {
+    console.log(this.username);
+  }
+
+  identify(index: number, item: List){
+    console.log(index);
+    console.log(item);
+    return item.id
+  }
+
+  ngAfterViewInit(): void {
+    console.log(this.paragraph?.nativeElement);
+    console.log(this.items?.toArray());
+    this.items?.toArray().forEach(item => {
+      console.log(item);
+    });
+  }
 }
