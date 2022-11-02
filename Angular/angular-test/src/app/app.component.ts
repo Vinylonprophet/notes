@@ -2,7 +2,7 @@
  * @Author: Vinylonprophet 915390118@qq.com
  * @Date: 2022-11-02 00:57:36
  * @LastEditors: Vinylonprophet 915390118@qq.com
- * @LastEditTime: 2022-11-02 01:07:07
+ * @LastEditTime: 2022-11-02 12:03:43
  * @FilePath: \angular-test\src\app\app.component.ts
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -25,4 +25,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-test';
+  message: string = "Hello angular";
+  htmlString: string = "<h1>htmlString</h1>";
+  getInfo() {
+    return "此处是getInfo返回的方法";
+  }
+
+  imgUrl = "../favicon.ico";
 }
