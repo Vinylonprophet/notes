@@ -2,7 +2,7 @@
  * @Author: Vinylonprophet 915390118@qq.com
  * @Date: 2022-11-02 00:57:36
  * @LastEditors: Vinylonprophet 915390118@qq.com
- * @LastEditTime: 2022-11-02 18:23:14
+ * @LastEditTime: 2022-11-03 16:02:20
  * @FilePath: \angular-test\src\app\app.component.ts
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -43,6 +43,15 @@ export class AppComponent implements AfterViewInit{
   @ViewChildren("items") items: QueryList<HTMLLIElement> | undefined
 
   username: string = "";
+
+  date = new Date();
+  money = 345343;
+  test = {
+    person: {
+      name: "张三",
+      age: 20
+    }
+  }
 
   title = 'angular-test';
   message: string = "Hello angular";
@@ -121,4 +130,6 @@ export class AppComponent implements AfterViewInit{
       console.log(item);
     });
   }
+
+  longParagraph = "大道无形，生育天地；大道无情，运行日月；大道无名，长养万物；吾不知其名，强名曰道。夫道者：有清有浊，有动有静；天清地浊，天动地静。男清女浊，男动女静。降本流末，而生万物。清者浊之源，动者静之基。人能常清静，天地悉皆归"
 }

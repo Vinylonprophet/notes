@@ -13,12 +13,18 @@ import { FormsModule } from '@angular/forms'
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { DemoComponent } from './demo/demo.component';
+import { HoverDirective } from './directives/hover.directive';
+import { SummaryPipe } from './pipes/summary.pipe';
+import { PersonComponent } from './component/person/person.component';
 
 @NgModule({
   declarations: [
     // 声明当前模块拥有哪些组件
     AppComponent,
-    DemoComponent
+    DemoComponent,
+    HoverDirective,
+    SummaryPipe,
+    PersonComponent
   ],
   imports: [
   // 声明当前模块依赖了那些其他模块
