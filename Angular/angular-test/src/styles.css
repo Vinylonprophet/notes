@@ -1,5 +1,0 @@
-/* You can add global styles to this file, and also import other style files */
-/* 第一种引入方式直接在 styles.css 全局引入 */
-/* @import '~bootstrap/dist/css/bootstrap.css' */
-/* 第二种方式在 index.html 中使用 link 引入 */
-/* 第三种方式在 angular.json 中添加 styles */
