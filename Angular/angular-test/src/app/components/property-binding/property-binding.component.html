@@ -1,0 +1,32 @@
+<!--
+ * @Author: Vinylonprophet 915390118@qq.com
+ * @Date: 2022-11-12 10:06:34
+ * @LastEditors: Vinylonprophet 915390118@qq.com
+ * @LastEditTime: 2022-11-12 10:36:28
+ * @FilePath: \angular-test\src\app\components\property-binding\property-binding.component.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!-- 普通属性 -->
+<!-- 属性绑定分为 DOM 对象属性绑定，HTML 属性绑定 -->
+<!-- DOM 对象属性和 HTML 标记属性是对应关系，所以使用下列情况 -->
+<img [src]="imgUrl" alt="">
+
+<!-- 只有HTML标记有，DOM没有，所以需要绑定 -->
+<!-- 前面加上 attr 代表 angular 确保你绑定的是 HTML 标记属性而不是 DOM 对象属性 -->
+<div [attr.data-test]="title">HTML 标记属性绑定</div>
+
+<hr>
+
+<!-- class属性 -->
+<!-- class.是固定的，active是绑定的类名，也是一个布尔值 -->
+<button class="btn btn-primary" [class.active]="true">按钮</button>
+<!-- ngClass属性绑定的是一个对象 -->
+<div [ngClass]="{ 'active': true , 'error': true }">class属性绑定</div>
+
+<hr>
+
+<!-- style属性 -->
+<!-- style.是固定的，后面添加需要绑定的样式 -->
+<button [style.backgroundColor]="isActive ? 'red' : 'blue'" [style.color]="isActive ? 'skyblue' : 'white'">style按钮1</button>
+<!-- 可以同时添加多个样式 -->
+<button [ngStyle]="{ 'backgroundColor': 'pink', 'padding-left': '10px', 'padding-right': '10px' }">style按钮2</button>
