@@ -24,6 +24,8 @@ import { HoverDirective } from './directive/customize/hover.directive';
 import { CustomizeComponent } from './directive/customize/customize.component';
 import { PipeComponent } from './pipe/pipe.component';
 import { SummaryPipe } from './pipe/summary.pipe';
+import { ParentComponent } from './components/sharing/parent/parent.component';
+import { ChildComponent } from './components/sharing/child/child.component';
 
 // 调用 NgModule 装饰器，告诉 angular 当前类表示的是 angular 模块
 @NgModule({
@@ -42,6 +44,8 @@ import { SummaryPipe } from './pipe/summary.pipe';
     CustomizeComponent,
     PipeComponent,
     SummaryPipe,
+    ParentComponent,
+    ChildComponent,
   ],
   // 声明当前模块依赖了哪些模块
   imports: [
