@@ -2,7 +2,7 @@
  * @Author: Vinylonprophet 915390118@qq.com
  * @Date: 2022-11-11 17:15:29
  * @LastEditors: Vinylonprophet 915390118@qq.com
- * @LastEditTime: 2022-11-12 10:52:54
+ * @LastEditTime: 2022-11-13 15:48:20
  * @FilePath: \angular-test\src\app\app.module.ts
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -15,6 +15,13 @@ import { DataBindingComponent } from './components/data-binding/data-binding.com
 import { PropertyBindingComponent } from './components/property-binding/property-binding.component';
 import { EventBindingComponent } from './components/event-binding/event-binding.component';
 import { TemplateVariableComponent } from './components/template-variable/template-variable.component';
+import { TwoWayBindingComponent } from './components/two-way-binding/two-way-binding.component';
+import { FormsModule } from '@angular/forms';
+import { ContentProjectionComponent } from './components/content-projection/content-projection.component';
+import { FaultTolerantComponent } from './components/fault-tolerant/fault-tolerant.component';
+import { BuiltInComponent } from './directive/built-in/built-in.component';
+import { HoverDirective } from './directive/customize/hover.directive';
+import { CustomizeComponent } from './directive/customize/customize.component';
 
 // 调用 NgModule 装饰器，告诉 angular 当前类表示的是 angular 模块
 @NgModule({
@@ -24,12 +31,19 @@ import { TemplateVariableComponent } from './components/template-variable/templa
     DataBindingComponent,
     PropertyBindingComponent,
     EventBindingComponent,
-    TemplateVariableComponent
+    TemplateVariableComponent,
+    TwoWayBindingComponent,
+    ContentProjectionComponent,
+    FaultTolerantComponent,
+    BuiltInComponent,
+    HoverDirective,
+    CustomizeComponent,
   ],
   // 声明当前模块依赖了哪些模块
   imports: [
     BrowserModule,
-    SharedModule
+    SharedModule,
+    FormsModule
   ],
   // 声明服务的作用域，数组中接受了服务类，表示该服务只能在当前模块的组件使用
   providers: [],

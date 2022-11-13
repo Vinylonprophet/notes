@@ -1,0 +1,44 @@
+<!--
+ * @Author: Vinylonprophet 915390118@qq.com
+ * @Date: 2022-11-13 14:13:46
+ * @LastEditors: Vinylonprophet 915390118@qq.com
+ * @LastEditTime: 2022-11-13 15:06:58
+ * @FilePath: \angular-test\src\app\directive\built-in\built-in.component.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!-- ngIf -->
+<!-- 渲染dom节点或隐藏dom节点 -->
+<div *ngIf="list.length === 0; then noData; else data">没有内容</div>
+<ng-template #noData> 没有更多内容 </ng-template>
+<ng-template #data>
+  <ul>
+    <!-- 在react和vue中会添加一个key增加渲染性 -->
+    <li
+      *ngFor="
+        let item of list;
+        let i = index;
+        let isLast = last;
+        let isFirst = first;
+        let isEven = even;
+        let isOdd = odd;
+        trackBy: identify
+      "
+      [ngClass]="{even: isEven, odd: isOdd}"
+    >
+      <span>age：&nbsp;{{ item.age }}</span
+      >&nbsp;&nbsp;&nbsp; <span>id：&nbsp;{{ item.id }}</span
+      >&nbsp;&nbsp;&nbsp; <span>name：&nbsp;{{ item.name }}</span
+      >&nbsp;&nbsp;&nbsp;
+      <p>索引：{{ i }}</p>
+      <p>第一项：{{ isFirst }}</p>
+      <p>最后一项：{{ isLast }}</p>
+    </li>
+  </ul>
+</ng-template>
+
+<!-- [hidden] -->
+<!-- 显示dom节点或隐藏dom节点 -->
+<div [hidden]="list.length === 0">以上为list的数据</div>
+
+<!-- *ngFor -->
+<!-- 遍历数据生成HTML结构 -->
