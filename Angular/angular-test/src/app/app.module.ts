@@ -2,7 +2,7 @@
  * @Author: Vinylonprophet 915390118@qq.com
  * @Date: 2022-11-11 17:15:29
  * @LastEditors: Vinylonprophet 915390118@qq.com
- * @LastEditTime: 2022-11-13 15:48:20
+ * @LastEditTime: 2022-11-13 16:39:34
  * @FilePath: \angular-test\src\app\app.module.ts
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -22,6 +22,8 @@ import { FaultTolerantComponent } from './components/fault-tolerant/fault-tolera
 import { BuiltInComponent } from './directive/built-in/built-in.component';
 import { HoverDirective } from './directive/customize/hover.directive';
 import { CustomizeComponent } from './directive/customize/customize.component';
+import { PipeComponent } from './pipe/pipe.component';
+import { SummaryPipe } from './pipe/summary.pipe';
 
 // 调用 NgModule 装饰器，告诉 angular 当前类表示的是 angular 模块
 @NgModule({
@@ -38,6 +40,8 @@ import { CustomizeComponent } from './directive/customize/customize.component';
     BuiltInComponent,
     HoverDirective,
     CustomizeComponent,
+    PipeComponent,
+    SummaryPipe,
   ],
   // 声明当前模块依赖了哪些模块
   imports: [
