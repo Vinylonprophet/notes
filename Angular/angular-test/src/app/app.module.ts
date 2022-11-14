@@ -2,7 +2,7 @@
  * @Author: Vinylonprophet 915390118@qq.com
  * @Date: 2022-11-11 17:15:29
  * @LastEditors: Vinylonprophet 915390118@qq.com
- * @LastEditTime: 2022-11-14 15:24:17
+ * @LastEditTime: 2022-11-14 16:24:42
  * @FilePath: \angular-test\src\app\app.module.ts
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -32,6 +32,8 @@ import { UpdateChildComponent } from './lifecycle/update/update-child/update-chi
 import { DestroyComponent } from './lifecycle/destroy/destroy.component';
 import { RouterModule, Routes } from '@angular/router';
 import { DiModule } from './di/di.module';
+import { ServiceComponent } from './service/service.component';
+import { ServiceModule } from './service/service.module';
 
 const routes: Routes = [
   { path: "mount", component: MountComponent  },
@@ -61,6 +63,7 @@ const routes: Routes = [
     UpdateComponent,
     UpdateChildComponent,
     DestroyComponent,
+    ServiceComponent,
   ],
   // 声明当前模块依赖了哪些模块
   imports: [
@@ -68,7 +71,9 @@ const routes: Routes = [
     SharedModule,
     FormsModule,
     // 依赖注入
-    DiModule,
+    // DiModule,
+    // 模块注入器
+    // ServiceModule,
     RouterModule.forRoot(
       routes
     )

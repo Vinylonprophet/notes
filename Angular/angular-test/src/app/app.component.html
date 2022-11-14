@@ -2,7 +2,7 @@
  * @Author: Vinylonprophet 915390118@qq.com
  * @Date: 2022-11-11 17:15:29
  * @LastEditors: Vinylonprophet 915390118@qq.com
- * @LastEditTime: 2022-11-14 15:24:54
+ * @LastEditTime: 2022-11-14 16:35:59
  * @FilePath: \angular-test\src\app\app.component.html
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -64,3 +64,10 @@
 <!-- 依赖注入(Dependency Injection) -->
 <!-- 通过参数传递实例的方式叫做注入 -->
 <!-- 打开app.module下面的DiModule -->
+
+<!-- 服务的创建与注入，以及服务的作用域 -->
+<!-- 服务的作用域决定了服务是跨模块还是跨组件共享，而服务的作用域取决于服务的注入器 -->
+<!-- 第一种级别是根注入器，使用具体看test.service.ts -->
+<!-- 第二种级别是模块注入器，使用具体看test.service.ts以及app.module.ts -->
+<!-- 第三种级别是组件级别，使用具体看test.service.ts以及service.component.ts -->
+<app-service></app-service>
