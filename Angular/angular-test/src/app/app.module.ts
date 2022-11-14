@@ -2,11 +2,11 @@
  * @Author: Vinylonprophet 915390118@qq.com
  * @Date: 2022-11-11 17:15:29
  * @LastEditors: Vinylonprophet 915390118@qq.com
- * @LastEditTime: 2022-11-14 11:34:32
+ * @LastEditTime: 2022-11-14 15:24:17
  * @FilePath: \angular-test\src\app\app.module.ts
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
-import { NgModule } from '@angular/core';
+import { NgModule, ReflectiveInjector } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { SharedModule } from './shared/shared.module';
 
@@ -29,6 +29,14 @@ import { ChildComponent } from './components/sharing/child/child.component';
 import { MountComponent } from './lifecycle/mount/mount.component';
 import { UpdateComponent } from './lifecycle/update/update.component';
 import { UpdateChildComponent } from './lifecycle/update/update-child/update-child.component';
+import { DestroyComponent } from './lifecycle/destroy/destroy.component';
+import { RouterModule, Routes } from '@angular/router';
+import { DiModule } from './di/di.module';
+
+const routes: Routes = [
+  { path: "mount", component: MountComponent  },
+  { path: "update", component: UpdateComponent },
+]
 
 // 调用 NgModule 装饰器，告诉 angular 当前类表示的是 angular 模块
 @NgModule({
@@ -52,12 +60,18 @@ import { UpdateChildComponent } from './lifecycle/update/update-child/update-chi
     MountComponent,
     UpdateComponent,
     UpdateChildComponent,
+    DestroyComponent,
   ],
   // 声明当前模块依赖了哪些模块
   imports: [
     BrowserModule,
     SharedModule,
-    FormsModule
+    FormsModule,
+    // 依赖注入
+    DiModule,
+    RouterModule.forRoot(
+      routes
+    )
   ],
   // 声明服务的作用域，数组中接受了服务类，表示该服务只能在当前模块的组件使用
   providers: [],
