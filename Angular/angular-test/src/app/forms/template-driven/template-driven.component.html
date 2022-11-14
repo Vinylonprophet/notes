@@ -1,0 +1,6 @@
+  <!-- DOM表单转换为ngForm -->
+<form #f="ngForm" (submit)="onSubmit(f)">
+  <!-- 添加一个ngModel让input与表单产生关系 -->
+  <input type="text" name="username" id="" ngModel>
+  <button>提交</button>
+</form>

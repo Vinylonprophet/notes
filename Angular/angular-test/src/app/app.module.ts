@@ -34,6 +34,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DiModule } from './di/di.module';
 import { ServiceComponent } from './service/service.component';
 import { ServiceModule } from './service/service.module';
+import { TemplateDrivenComponent } from './forms/template-driven/template-driven.component';
 
 const routes: Routes = [
   { path: "mount", component: MountComponent  },
@@ -64,6 +65,7 @@ const routes: Routes = [
     UpdateChildComponent,
     DestroyComponent,
     ServiceComponent,
+    TemplateDrivenComponent,
   ],
   // 声明当前模块依赖了哪些模块
   imports: [
