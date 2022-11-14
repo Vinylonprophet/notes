@@ -1,6 +1,38 @@
-  <!-- DOM表单转换为ngForm -->
+<!-- DOM表单转换为ngForm -->
 <form #f="ngForm" (submit)="onSubmit(f)">
-  <!-- 添加一个ngModel让input与表单产生关系 -->
-  <input type="text" name="username" id="" ngModel>
-  <button>提交</button>
+  <!-- 表单分组 -->
+  <!-- 表单项比较多，且表单项之间有一定关联，把这些有关联的表单项的值存储到单独的对象中 -->
+  <div ngModelGroup="user">
+    <!-- 添加一个ngModel让input与表单产生关系 -->
+    <!-- 表单验证 -->
+    <!-- required 必填字段 -->
+    <!-- minlength 字段最小长度 -->
+    <!-- maxlength 字段最大长度 -->
+    <!-- pattern 验证正则 例如：pattern="\d" 匹配一个数值 -->
+    <input
+      type="text"
+      name="username"
+      id=""
+      required
+      minlength="2"
+      maxlength="8"
+      ngModel
+      #username="ngModel"
+    />
+    <div *ngIf="username.touched && username.invalid && username.errors">
+      <!-- 查看json格式 -->
+      <!-- <div>
+        {{ username.errors | json }}
+      </div> -->
+      <div *ngIf="username.errors?.['required']">请填写用户名</div>
+      <div *ngIf="username.errors?.['minlength']">
+        用户名最少{{ username.errors?.['minlength'].requiredLength }}个字符
+      </div>
+    </div>
+  </div>
+  <!-- 如果不想多添加元素，可以使用ng-container -->
+  <ng-container ngModelGroup="contract">
+    <input type="text" name="phone" id="" ngModel />
+  </ng-container>
+  <button type="submit" [disabled]="f.invalid">提交</button>
 </form>

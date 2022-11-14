@@ -1,0 +1,25 @@
+<!--
+ * @Author: Vinylonprophet 915390118@qq.com
+ * @Date: 2022-11-14 23:09:11
+ * @LastEditors: Vinylonprophet 915390118@qq.com
+ * @LastEditTime: 2022-11-14 23:30:11
+ * @FilePath: \angular-test\src\app\forms\form-array\form-array.component.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<form [formGroup]="contactForm">
+  <div formArrayName="contacts">
+    <!-- formGroupName因为是索引所以要加[]，因为是集合，所以需要ngFor -->
+    <!-- FormArray下有个controls属性才是真正的集合，绑定的是FormGroup -->
+    <div
+      *ngFor="let contact of contacts.controls; let i = index"
+      [formGroupName]="i"
+    >
+      <input type="text" formControlName="name" />
+      <input type="text" formControlName="address" />
+      <input type="text" formControlName="phone" />
+      <button (click)="deleteContacts(i)">删除联系方式</button>
+    </div>
+  </div>
+  <button (click)="addContacts()">添加联系方式</button>
+  <button (click)="onSubmit()">提交</button>
+</form>

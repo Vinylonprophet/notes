@@ -1,0 +1,20 @@
+<!--
+ * @Author: Vinylonprophet 915390118@qq.com
+ * @Date: 2022-11-14 18:34:37
+ * @LastEditors: Vinylonprophet 915390118@qq.com
+ * @LastEditTime: 2022-11-14 23:03:42
+ * @FilePath: \angular-test\src\app\forms\reactive\reactive.component.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!-- 更多写在组件类而不是组件模板中 -->
+<!-- 每个表单的表单项都必须是FormControl这个类下面的实例 -->
+<!-- 整个表单都是FormGroup下面的实例，在FormGroup下面可以有FormControl -->
+<!-- FormArray用于复杂表单，可以动态添加表单项或表单组，在表单验证时，FormArray有一项没通过，就整体没通过 -->
+<form [formGroup]="contactForm" (submit)="onSubmit()">
+  <div formGroupName="fullName">
+    <input type="text" formControlName="firstName" />
+    <input type="text" formControlName="lastName" />
+  </div>
+  <input type="text" formControlName="phone" />
+  <button>提交</button>
+</form>

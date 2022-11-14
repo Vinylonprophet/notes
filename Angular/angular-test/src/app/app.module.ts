@@ -2,7 +2,7 @@
  * @Author: Vinylonprophet 915390118@qq.com
  * @Date: 2022-11-11 17:15:29
  * @LastEditors: Vinylonprophet 915390118@qq.com
- * @LastEditTime: 2022-11-14 16:24:42
+ * @LastEditTime: 2022-11-14 18:39:49
  * @FilePath: \angular-test\src\app\app.module.ts
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -16,7 +16,7 @@ import { PropertyBindingComponent } from './components/property-binding/property
 import { EventBindingComponent } from './components/event-binding/event-binding.component';
 import { TemplateVariableComponent } from './components/template-variable/template-variable.component';
 import { TwoWayBindingComponent } from './components/two-way-binding/two-way-binding.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ContentProjectionComponent } from './components/content-projection/content-projection.component';
 import { FaultTolerantComponent } from './components/fault-tolerant/fault-tolerant.component';
 import { BuiltInComponent } from './directive/built-in/built-in.component';
@@ -35,6 +35,9 @@ import { DiModule } from './di/di.module';
 import { ServiceComponent } from './service/service.component';
 import { ServiceModule } from './service/service.module';
 import { TemplateDrivenComponent } from './forms/template-driven/template-driven.component';
+import { ReactiveComponent } from './forms/reactive/reactive.component';
+import { FormArrayComponent } from './forms/form-array/form-array.component';
+import { ValidationComponent } from './forms/validation/validation.component';
 
 const routes: Routes = [
   { path: "mount", component: MountComponent  },
@@ -66,12 +69,16 @@ const routes: Routes = [
     DestroyComponent,
     ServiceComponent,
     TemplateDrivenComponent,
+    ReactiveComponent,
+    FormArrayComponent,
+    ValidationComponent,
   ],
   // 声明当前模块依赖了哪些模块
   imports: [
     BrowserModule,
     SharedModule,
     FormsModule,
+    ReactiveFormsModule,
     // 依赖注入
     // DiModule,
     // 模块注入器
