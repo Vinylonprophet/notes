@@ -2,7 +2,7 @@
  * @Author: Vinylonprophet 915390118@qq.com
  * @Date: 2022-11-11 17:15:29
  * @LastEditors: Vinylonprophet 915390118@qq.com
- * @LastEditTime: 2022-11-13 16:39:34
+ * @LastEditTime: 2022-11-14 11:34:32
  * @FilePath: \angular-test\src\app\app.module.ts
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -26,6 +26,9 @@ import { PipeComponent } from './pipe/pipe.component';
 import { SummaryPipe } from './pipe/summary.pipe';
 import { ParentComponent } from './components/sharing/parent/parent.component';
 import { ChildComponent } from './components/sharing/child/child.component';
+import { MountComponent } from './lifecycle/mount/mount.component';
+import { UpdateComponent } from './lifecycle/update/update.component';
+import { UpdateChildComponent } from './lifecycle/update/update-child/update-child.component';
 
 // 调用 NgModule 装饰器，告诉 angular 当前类表示的是 angular 模块
 @NgModule({
@@ -46,6 +49,9 @@ import { ChildComponent } from './components/sharing/child/child.component';
     SummaryPipe,
     ParentComponent,
     ChildComponent,
+    MountComponent,
+    UpdateComponent,
+    UpdateChildComponent,
   ],
   // 声明当前模块依赖了哪些模块
   imports: [
