@@ -2,7 +2,7 @@
  * @Author: Vinylonprophet 915390118@qq.com
  * @Date: 2022-11-11 17:15:29
  * @LastEditors: Vinylonprophet 915390118@qq.com
- * @LastEditTime: 2022-11-15 10:48:18
+ * @LastEditTime: 2022-11-16 00:54:10
  * @FilePath: \angular-test\src\app\app.module.ts
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -42,10 +42,29 @@ import { FormBuilderComponent } from './forms/form-builder/form-builder.componen
 import { CheckboxComponent } from './forms/checkbox/checkbox.component';
 import { RadioComponent } from './forms/radio/radio.component';
 import { MethodComponent } from './forms/method/method.component';
+import { HomeComponent } from './pages/home/home.component';
+import { AboutComponent } from './pages/about/about.component';
+import { NavigationComponent } from './pages/navigation/navigation.component';
+import { PagesComponent } from './pages/pages/pages.component';
+import { PageLayoutComponent } from './pages/page-layout/page-layout.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 const routes: Routes = [
-  { path: "mount", component: MountComponent },
-  { path: "update", component: UpdateComponent },
+  // 简单路由
+  // <app-destroy></app-destroy>
+  // { path: "mount", component: MountComponent },
+  // { path: "update", component: UpdateComponent },
+  { path: "home", component: HomeComponent },
+  { path: "about", component: AboutComponent },
+  {
+    // 路径为空
+    path: "",
+    // 重定向
+    redirectTo: "home",
+    // 完全匹配，如果是about就不跳转了
+    pathMatch: "full"
+  },
+  { path: "**", component: NotFoundComponent }
 ]
 
 // 调用 NgModule 装饰器，告诉 angular 当前类表示的是 angular 模块
@@ -79,7 +98,13 @@ const routes: Routes = [
     FormBuilderComponent,
     CheckboxComponent,
     RadioComponent,
-    MethodComponent
+    MethodComponent,
+    HomeComponent,
+    AboutComponent,
+    NavigationComponent,
+    PagesComponent,
+    PageLayoutComponent,
+    NotFoundComponent,
   ],
   // 声明当前模块依赖了哪些模块
   imports: [
@@ -89,10 +114,14 @@ const routes: Routes = [
     ReactiveFormsModule,
     // 依赖注入
     // DiModule,
+
     // 模块注入器
     // ServiceModule,
+
+    // forRoot用来启动路由
     RouterModule.forRoot(
-      routes
+      // forRoot的第二个参数是路由的配置，可以不填
+      routes, { useHash: true }
     )
   ],
   // 声明服务的作用域，数组中接受了服务类，表示该服务只能在当前模块的组件使用
