@@ -39,6 +39,8 @@ import { ReactiveComponent } from './forms/reactive/reactive.component';
 import { FormArrayComponent } from './forms/form-array/form-array.component';
 import { ValidationComponent } from './forms/validation/validation.component';
 import { FormBuilderComponent } from './forms/form-builder/form-builder.component';
+import { CheckboxComponent } from './forms/checkbox/checkbox.component';
+import { RadioComponent } from './forms/radio/radio.component';
 
 const routes: Routes = [
   { path: "mount", component: MountComponent },
@@ -73,7 +75,9 @@ const routes: Routes = [
     ReactiveComponent,
     FormArrayComponent,
     ValidationComponent,
-    FormBuilderComponent
+    FormBuilderComponent,
+    CheckboxComponent,
+    RadioComponent
   ],
   // 声明当前模块依赖了哪些模块
   imports: [
