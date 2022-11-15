@@ -41,6 +41,7 @@ import { ValidationComponent } from './forms/validation/validation.component';
 import { FormBuilderComponent } from './forms/form-builder/form-builder.component';
 import { CheckboxComponent } from './forms/checkbox/checkbox.component';
 import { RadioComponent } from './forms/radio/radio.component';
+import { MethodComponent } from './forms/method/method.component';
 
 const routes: Routes = [
   { path: "mount", component: MountComponent },
@@ -77,7 +78,8 @@ const routes: Routes = [
     ValidationComponent,
     FormBuilderComponent,
     CheckboxComponent,
-    RadioComponent
+    RadioComponent,
+    MethodComponent
   ],
   // 声明当前模块依赖了哪些模块
   imports: [
