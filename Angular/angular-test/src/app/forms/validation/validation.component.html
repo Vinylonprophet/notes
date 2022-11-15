@@ -1,3 +1,11 @@
+<!--
+ * @Author: Vinylonprophet 915390118@qq.com
+ * @Date: 2022-11-14 23:42:53
+ * @LastEditors: Vinylonprophet 915390118@qq.com
+ * @LastEditTime: 2022-11-15 11:20:00
+ * @FilePath: \angular-test\src\app\forms\validation\validation.component.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
 <form [formGroup]="contactForm" (submit)="onSubmit()">
   <input type="text" formControlName="name" />
   <div *ngIf="name?.touched && name?.invalid && name?.invalid">
@@ -5,6 +13,14 @@
     <div *ngIf="name?.errors?.['minlength']">
       名字最小长度为{{name?.errors?.['minlength'].requiredLength}}
     </div>
+    <div *ngIf="name?.errors?.['cannotContainSpace']">
+      名字中不能包含空格
+    </div>
+    <div *ngIf="name?.errors?.['shouldBeUnique']">
+      名字已经存在
+    </div>
   </div>
-  <button [disabled]="contactForm.invalid">提交</button>
+  <!-- 异步验证正在验证时需要添加一个pending -->
+  <div *ngIf="name?.pending">正在验证</div>
+  <button [disabled]="contactForm.invalid" [disabled]="name?.pending">提交</button>
 </form>

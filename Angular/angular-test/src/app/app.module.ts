@@ -2,7 +2,7 @@
  * @Author: Vinylonprophet 915390118@qq.com
  * @Date: 2022-11-11 17:15:29
  * @LastEditors: Vinylonprophet 915390118@qq.com
- * @LastEditTime: 2022-11-14 18:39:49
+ * @LastEditTime: 2022-11-15 10:48:18
  * @FilePath: \angular-test\src\app\app.module.ts
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -38,9 +38,10 @@ import { TemplateDrivenComponent } from './forms/template-driven/template-driven
 import { ReactiveComponent } from './forms/reactive/reactive.component';
 import { FormArrayComponent } from './forms/form-array/form-array.component';
 import { ValidationComponent } from './forms/validation/validation.component';
+import { FormBuilderComponent } from './forms/form-builder/form-builder.component';
 
 const routes: Routes = [
-  { path: "mount", component: MountComponent  },
+  { path: "mount", component: MountComponent },
   { path: "update", component: UpdateComponent },
 ]
 
@@ -72,6 +73,7 @@ const routes: Routes = [
     ReactiveComponent,
     FormArrayComponent,
     ValidationComponent,
+    FormBuilderComponent
   ],
   // 声明当前模块依赖了哪些模块
   imports: [
