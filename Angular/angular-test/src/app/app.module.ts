@@ -2,7 +2,7 @@
  * @Author: Vinylonprophet 915390118@qq.com
  * @Date: 2022-11-11 17:15:29
  * @LastEditors: Vinylonprophet 915390118@qq.com
- * @LastEditTime: 2022-11-16 00:54:10
+ * @LastEditTime: 2022-11-16 21:25:42
  * @FilePath: \angular-test\src\app\app.module.ts
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -48,6 +48,9 @@ import { NavigationComponent } from './pages/navigation/navigation.component';
 import { PagesComponent } from './pages/pages/pages.component';
 import { PageLayoutComponent } from './pages/page-layout/page-layout.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { NewsComponent } from './pages/news/news.component';
+import { CompanyComponent } from './pages/company/company.component';
+import { IndustryComponent } from './pages/industry/industry.component';
 
 const routes: Routes = [
   // 简单路由
@@ -55,7 +58,24 @@ const routes: Routes = [
   // { path: "mount", component: MountComponent },
   // { path: "update", component: UpdateComponent },
   { path: "home", component: HomeComponent },
-  { path: "about", component: AboutComponent },
+  { path: "about/:name", component: AboutComponent },
+  {
+    path: "news",
+    component: NewsComponent,
+    children: [
+      {
+        path: "company",
+        component: CompanyComponent,
+        // 路由命名插座
+        outlet: "left"
+      },
+      {
+        path: "industry",
+        component: IndustryComponent,
+        outlet: "right"
+      }
+    ]
+  },
   {
     // 路径为空
     path: "",
@@ -105,6 +125,9 @@ const routes: Routes = [
     PagesComponent,
     PageLayoutComponent,
     NotFoundComponent,
+    NewsComponent,
+    CompanyComponent,
+    IndustryComponent,
   ],
   // 声明当前模块依赖了哪些模块
   imports: [

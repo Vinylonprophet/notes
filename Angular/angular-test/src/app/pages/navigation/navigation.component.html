@@ -1,4 +1,19 @@
 <div>
   <a routerLink="/home">首页</a>
-  <a routerLink="/about" style="margin-left: 10px;">关于我们</a>
+  <!-- 查询参数 -->
+  <!-- <a routerLink="/about" [queryParams]="{ name: 'Kitty' }" style="margin-left: 10px">关于我们</a> -->
+
+  <!-- 动态参数 -->
+  <a [routerLink]="['/about', 'Vinylon']" style="margin-left: 10px">关于我们</a>
+
+  <!-- 命名插座 -->
+  <a [routerLink]="[
+    '/news',
+    {
+      outlets: {
+        left: ['company'],
+        right: ['industry']
+      }
+    }
+  ]" style="margin-left: 10px">新闻</a>
 </div>
