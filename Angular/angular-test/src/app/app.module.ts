@@ -2,7 +2,7 @@
  * @Author: Vinylonprophet 915390118@qq.com
  * @Date: 2022-11-11 17:15:29
  * @LastEditors: Vinylonprophet 915390118@qq.com
- * @LastEditTime: 2022-11-16 21:25:42
+ * @LastEditTime: 2022-11-16 21:36:26
  * @FilePath: \angular-test\src\app\app.module.ts
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -30,7 +30,6 @@ import { MountComponent } from './lifecycle/mount/mount.component';
 import { UpdateComponent } from './lifecycle/update/update.component';
 import { UpdateChildComponent } from './lifecycle/update/update-child/update-child.component';
 import { DestroyComponent } from './lifecycle/destroy/destroy.component';
-import { RouterModule, Routes } from '@angular/router';
 import { DiModule } from './di/di.module';
 import { ServiceComponent } from './service/service.component';
 import { ServiceModule } from './service/service.module';
@@ -51,41 +50,9 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { NewsComponent } from './pages/news/news.component';
 import { CompanyComponent } from './pages/company/company.component';
 import { IndustryComponent } from './pages/industry/industry.component';
+import { AppRoutingModule } from './app-routing.module';
 
-const routes: Routes = [
-  // 简单路由
-  // <app-destroy></app-destroy>
-  // { path: "mount", component: MountComponent },
-  // { path: "update", component: UpdateComponent },
-  { path: "home", component: HomeComponent },
-  { path: "about/:name", component: AboutComponent },
-  {
-    path: "news",
-    component: NewsComponent,
-    children: [
-      {
-        path: "company",
-        component: CompanyComponent,
-        // 路由命名插座
-        outlet: "left"
-      },
-      {
-        path: "industry",
-        component: IndustryComponent,
-        outlet: "right"
-      }
-    ]
-  },
-  {
-    // 路径为空
-    path: "",
-    // 重定向
-    redirectTo: "home",
-    // 完全匹配，如果是about就不跳转了
-    pathMatch: "full"
-  },
-  { path: "**", component: NotFoundComponent }
-]
+
 
 // 调用 NgModule 装饰器，告诉 angular 当前类表示的是 angular 模块
 @NgModule({
@@ -141,11 +108,8 @@ const routes: Routes = [
     // 模块注入器
     // ServiceModule,
 
-    // forRoot用来启动路由
-    RouterModule.forRoot(
-      // forRoot的第二个参数是路由的配置，可以不填
-      routes, { useHash: true }
-    )
+    // 引入路由模块
+    AppRoutingModule
   ],
   // 声明服务的作用域，数组中接受了服务类，表示该服务只能在当前模块的组件使用
   providers: [],
