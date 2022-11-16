@@ -2,7 +2,7 @@
  * @Author: Vinylonprophet 915390118@qq.com
  * @Date: 2022-11-16 00:00:21
  * @LastEditors: Vinylonprophet 915390118@qq.com
- * @LastEditTime: 2022-11-16 23:42:06
+ * @LastEditTime: 2022-11-17 00:20:59
  * @FilePath: \angular-test\src\app\pages\home\home.component.html
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -11,7 +11,8 @@
   <!-- 页面跳转 -->
   <button (click)="jump()">跳转</button>
   <hr />
-  <form [formGroup]="form">
-    <input type="text" name="" id="" formControlName="username" />
+  <form [formGroup]="form" (submit)="onSubmit()">
+    <input type="text" name="" id="" formControlName="username" [(ngModel)]="name"/>
+    <button>提交</button>
   </form>
 </app-page-layout>

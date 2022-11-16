@@ -2,7 +2,7 @@
  * @Author: Vinylonprophet 915390118@qq.com
  * @Date: 2022-11-16 21:33:18
  * @LastEditors: Vinylonprophet 915390118@qq.com
- * @LastEditTime: 2022-11-16 23:54:27
+ * @LastEditTime: 2022-11-17 00:14:20
  * @FilePath: \angular-test\src\app\app-routing.module.ts
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -17,6 +17,7 @@ import { NewsComponent } from './pages/news/news.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { AuthGardGuard } from './guards/auth-gard.guard';
 import { UnsaveGuard } from './guards/unsave.guard';
+import { GetNameResolver } from './guards/get-name.resolver';
 
 const routes: Routes = [
   // 简单路由
@@ -26,7 +27,10 @@ const routes: Routes = [
   {
     path: "home",
     component: HomeComponent,
-    canDeactivate: [UnsaveGuard]
+    canDeactivate: [UnsaveGuard],
+    resolve: {
+      name: GetNameResolver
+    }
   },
   {
     path: "about/:name",
