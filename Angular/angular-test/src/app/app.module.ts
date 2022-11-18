@@ -9,6 +9,7 @@
 import { NgModule, ReflectiveInjector } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { SharedModule } from './shared/shared.module';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { DataBindingComponent } from './components/data-binding/data-binding.component';
@@ -51,6 +52,7 @@ import { NewsComponent } from './pages/news/news.component';
 import { CompanyComponent } from './pages/company/company.component';
 import { IndustryComponent } from './pages/industry/industry.component';
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientComponent } from './http/http-client/http-client.component';
 
 
 
@@ -95,6 +97,7 @@ import { AppRoutingModule } from './app-routing.module';
     NewsComponent,
     CompanyComponent,
     IndustryComponent,
+    HttpClientComponent,
   ],
   // 声明当前模块依赖了哪些模块
   imports: [
@@ -102,6 +105,8 @@ import { AppRoutingModule } from './app-routing.module';
     SharedModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
+
     // 依赖注入
     // DiModule,
 
