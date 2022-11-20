@@ -2,7 +2,7 @@
  * @Author: Vinylonprophet 915390118@qq.com
  * @Date: 2022-11-11 17:15:29
  * @LastEditors: Vinylonprophet 915390118@qq.com
- * @LastEditTime: 2022-11-16 21:36:26
+ * @LastEditTime: 2022-11-20 15:27:35
  * @FilePath: \angular-test\src\app\app.module.ts
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -55,6 +55,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientComponent } from './http/http-client/http-client.component';
 import { HttpParamsComponent } from './http/http-params/http-params.component';
 import { HttpHeadersComponent } from './http/http-headers/http-headers.component';
+import { HttpResponseComponent } from './http/http-response/http-response.component';
 
 
 
@@ -102,6 +103,7 @@ import { HttpHeadersComponent } from './http/http-headers/http-headers.component
     HttpClientComponent,
     HttpParamsComponent,
     HttpHeadersComponent,
+    HttpResponseComponent
   ],
   // 声明当前模块依赖了哪些模块
   imports: [
