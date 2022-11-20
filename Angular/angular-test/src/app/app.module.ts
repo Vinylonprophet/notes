@@ -53,6 +53,8 @@ import { CompanyComponent } from './pages/company/company.component';
 import { IndustryComponent } from './pages/industry/industry.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientComponent } from './http/http-client/http-client.component';
+import { HttpParamsComponent } from './http/http-params/http-params.component';
+import { HttpHeadersComponent } from './http/http-headers/http-headers.component';
 
 
 
@@ -98,6 +100,8 @@ import { HttpClientComponent } from './http/http-client/http-client.component';
     CompanyComponent,
     IndustryComponent,
     HttpClientComponent,
+    HttpParamsComponent,
+    HttpHeadersComponent,
   ],
   // 声明当前模块依赖了哪些模块
   imports: [

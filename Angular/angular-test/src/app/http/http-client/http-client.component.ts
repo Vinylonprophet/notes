@@ -2,7 +2,7 @@
  * @Author: Vinylonprophet 915390118@qq.com
  * @Date: 2022-11-18 18:16:01
  * @LastEditors: Vinylonprophet 915390118@qq.com
- * @LastEditTime: 2022-11-18 18:29:28
+ * @LastEditTime: 2022-11-20 15:09:31
  * @FilePath: \angular-test\src\app\http\http-client\http-client.component.ts
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -21,7 +21,8 @@ export class HttpClientComponent implements OnInit {
 
   ngOnInit(): void {
     // 请求方法有get，post，delete，put
-    const a = this.http.get("http://localhost:7878/users").subscribe(console.log)
+    this.http.get("http://localhost:7878/users").subscribe(console.log)
+
   }
 
 }
