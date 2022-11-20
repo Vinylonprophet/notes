@@ -2,7 +2,7 @@
  * @Author: Vinylonprophet 915390118@qq.com
  * @Date: 2022-11-11 17:15:29
  * @LastEditors: Vinylonprophet 915390118@qq.com
- * @LastEditTime: 2022-11-20 16:06:10
+ * @LastEditTime: 2022-11-20 16:26:08
  * @FilePath: \angular-test\src\app\app.module.ts
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -56,8 +56,8 @@ import { HttpClientComponent } from './http/http-client/http-client.component';
 import { HttpParamsComponent } from './http/http-params/http-params.component';
 import { HttpHeadersComponent } from './http/http-headers/http-headers.component';
 import { HttpResponseComponent } from './http/http-response/http-response.component';
-import { AuthGardGuard } from './guards/auth-gard.guard';
 import { AuthInterceptor } from './auth.interceptor';
+import { HttpProxyComponent } from './http/http-proxy/http-proxy.component';
 
 
 
@@ -106,6 +106,7 @@ import { AuthInterceptor } from './auth.interceptor';
     HttpParamsComponent,
     HttpHeadersComponent,
     HttpResponseComponent,
+    HttpProxyComponent,
   ],
   // 声明当前模块依赖了哪些模块
   imports: [

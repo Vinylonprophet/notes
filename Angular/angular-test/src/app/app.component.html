@@ -2,7 +2,7 @@
  * @Author: Vinylonprophet 915390118@qq.com
  * @Date: 2022-11-11 17:15:29
  * @LastEditors: Vinylonprophet 915390118@qq.com
- * @LastEditTime: 2022-11-20 16:06:20
+ * @LastEditTime: 2022-11-20 16:41:31
  * @FilePath: \angular-test\src\app\app.component.html
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -121,9 +121,19 @@
 <!-- <app-http-headers></app-http-headers> -->
 
 <!-- 响应内容 -->
-<app-http-response></app-http-response>
+<!-- <app-http-response></app-http-response> -->
 
 <!-- 拦截器 -->
 <!-- angular应用中全局捕获或修改http请求和响应的方式。（token、error） -->
 <!-- 只拦截使用HttpClientModule模块发出的请求 -->
+<!-- 拦截器是auth.interceptor.ts -->
+
+<!-- proxy，解决跨域问题 -->
+<!-- 在proxy中代码的含义如下： -->
+<!-- /api/*，如果请求以/api开头那么就代理到target的服务端地址上去 -->
+<!-- target，服务端URL -->
+<!-- secue，如果URL是https，此项目为true -->
+<!-- changeOrigin，如果服务端不是localhost，此项为true -->
+<!-- 两种配置方式，一种在angular.json的serve，一种在package.json的script -->
+<app-http-proxy></app-http-proxy>
 
