@@ -2,14 +2,14 @@
  * @Author: Vinylonprophet 915390118@qq.com
  * @Date: 2022-11-11 17:15:29
  * @LastEditors: Vinylonprophet 915390118@qq.com
- * @LastEditTime: 2022-11-20 15:27:35
+ * @LastEditTime: 2022-11-20 16:06:10
  * @FilePath: \angular-test\src\app\app.module.ts
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 import { NgModule, ReflectiveInjector } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { SharedModule } from './shared/shared.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { DataBindingComponent } from './components/data-binding/data-binding.component';
@@ -56,6 +56,8 @@ import { HttpClientComponent } from './http/http-client/http-client.component';
 import { HttpParamsComponent } from './http/http-params/http-params.component';
 import { HttpHeadersComponent } from './http/http-headers/http-headers.component';
 import { HttpResponseComponent } from './http/http-response/http-response.component';
+import { AuthGardGuard } from './guards/auth-gard.guard';
+import { AuthInterceptor } from './auth.interceptor';
 
 
 
@@ -103,7 +105,7 @@ import { HttpResponseComponent } from './http/http-response/http-response.compon
     HttpClientComponent,
     HttpParamsComponent,
     HttpHeadersComponent,
-    HttpResponseComponent
+    HttpResponseComponent,
   ],
   // 声明当前模块依赖了哪些模块
   imports: [
@@ -123,7 +125,14 @@ import { HttpResponseComponent } from './http/http-response/http-response.compon
     AppRoutingModule
   ],
   // 声明服务的作用域，数组中接受了服务类，表示该服务只能在当前模块的组件使用
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      // 自定义拦截器可以有多个
+      multi: true
+    }
+  ],
   // 可引导组件， Angular 会在引导过程中把它加载到 DOM 中
   bootstrap: [AppComponent]
 })
