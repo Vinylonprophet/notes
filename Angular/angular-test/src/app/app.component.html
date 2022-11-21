@@ -2,7 +2,7 @@
  * @Author: Vinylonprophet 915390118@qq.com
  * @Date: 2022-11-11 17:15:29
  * @LastEditors: Vinylonprophet 915390118@qq.com
- * @LastEditTime: 2022-11-20 16:41:31
+ * @LastEditTime: 2022-11-21 23:49:09
  * @FilePath: \angular-test\src\app\app.component.html
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -135,5 +135,15 @@
 <!-- secue，如果URL是https，此项目为true -->
 <!-- changeOrigin，如果服务端不是localhost，此项为true -->
 <!-- 两种配置方式，一种在angular.json的serve，一种在package.json的script -->
-<app-http-proxy></app-http-proxy>
+<!-- <app-http-proxy></app-http-proxy> -->
 
+<!-- NgRx，Angular应用中实现全局状态管理的Redux架构解决方案 -->
+<!-- NgRx中所有状态都被存储在一个叫做store的地方，都是通过reducer去更改 -->
+<!-- 如果想要添加或者修改store的状态，那么组件必须触发一个action被reducer接收到，根据不同类型对状态进行不同的处理 -->
+<!-- selector从store获取组件需要的数据，组件再从selector中获取想要的数据 -->
+<!-- 如果在整个流程中需要执行异步操作，那么在action的右侧有个effects -->
+<!-- effects可以接受action，过滤自己想要的action，如果确定action要进行异步操作，要么通过effects去调service向服务器端发送请求 -->
+<!-- 服务器端再把响应给到service -->
+<!-- effects从service获取响应，再去触发action，再把结果给到reducer -->
+<!-- npm install @ngrx/effects @ngrx/entity @ngrx/router-store @ngrx/store @ngrx/store-devtools @ngrx/schematics -->
+<!-- ng config cli.defaultCollection @ngrx/schematics -->
