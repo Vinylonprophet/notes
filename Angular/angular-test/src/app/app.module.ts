@@ -63,6 +63,8 @@ import { reducers, metaReducers } from './store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { NgrxComponent } from './ngrx/ngrx.component';
+import { EffectsModule } from '@ngrx/effects';
+import { CounterEffects } from './store/effects/counter.effects';
 
 
 
@@ -133,7 +135,9 @@ import { NgrxComponent } from './ngrx/ngrx.component';
 
     StoreModule.forRoot(reducers, { metaReducers }),
 
-    !environment.production ? StoreDevtoolsModule.instrument() : []
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
+
+    EffectsModule.forRoot([CounterEffects])
   ],
   // 声明服务的作用域，数组中接受了服务类，表示该服务只能在当前模块的组件使用
   providers: [

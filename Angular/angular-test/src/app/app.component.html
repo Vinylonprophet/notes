@@ -2,7 +2,7 @@
  * @Author: Vinylonprophet 915390118@qq.com
  * @Date: 2022-11-11 17:15:29
  * @LastEditors: Vinylonprophet 915390118@qq.com
- * @LastEditTime: 2022-11-22 11:07:29
+ * @LastEditTime: 2022-11-22 14:56:43
  * @FilePath: \angular-test\src\app\app.component.html
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -152,7 +152,13 @@
 <!-- 3.创建store -->
 <!-- ng g store State --root --module app.module.ts --state-path store --state-interface AppState -->
 <!-- 4.创建action -->
-<!-- ng g action store/actions/counter -->
+<!-- ng g action store/actions/counter --skip-tests -->
 <!-- 5.创建Reducer -->
-<!-- ng g reducer store/reducers/counter --reducers=../index.ts -->
+<!-- ng g reducer store/reducers/counter --skip-tests --reducers=../index.ts -->
+<!-- 6.创建Selector -->
+<!-- ng g selector store/selectors/counter --skip-tests -->
+<!-- Action Payload -->
+<!-- MetaReducer，是Action -> Reducer之间的钩子函数，允许开发者对Action进行预处理，(在普通Reducer函数调用之前调用) -->
+<!-- effect，在ngrx中用来执行副作用 -->
+<!-- entity，译为实体，是集合中的一条数据，在实体适配器对象下提供了各种操作集合中实体的方法，目的是为了提高开发者操作实体的效率 -->
 <app-ngrx></app-ngrx>
