@@ -2,7 +2,7 @@
  * @Author: Vinylonprophet 915390118@qq.com
  * @Date: 2022-11-11 17:15:29
  * @LastEditors: Vinylonprophet 915390118@qq.com
- * @LastEditTime: 2022-11-21 23:49:09
+ * @LastEditTime: 2022-11-22 11:07:29
  * @FilePath: \angular-test\src\app\app.component.html
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -145,5 +145,14 @@
 <!-- effects可以接受action，过滤自己想要的action，如果确定action要进行异步操作，要么通过effects去调service向服务器端发送请求 -->
 <!-- 服务器端再把响应给到service -->
 <!-- effects从service获取响应，再去触发action，再把结果给到reducer -->
+<!-- 1.下载ngrx -->
 <!-- npm install @ngrx/effects @ngrx/entity @ngrx/router-store @ngrx/store @ngrx/store-devtools @ngrx/schematics -->
+<!-- 2.配置ngrx cli -->
 <!-- ng config cli.defaultCollection @ngrx/schematics -->
+<!-- 3.创建store -->
+<!-- ng g store State --root --module app.module.ts --state-path store --state-interface AppState -->
+<!-- 4.创建action -->
+<!-- ng g action store/actions/counter -->
+<!-- 5.创建Reducer -->
+<!-- ng g reducer store/reducers/counter --reducers=../index.ts -->
+<app-ngrx></app-ngrx>

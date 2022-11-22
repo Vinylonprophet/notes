@@ -58,6 +58,11 @@ import { HttpHeadersComponent } from './http/http-headers/http-headers.component
 import { HttpResponseComponent } from './http/http-response/http-response.component';
 import { AuthInterceptor } from './auth.interceptor';
 import { HttpProxyComponent } from './http/http-proxy/http-proxy.component';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { NgrxComponent } from './ngrx/ngrx.component';
 
 
 
@@ -107,6 +112,7 @@ import { HttpProxyComponent } from './http/http-proxy/http-proxy.component';
     HttpHeadersComponent,
     HttpResponseComponent,
     HttpProxyComponent,
+    NgrxComponent,
   ],
   // 声明当前模块依赖了哪些模块
   imports: [
@@ -123,7 +129,11 @@ import { HttpProxyComponent } from './http/http-proxy/http-proxy.component';
     // ServiceModule,
 
     // 引入路由模块
-    AppRoutingModule
+    AppRoutingModule,
+
+    StoreModule.forRoot(reducers, { metaReducers }),
+
+    !environment.production ? StoreDevtoolsModule.instrument() : []
   ],
   // 声明服务的作用域，数组中接受了服务类，表示该服务只能在当前模块的组件使用
   providers: [
