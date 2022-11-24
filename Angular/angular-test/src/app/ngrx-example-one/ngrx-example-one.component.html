@@ -1,0 +1,40 @@
+<!--
+ * @Author: Vinylonprophet 915390118@qq.com
+ * @Date: 2022-11-24 17:09:47
+ * @LastEditors: Vinylonprophet 915390118@qq.com
+ * @LastEditTime: 2022-11-24 18:55:46
+ * @FilePath: \angular-test\src\app\ngrx-example-one\ngrx-example-one.component.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<div>
+  <pre>
+    {{ todos | async | json }}
+  </pre>
+</div>
+
+<div class="container mt-4">
+  <input
+    #AddTodoInput
+    type="text"
+    name=""
+    id=""
+    class="form-control"
+    placeholder="请在此处添加任务"
+  />
+
+  <ul class="list-group">
+    <li
+      class="list-group-item d-flex align-items-center justify-content-between"
+      *ngFor="let todo of todos | async"
+    >
+      {{ todo.title }}
+      <button
+        (click)="deleteTodo(todo.id)"
+        type="button"
+        class="btn btn-danger btn-sm"
+      >
+        删除
+      </button>
+    </li>
+  </ul>
+</div>

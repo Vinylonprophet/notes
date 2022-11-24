@@ -15,17 +15,20 @@ import {
 } from '@ngrx/store';
 import { environment } from '../../environments/environment';
 import * as fromCounter from './reducers/counter.reducer';
+import * as fromTodo from './reducers/todo.reducer';
 
 // store 中存储的状态类型接口
 export interface AppState {
 
   [fromCounter.counterFeatureKey]: fromCounter.State;
+  [fromTodo.todoFeatureKey]: fromTodo.State;
 }
 
 // 状态名字和reducer的对应关系
 export const reducers: ActionReducerMap<AppState> = {
 
   [fromCounter.counterFeatureKey]: fromCounter.reducer,
+  [fromTodo.todoFeatureKey]: fromTodo.reducer,
 };
 
 // function logger(reducer: ActionReducer<AppState>): ActionReducer {
