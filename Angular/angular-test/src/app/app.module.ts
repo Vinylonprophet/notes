@@ -2,7 +2,7 @@
  * @Author: Vinylonprophet 915390118@qq.com
  * @Date: 2022-11-11 17:15:29
  * @LastEditors: Vinylonprophet 915390118@qq.com
- * @LastEditTime: 2022-11-24 17:12:56
+ * @LastEditTime: 2022-11-24 22:09:16
  * @FilePath: \angular-test\src\app\app.module.ts
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -65,7 +65,8 @@ import { environment } from '../environments/environment';
 import { NgrxComponent } from './ngrx/ngrx.component';
 import { EffectsModule } from '@ngrx/effects';
 import { CounterEffects } from './store/effects/counter.effects';
-import { NgrxExampleOneComponent } from './ngrx-example-one/ngrx-example-one.component';
+import { NgrxExampleComponent } from './ngrx-example/ngrx-example.component';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
 
 // 调用 NgModule 装饰器，告诉 angular 当前类表示的是 angular 模块
 @NgModule({
@@ -114,7 +115,7 @@ import { NgrxExampleOneComponent } from './ngrx-example-one/ngrx-example-one.com
     HttpResponseComponent,
     HttpProxyComponent,
     NgrxComponent,
-    NgrxExampleOneComponent,
+    NgrxExampleComponent,
   ],
   // 声明当前模块依赖了哪些模块
   imports: [
@@ -132,6 +133,9 @@ import { NgrxExampleOneComponent } from './ngrx-example-one/ngrx-example-one.com
 
     // 引入路由模块
     AppRoutingModule,
+
+    // 引入模块
+    StoreRouterConnectingModule.forRoot(),
 
     StoreModule.forRoot(reducers, { metaReducers }),
 
