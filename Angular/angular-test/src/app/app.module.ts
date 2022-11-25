@@ -2,7 +2,7 @@
  * @Author: Vinylonprophet 915390118@qq.com
  * @Date: 2022-11-11 17:15:29
  * @LastEditors: Vinylonprophet 915390118@qq.com
- * @LastEditTime: 2022-11-24 22:09:16
+ * @LastEditTime: 2022-11-25 14:27:28
  * @FilePath: \angular-test\src\app\app.module.ts
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -10,6 +10,7 @@ import { NgModule, ReflectiveInjector } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { SharedModule } from './shared/shared.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 import { AppComponent } from './app.component';
 import { DataBindingComponent } from './components/data-binding/data-binding.component';
@@ -67,6 +68,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { CounterEffects } from './store/effects/counter.effects';
 import { NgrxExampleComponent } from './ngrx-example/ngrx-example.component';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { DemoComponent } from './animations/demo/demo.component';
 
 // 调用 NgModule 装饰器，告诉 angular 当前类表示的是 angular 模块
 @NgModule({
@@ -116,6 +118,7 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
     HttpProxyComponent,
     NgrxComponent,
     NgrxExampleComponent,
+    DemoComponent,
   ],
   // 声明当前模块依赖了哪些模块
   imports: [
@@ -124,6 +127,7 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
 
     // 依赖注入
     // DiModule,
