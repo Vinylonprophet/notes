@@ -69,6 +69,8 @@ import { CounterEffects } from './store/effects/counter.effects';
 import { NgrxExampleComponent } from './ngrx-example/ngrx-example.component';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { DemoComponent } from './animations/demo/demo.component';
+import { Demo2Component } from './animations/demo2/demo2.component';
+import { Demo3Component } from './animations/demo3/demo3.component';
 
 // 调用 NgModule 装饰器，告诉 angular 当前类表示的是 angular 模块
 @NgModule({
@@ -119,6 +121,8 @@ import { DemoComponent } from './animations/demo/demo.component';
     NgrxComponent,
     NgrxExampleComponent,
     DemoComponent,
+    Demo2Component,
+    Demo3Component,
   ],
   // 声明当前模块依赖了哪些模块
   imports: [

@@ -2,11 +2,11 @@
  * @Author: Vinylonprophet 915390118@qq.com
  * @Date: 2022-11-25 15:32:40
  * @LastEditors: Vinylonprophet 915390118@qq.com
- * @LastEditTime: 2022-11-27 11:12:24
+ * @LastEditTime: 2022-11-27 11:31:22
  * @FilePath: \angular-test\src\app\animations\animations.ts
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
-import { animate, animateChild, animation, group, keyframes, query, stagger, style, transition, trigger, useAnimation } from '@angular/animations';
+import { animate, animateChild, animation, group, keyframes, query, stagger, state, style, transition, trigger, useAnimation } from '@angular/animations';
 
 let slideAnimationEnter = animation([
   // 定义void状态样式
@@ -61,4 +61,21 @@ export let todoAnimations = trigger("todoAnimations", [
       query("@slide", stagger(200, animateChild()))
     ])
   ])
+])
+
+export let collapsedExpanded = trigger("collapsedExpanded", [
+  state("collapsed", style({
+    height: 0,
+    overflow: "hidden",
+    paddingTop: 0,
+    paddingBottom: 0
+  })),
+  state("expanded", style({
+    height: "*",
+    overflow: "auto",
+    paddingTop: 15,
+    paddingBottom: 15
+  })),
+  transition("collapsed => expanded", animate("400ms ease-out")),
+  transition("expanded => collapsed", animate("400ms ease-in"))
 ])
